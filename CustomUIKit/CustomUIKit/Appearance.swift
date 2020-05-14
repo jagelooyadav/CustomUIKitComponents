@@ -8,9 +8,9 @@
 
 import UIKit
 
-struct Appearance {
-
-    static func setUpUIAppearance() {
+public struct Appearance {
+    
+    public static func setUpUIAppearance() {
         
         let appearance = UINavigationBar.appearance()
         

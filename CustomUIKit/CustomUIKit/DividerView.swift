@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DividerView: ViewControl {
+public class DividerView: ViewControl {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)

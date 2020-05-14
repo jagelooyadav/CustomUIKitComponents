@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-enum IgnoreConstant {
+public enum IgnoreConstant {
     case top
     case bottom
     case left
@@ -17,9 +17,9 @@ enum IgnoreConstant {
     case none
 }
 
-extension UIView {
+public extension UIView {
     
-    func addSubview(_ subView: UIView, insets: UIEdgeInsets, ignoreConstant: IgnoreConstant = .none) {
+    public func addSubview(_ subView: UIView, insets: UIEdgeInsets, ignoreConstant: IgnoreConstant = .none) {
         
         subView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(subView)

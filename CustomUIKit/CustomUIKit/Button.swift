@@ -7,7 +7,7 @@
 
 import UIKit
  
-class Button: UIButton {
+public class Button: UIButton {
     
     // MARK: - Constants
     
@@ -18,7 +18,7 @@ class Button: UIButton {
     private static let borderWidth: CGFloat = 1.0
     
     private static let cornerRadius: CGFloat = 24.0
-
+    
     // MARK: - Type Alias
     
     /// A tuple which contains the various colours to be used by the button.
@@ -37,7 +37,7 @@ class Button: UIButton {
     // MARK: - Enums
     
     /// A style of the button.
-    enum Style {
+    public enum Style {
         /// Primary style.
         case primary
         
@@ -55,7 +55,7 @@ class Button: UIButton {
      
      Defaults to `primary`.
      */
-    var style: Style = .primary {
+    public var style: Style = .primary {
         didSet {
             self.updateColours()
         }
@@ -107,7 +107,7 @@ class Button: UIButton {
      
      - parameter style: The button style.
      */
-    init(style: Style) {
+    public init(style: Style) {
         super.init(frame: .zero)
         
         self.style = style

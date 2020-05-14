@@ -12,13 +12,13 @@ struct Question {
     let options: [String]
 }
 
-class ObjectiveQestionView: ViewControl {
+public class ObjectiveQestionView: ViewControl {
     private var question: Question!
     
     private var elements: [SingleQuestionOptionView] = []
-    var didSelect: ((_ selectedIndex: Int, _ elements: [SingleQuestionOptionView]) -> Void)?
+    public var didSelect: ((_ selectedIndex: Int, _ elements: [SingleQuestionOptionView]) -> Void)?
     
-    var selectionIndex = 0 {
+    public var selectionIndex = 0 {
         didSet {
             guard self.selectionIndex >= 0 else { return }
             self.elements[self.selectionIndex].isSelected = true

@@ -13,7 +13,7 @@ public class TextField: UITextField {
     // MARK: - Types
     
     /// A validation icon which can be displayed within the text field.
-    enum Icon {
+    public enum Icon {
         case tick
         
         case exclamation
@@ -43,7 +43,7 @@ public class TextField: UITextField {
      
      The default value is `nil`.
      */
-    var icon: Icon? {
+    public var icon: Icon? {
         didSet {
             self.updateRightView()
         }
@@ -56,14 +56,14 @@ public class TextField: UITextField {
      
      The default value is `nil`.
      */
-    var supplementaryImage: UIImage? {
+    public var supplementaryImage: UIImage? {
         didSet {
             self.updateRightView()
         }
     }
     
     /// Right padding for texfield
-    var textFieldRightPadding: CGFloat?
+    public var textFieldRightPadding: CGFloat?
 
     /// Holds the customized keyboard clear button title
     fileprivate var clearButtonTitle: String?

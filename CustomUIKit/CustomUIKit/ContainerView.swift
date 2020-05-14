@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ProgresssHud: UIView {
-    var completion: (() -> Void)?
+public class ProgresssHud: UIView {
+    public var completion: (() -> Void)?
     
     lazy var backgroundView: UIView =  { vv in
         vv.backgroundColor = .black
@@ -35,7 +35,7 @@ class ProgresssHud: UIView {
         return vv
     }(UIView())
     
-    func showInView(_ view: UIView = UIApplication.shared.keyWindow ?? UIView(), text: String = "Please wait...", delay: TimeInterval = 1.0, completion: (() -> Void)?) {
+    public func showInView(_ view: UIView = UIApplication.shared.keyWindow ?? UIView(), text: String = "Please wait...", delay: TimeInterval = 1.0, completion: (() -> Void)?) {
         self.completion = completion
         self.label.text = text
         self.label.textColor = Color.appColour
@@ -51,14 +51,14 @@ class ProgresssHud: UIView {
         self.perform(#selector(self.hide), with: nil, afterDelay: delay)
     }
     
-    @objc func hide() {
+    @objc public func hide() {
         self.activityView.removeFromSuperview()
         self.backgroundView.removeFromSuperview()
         self.completion?()
     }
 }
 
-class ContainerView: UIView {
+public class ContainerView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)

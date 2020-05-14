@@ -8,21 +8,21 @@
 
 import UIKit
 
-class PageView: ViewControl {
+public class PageView: ViewControl {
     
-    var expectationBox: RoundedInformationBox?
-    var sexGroups: ImageGroupButtons?
-    var yourAgeInputTextView: TextInputView?
-    var nextButton: Button?
-    var smokingQuestionView: ObjectiveQestionView?
-    var didYouSmokeInPastQuestionView: ObjectiveQestionView?
-    var cigratesPerDayTextInputView: TextInputView?
-    var ageOnCigrateStartTextInputView: TextInputView?
-    var alchohalOptionsQuestionView: ObjectiveQestionView?
-    var drinksIPastTextInputView: TextInputView?
-    var imageInputGroups: ImageTextInputViewGroups?
+    public var expectationBox: RoundedInformationBox?
+    public var sexGroups: ImageGroupButtons?
+    public var yourAgeInputTextView: TextInputView?
+    public var nextButton: Button?
+    public var smokingQuestionView: ObjectiveQestionView?
+    public var didYouSmokeInPastQuestionView: ObjectiveQestionView?
+    public var cigratesPerDayTextInputView: TextInputView?
+    public var ageOnCigrateStartTextInputView: TextInputView?
+    public var alchohalOptionsQuestionView: ObjectiveQestionView?
+    public var drinksIPastTextInputView: TextInputView?
+    public var imageInputGroups: ImageTextInputViewGroups?
     
-    @objc var footerButtonPress: (() -> Void)?
+    @objc public var footerButtonPress: (() -> Void)?
     
     private lazy var contentStackView: UIStackView = {
         let stack = UIStackView()
@@ -33,11 +33,11 @@ class PageView: ViewControl {
         return stack
     }()
     
-    var footerParentView = UIView()
+    public var footerParentView = UIView()
     
     private let content: ContentData
     
-    init(content: ContentData) {
+    public init(content: ContentData) {
         self.content = content
         super.init(frame: .zero)
         self.setup()

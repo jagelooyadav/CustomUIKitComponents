@@ -9,20 +9,20 @@
 import Foundation
 import UIKit
 
-class ImageButton: ViewControl {
+public class ImageButton: ViewControl {
     private lazy var touchButton = UIButton()
-    var didSelect: ((ImageButton) -> Void)?
-    var borderColor: UIColor? {
+    public var didSelect: ((ImageButton) -> Void)?
+    public var borderColor: UIColor? {
         get {
             guard let color = self.containerView.layer.borderColor else { return nil }
-           return  UIColor(cgColor: color)
+            return  UIColor(cgColor: color)
         }
         set {
             self.containerView.layer.borderColor = newValue?.cgColor
         }
     }
     
-    var isSelected: Bool = false  {
+    public var isSelected: Bool = false  {
         didSet {
             self.borderColor = self.isSelected ? Color.appColour : Color.appColour.withAlphaComponent(0.5)
             self.containerView.layer.borderWidth = self.isSelected ? 2.0 : 1.0
@@ -30,7 +30,7 @@ class ImageButton: ViewControl {
         }
     }
     
-    lazy var containerView: ContainerView = { container in
+    public lazy var containerView: ContainerView = { container in
         container.backgroundColor = Color.appColour.withAlphaComponent(0.01)
         container.translatesAutoresizingMaskIntoConstraints = false
         return container
@@ -86,36 +86,36 @@ class ImageButton: ViewControl {
         return title
     }()
     
-    var buttonImage: UIImage? {
+    public var buttonImage: UIImage? {
         get {
-           return self.imageView.image
+            return self.imageView.image
         }
         set {
-
+            
             self.imageView.image = newValue
             self.imageView.contentMode = .scaleAspectFit
             self.layoutIfNeeded()
         }
     }
     
-    var title: String? {
+    public var title: String? {
         get {
             return self.titleLabel.text
         }
         set {
             self.titleLabel.text = newValue
-             self.layoutIfNeeded()
+            self.layoutIfNeeded()
         }
     }
     
-    var fixHeighidth: CGFloat = 0 {
+    public var fixHeighidth: CGFloat = 0 {
         didSet {
             self.heightAnchor.constraint(equalToConstant: self.fixHeighidth).isActive = true
             self.widthAnchor.constraint(equalToConstant: self.fixHeighidth).isActive = true
         }
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         self.containerView.layer.cornerRadius = self.bounds.size.width / 2
     }

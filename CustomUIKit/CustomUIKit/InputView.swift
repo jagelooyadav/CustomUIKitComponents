@@ -73,7 +73,7 @@ public class InputView: ViewControl {
     /**
      Optional text for accessibility hint of title label.
      */
-    var titleLabelAccessibilityHint: String? {
+    public var titleLabelAccessibilityHint: String? {
         didSet {
             self.titleLabel.accessibilityHint = self.titleLabelAccessibilityHint
         }
@@ -84,7 +84,7 @@ public class InputView: ViewControl {
      
      This needs to be overriden by the subclass.
      */
-    @objc var value: String? {
+    @objc public var value: String? {
         get {
             return nil
         }
@@ -114,12 +114,12 @@ public class InputView: ViewControl {
      Optional text that gets append before input view
      error message in accessibility.
      */
-    var prefixAccessibilityTextForErrorMessage: String?
+    public var prefixAccessibilityTextForErrorMessage: String?
     
     /**
      Color for the optional message displayed below the input area.
      */
-    var messageTextColor: UIColor? = Color.darkRedColour {
+    public var messageTextColor: UIColor? = Color.darkRedColour {
         didSet {
             
             self.messageLabel.textColor = self.messageTextColor ?? self.messageLabel.textColor
@@ -179,7 +179,7 @@ public class InputView: ViewControl {
     }()
     
     /// The view used to display an 'underline' beneath the value view.
-    var underlineView: UIView = {
+    public var underlineView: UIView = {
         let view = UIView()
         
         view.translatesAutoresizingMaskIntoConstraints = false

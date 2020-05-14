@@ -8,33 +8,33 @@
 
 import UIKit
 
-class TextInputView: InputView {
+public class TextInputView: InputView {
     
     // MARK: Public
     
     /// The text field delegate.
-    @objc weak var delegate: TextInputViewDelegate? {
+    @objc public weak var delegate: TextInputViewDelegate? {
         didSet {
             self.textField.delegate = self.delegate != nil ? self : nil
         }
     }
     
     /// Color that is assigned to text field's text color - when input text is valid.
-    var textFieldTextColor: UIColor? {
+    public var textFieldTextColor: UIColor? {
         didSet {
             self.textField.textColor = self.textFieldTextColor ?? self.textField.textColor
         }
     }
     
     /// Color that is assigned to text field's text color - when input text is invalid.
-    var textFieldInvalidTextColor: UIColor? = Color.darkRedColour {
+    public var textFieldInvalidTextColor: UIColor? = Color.darkRedColour {
         didSet {
             self.textField.textColor = self.textFieldInvalidTextColor ?? self.textField.textColor
         }
     }
     
     /// Determines if the text field is enabled.
-    var isEnabled: Bool {
+    public var isEnabled: Bool {
         get {
             return self.textField.isEnabled
         }
@@ -45,7 +45,7 @@ class TextInputView: InputView {
     }
     
     /// The string that is displayed when there is no other text in the text input view.
-    @objc var placeholder: String? {
+    @objc public var placeholder: String? {
         get {
             return self.textField.placeholder
         }
@@ -56,7 +56,7 @@ class TextInputView: InputView {
     }
     
     /// The custom input view to display when the text input view becomes the first responder
-    @objc var textFieldInputView: UIView? {
+    @objc public var textFieldInputView: UIView? {
         get {
             return self.textField.inputView
         }
@@ -67,7 +67,7 @@ class TextInputView: InputView {
     }
     
     /// The custom accessory view to display when the text input view becomes the first responder
-    @objc var textFieldInputAccessoryView: UIView? {
+    @objc public var textFieldInputAccessoryView: UIView? {
         get {
             return self.textField.inputAccessoryView
         }
@@ -78,7 +78,7 @@ class TextInputView: InputView {
     }
     
     /// The keyboard style associated with the text input view.
-    @objc var keyboardType: UIKeyboardType {
+    @objc public var keyboardType: UIKeyboardType {
         get {
             return self.textField.keyboardType
         }
@@ -89,7 +89,7 @@ class TextInputView: InputView {
     }
     
     /// The autocorrection style for the text input view.
-    @objc var autocorrectionType: UITextAutocorrectionType {
+    @objc public var autocorrectionType: UITextAutocorrectionType {
         get {
             return self.textField.autocorrectionType
         }
@@ -100,7 +100,7 @@ class TextInputView: InputView {
     }
     
     /// The supplementary image which is displayed by the text field.
-    @objc var supplementaryImage: UIImage? {
+    @objc public var supplementaryImage: UIImage? {
         get {
             return self.textField.supplementaryImage
         }
@@ -110,7 +110,7 @@ class TextInputView: InputView {
         }
     }
 
-    var customRightView: UIView? {
+    public var customRightView: UIView? {
         didSet {
             // if right view already exists then remove
             oldValue?.removeFromSuperview()
@@ -132,7 +132,7 @@ class TextInputView: InputView {
     }
     
     /// Accessibility text for the textField.
-    var textFieldAccessibilityHintText: String? {
+    public var textFieldAccessibilityHintText: String? {
         get {
             return self.textField.accessibilityHint
         }
@@ -146,7 +146,7 @@ class TextInputView: InputView {
     // MARK: Overrides
     
     /// The value within the text field.
-    override var value: String? {
+    override public var value: String? {
         get {
             return self.textField.text
         }
@@ -157,7 +157,7 @@ class TextInputView: InputView {
     }
     
     /// The text field displayed by the view. Do not access this externally.
-    @objc override var valueView: UIView? {
+    @objc override public var valueView: UIView? {
         return self.textField
     }
     
@@ -166,7 +166,7 @@ class TextInputView: InputView {
      
      - returns: `true` if the receiver accepts first-responder status or `false` if it refuses this status.
      */
-    override func becomeFirstResponder() -> Bool {
+    override public func becomeFirstResponder() -> Bool {
         return self.textField.becomeFirstResponder()
     }
     
@@ -175,19 +175,19 @@ class TextInputView: InputView {
      
      - returns: `true` if the text field is the first responder, `false`.
      */
-    @discardableResult override func resignFirstResponder() -> Bool {
+    @discardableResult override public func resignFirstResponder() -> Bool {
         return self.textField.resignFirstResponder()
     }
     
     /// Returns `true` if the text input view is the first responder, `false` otherwise.
-    override var isFirstResponder: Bool {
+    override public var isFirstResponder: Bool {
         return self.textField.isFirstResponder
     }
     
     // MARK: IBInspectable
     
     /// The localisation key to use for the placeholder for input view text field.
-    @IBInspectable var placeholderLocalisationKey: String? {
+    @IBInspectable public var placeholderLocalisationKey: String? {
         didSet {
             guard let key = self.placeholderLocalisationKey else { return }
             
@@ -196,7 +196,7 @@ class TextInputView: InputView {
     }
     
     /// Identifies whether the text object should disable text copying and in some cases hide the text being entered.
-    @IBInspectable var isSecureTextEntry: Bool {
+    @IBInspectable public var isSecureTextEntry: Bool {
         get {
             return self.textField.isSecureTextEntry
         }
@@ -209,7 +209,7 @@ class TextInputView: InputView {
     // MARK: Private
     
     /// The text field.
-     var textField: TextField = {
+     public var textField: TextField = {
         let textField = TextField()
         
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -327,7 +327,7 @@ extension TextInputView: UITextFieldDelegate {
 }
 
 /// A delegate to observe changes within `TextInputView`.
-@objc protocol TextInputViewDelegate: class {
+@objc public protocol TextInputViewDelegate: class {
     
     /**
      Called to perform a validation of the text field and determine if the input is valid or not.

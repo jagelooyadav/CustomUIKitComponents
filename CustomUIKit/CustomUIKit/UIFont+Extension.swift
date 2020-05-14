@@ -11,31 +11,31 @@ import UIKit
 
 extension UIFont {
     
-    class var boldHeading: UIFont {
+    public class var boldHeading: UIFont {
         return UIFont.boldSystemFont(ofSize: 18.0)
     }
     
-    class var heading: UIFont {
+    public class var heading: UIFont {
         return UIFont.systemFont(ofSize: 18.0)
     }
     
-    class var boldSubHeading: UIFont {
+    public class var boldSubHeading: UIFont {
         return UIFont.boldSystemFont(ofSize: 16.0)
     }
     
-    class var subhHeading: UIFont {
+    public class var subhHeading: UIFont {
         return UIFont.boldSystemFont(ofSize: 16.0)
     }
     
-    class var body: UIFont {
+    public class var body: UIFont {
         return UIFont.systemFont(ofSize: 14.0)
     }
     
-    class var bigBrother: UIFont {
+    public class var bigBrother: UIFont {
         return UIFont.systemFont(ofSize: 40.0)
     }
     
-    class var boldBigBrother: UIFont {
+    public class var boldBigBrother: UIFont {
         return UIFont.systemFont(ofSize: 40.0)
     }
 }

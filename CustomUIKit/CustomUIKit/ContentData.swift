@@ -8,12 +8,12 @@
 
 import UIKit
 
-struct AppData: Decodable {
-    let name: String
-    let screens: [ContentData]
+public struct AppData: Decodable {
+    public let name: String
+    public let screens: [ContentData]
 }
 
-enum ResourceType: String, Decodable {
+public enum ResourceType: String, Decodable {
     case PageView
     case RoundedInformationBox
     case HeadingWithSeperator
@@ -27,13 +27,13 @@ enum ResourceType: String, Decodable {
     case ImageInputTextView
 }
 
-struct ContentData: Decodable {
-    let resourceType: ResourceType
-    let title: String
-    let description: String?
-    let contents: [ContentData]
-    let images: [String]?
-    let names: [String]?
-    var identifier: String?
-    var icon: String?
+public struct ContentData: Decodable {
+    public let resourceType: ResourceType
+    public let title: String
+    public let description: String?
+    public let contents: [ContentData]
+    public let images: [String]?
+    public let names: [String]?
+    public var identifier: String?
+    public var icon: String?
 }

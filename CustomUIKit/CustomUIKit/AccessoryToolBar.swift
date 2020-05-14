@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AccessoryToolBar: UIToolbar {
+public class AccessoryToolBar: UIToolbar {
 
     // MARK: - Constants
 
@@ -18,17 +18,17 @@ class AccessoryToolBar: UIToolbar {
     // MARK: - Variables
 
     /// All input views in the view controller.
-    var inputViews: [UIView]? {
+    public var inputViews: [UIView]? {
         didSet {
             self.setUpToolBar()
         }
     }
     
     /// Completion handler called on done button
-    var done: (() -> Void)?
+    public var done: (() -> Void)?
     
     // Current active textfield in the view controller. set this value in the text field begin editing method
-    @objc var activeView: UIView? {
+     @objc public var activeView: UIView? {
         didSet {
             guard let inputViews = self.inputViews, inputViews.count > 1 else {
                 return

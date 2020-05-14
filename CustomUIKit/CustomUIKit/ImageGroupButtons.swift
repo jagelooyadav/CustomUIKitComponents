@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-class ImageGroupButtons: ViewControl {
+public class ImageGroupButtons: ViewControl {
     
-    var didSelect: ((_ selectedIndex: Int, _ elements: [ImageButton]) -> Void)?
+    public var didSelect: ((_ selectedIndex: Int, _ elements: [ImageButton]) -> Void)?
     
-    var selectionIndex = 0 {
+    public var selectionIndex = 0 {
         didSet {
             guard self.selectionIndex >= 0 else { return }
             self.elements[self.selectionIndex].isSelected = true
@@ -35,7 +35,7 @@ class ImageGroupButtons: ViewControl {
         stack.spacing = 16.0
         return stack
     }()
-
+    
     
     private lazy var verticalStack: UIStackView = {
         let stack = UIStackView()
@@ -74,10 +74,10 @@ class ImageGroupButtons: ViewControl {
         self.setup()
     }
     
-    var images: [String]?
-    var names: [String]?
+    public var images: [String]?
+    public var names: [String]?
     
-    init(images: [String]?, names: [String]?) {
+    public init(images: [String]?, names: [String]?) {
         self.images = images
         self.names = names
         super.init(frame: .zero)
@@ -104,7 +104,7 @@ class ImageGroupButtons: ViewControl {
         self.addElements(updated)
     }
     
-    var title: String? {
+    public var title: String? {
         get {
             return self.titleLabel.text
         }
@@ -114,7 +114,7 @@ class ImageGroupButtons: ViewControl {
         }
     }
     
-    func addElements(_ elements: [ImageButton]) {
+    public func addElements(_ elements: [ImageButton]) {
         for element in elements {
             self.stackView.addArrangedSubview(element)
             element.didSelect = { [weak self] button in

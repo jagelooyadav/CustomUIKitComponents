@@ -8,12 +8,12 @@
 
 import UIKit
 
-class SingleQuestionOptionView: ViewControl {
+public class SingleQuestionOptionView: ViewControl {
     
     private var option: String!
     private var index = 0
     
-    lazy var containerView: ContainerView = { container in
+    public lazy var containerView: ContainerView = { container in
         container.translatesAutoresizingMaskIntoConstraints = false
         container.layer.cornerRadius = 5.0
         return container
@@ -36,14 +36,14 @@ class SingleQuestionOptionView: ViewControl {
         self.setup()
     }
     
-    init(option: String, at index: Int) {
+    public init(option: String, at index: Int) {
         self.option = option
         super.init(frame: .zero)
         self.setup()
     }
     
-    var didSelect: ((_ title: String?, _ index: Int) -> Void)?
-    var borderColor: UIColor? {
+    public var didSelect: ((_ title: String?, _ index: Int) -> Void)?
+    public var borderColor: UIColor? {
         get {
             guard let color = self.containerView.layer.borderColor else { return nil }
             return  UIColor(cgColor: color)
@@ -53,7 +53,7 @@ class SingleQuestionOptionView: ViewControl {
         }
     }
     
-    var isSelected: Bool = false  {
+    public var isSelected: Bool = false  {
         didSet {
             self.borderColor = self.isSelected ? Color.appColour : Color.appColour.withAlphaComponent(0.5)
             self.containerView.layer.borderWidth = self.isSelected ? 2.0 : 1.0
@@ -70,7 +70,7 @@ class SingleQuestionOptionView: ViewControl {
         return stack
     }()
     
-    var title: String? {
+    public var title: String? {
         get {
             return self.titleLabel.text
         }

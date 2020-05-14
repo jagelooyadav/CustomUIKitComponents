@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ImageInputTextView: ViewControl {
+public class ImageInputTextView: ViewControl {
     
-    var widthConstraint: NSLayoutConstraint?
+    public var widthConstraint: NSLayoutConstraint?
     
-    var borderColor: UIColor? {
+    public var borderColor: UIColor? {
         get {
             guard let color = self.containerView.layer.borderColor else { return nil }
             return  UIColor(cgColor: color)
@@ -31,7 +31,7 @@ class ImageInputTextView: ViewControl {
         return title
     }()
     
-    var isSelected: Bool = false  {
+    public var isSelected: Bool = false  {
         didSet {
             self.borderColor = self.isSelected ? Color.appColour : UIColor.clear
             self.containerView.layer.borderWidth = self.isSelected ? 2.0 : 0.0
@@ -154,7 +154,7 @@ class ImageInputTextView: ViewControl {
         }
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         if self.isAxisVetical {
             self.containerView.layer.cornerRadius = self.bounds.size.width / 2

@@ -7,17 +7,17 @@
 //
 
 import UIKit
-struct ImageData {
-    var title: String?
-    var icon: String?
-    var identifier: String?
+public struct ImageData {
+    public var title: String?
+    public var icon: String?
+    public var identifier: String?
 }
-class ImageTextInputViewGroups: ViewControl {
+public class ImageTextInputViewGroups: ViewControl {
     
-    var fruitJuiceImageInput: ImageInputTextView?
-    var fruitImageInput: ImageInputTextView?
-    var potatoesInput: ImageInputTextView?
-    var vegitablesInput: ImageInputTextView?
+    public var fruitJuiceImageInput: ImageInputTextView?
+    public var fruitImageInput: ImageInputTextView?
+    public var potatoesInput: ImageInputTextView?
+    public var vegitablesInput: ImageInputTextView?
     
     private var iconDataList: [ImageData]?
     private lazy var stackView: UIStackView = {
@@ -29,7 +29,7 @@ class ImageTextInputViewGroups: ViewControl {
         return stack
     }()
     
-    lazy var scrollView: UIScrollView = {
+    public lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         return scroll
@@ -43,9 +43,9 @@ class ImageTextInputViewGroups: ViewControl {
         return stack
     }()
     
-    var parntView: UIView!
+    public var parntView: UIView!
     
-    init(iconDataList: [ImageData]?) {
+    public init(iconDataList: [ImageData]?) {
         self.iconDataList = iconDataList
         super.init(frame: .zero)
         self.setup()
@@ -84,10 +84,10 @@ class ImageTextInputViewGroups: ViewControl {
     private func setup() {
         let contentView = UIView()
         let wrapperView = UIView()
-         self.addSubview(self.titleLabel, insets: UIEdgeInsets(top: 0.0, left: 16, bottom: 0.0, right: 16), ignoreConstant: .bottom)
+        self.addSubview(self.titleLabel, insets: UIEdgeInsets(top: 0.0, left: 16, bottom: 0.0, right: 16), ignoreConstant: .bottom)
         self.addSubview(wrapperView, insets: UIEdgeInsets(top: 0, left: 16, bottom: 0.0, right: 16), ignoreConstant: .top)
         wrapperView.addSubview(self.scrollView, insets: .zero)
-         self.scrollView.addSubview(contentView, insets: .zero)
+        self.scrollView.addSubview(contentView, insets: .zero)
         contentView.addSubview(self.stackView, insets: UIEdgeInsets(top: 0, left: 16, bottom: 0.0, right: 16))
         contentView.widthAnchor.constraint(greaterThanOrEqualTo: wrapperView.widthAnchor).isActive = true
         contentView.heightAnchor.constraint(equalTo: wrapperView.heightAnchor).isActive = true
@@ -118,7 +118,7 @@ class ImageTextInputViewGroups: ViewControl {
         }
     }
     
-    var title: String? {
+    public var title: String? {
         get {
             return self.titleLabel.text
         }
@@ -128,7 +128,7 @@ class ImageTextInputViewGroups: ViewControl {
         }
     }
     
-    func addElements(_ elements: [ImageInputTextView]) {
+    public func addElements(_ elements: [ImageInputTextView]) {
         for element in elements {
             self.stackView.addArrangedSubview(element)
         }

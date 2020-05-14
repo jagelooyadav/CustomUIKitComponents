@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeadingWithSeperator: ViewControl {
+public class HeadingWithSeperator: ViewControl {
     
     private let heading: String?
     
@@ -29,7 +29,7 @@ class HeadingWithSeperator: ViewControl {
         return label
     }()
     
-    var title: String? {
+    public var title: String? {
         get {
             return self.titleLabel.text
         }

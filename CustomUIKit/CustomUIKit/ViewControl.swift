@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 public class ViewControl: UIView {
-    var identifier: String?
+   public var identifier: String?
 }

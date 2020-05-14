@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-class RoundedInformationBox: ViewControl {
+public class RoundedInformationBox: ViewControl {
     
-    var title: String? {
+    public var title: String? {
         get {
             return self.titleLabel.title
         }
@@ -21,7 +21,7 @@ class RoundedInformationBox: ViewControl {
         }
     }
     
-    var value: String? {
+    public  var value: String? {
         get {
             return self.valueLabel.text
         }
@@ -31,14 +31,14 @@ class RoundedInformationBox: ViewControl {
         }
     }
     
-    lazy var containerView: ContainerView = { container in
+    public lazy var containerView: ContainerView = { container in
         //container.backgroundColor = Color.appColour.withAlphaComponent(0.01)
         container.translatesAutoresizingMaskIntoConstraints = false
         return container
     }(ContainerView())
     
     private lazy var titleLabel: HeadingWithSeperator = {
-         HeadingWithSeperator()
+        HeadingWithSeperator()
     }()
     
     private lazy var valueLabel: UILabel = {
