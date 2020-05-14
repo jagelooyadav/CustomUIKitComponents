@@ -30,7 +30,6 @@
 		39CE0E4E246DD76800AC6897 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E32246DD76600AC6897 /* PageView.swift */; };
 		39CE0E4F246DD76800AC6897 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E33246DD76600AC6897 /* Color.swift */; };
 		39CE0E50246DD76800AC6897 /* LifeExpectancy-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CE0E34246DD76600AC6897 /* LifeExpectancy-Bridging-Header.h */; };
-		39CE0E51246DD76800AC6897 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39CE0E35246DD76700AC6897 /* Info.plist */; };
 		39CE0E52246DD76800AC6897 /* CustomUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CE0E36246DD76700AC6897 /* CustomUIKit.h */; };
 		39CE0E53246DD76800AC6897 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E37246DD76700AC6897 /* NavigationViewController.swift */; };
 		39CE0E54246DD76800AC6897 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E38246DD76700AC6897 /* UIView+Extension.swift */; };
@@ -77,7 +76,6 @@
 		39CE0E32246DD76600AC6897 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		39CE0E33246DD76600AC6897 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		39CE0E34246DD76600AC6897 /* LifeExpectancy-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LifeExpectancy-Bridging-Header.h"; sourceTree = "<group>"; };
-		39CE0E35246DD76700AC6897 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../algorithmandproblems/CustomUIKit/CustomUIKit/Info.plist; sourceTree = "<group>"; };
 		39CE0E36246DD76700AC6897 /* CustomUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomUIKit.h; path = ../../../algorithmandproblems/CustomUIKit/CustomUIKit/CustomUIKit.h; sourceTree = "<group>"; };
 		39CE0E37246DD76700AC6897 /* NavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		39CE0E38246DD76700AC6897 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 				39CE0E2D246DD76500AC6897 /* ImageGroupButtons.swift */,
 				39CE0E22246DD76400AC6897 /* ImageInputTextView.swift */,
 				39CE0E28246DD76500AC6897 /* ImageTextInputViewGroups.swift */,
-				39CE0E35246DD76700AC6897 /* Info.plist */,
 				39CE0E24246DD76500AC6897 /* InputView.swift */,
 				39CE0E34246DD76600AC6897 /* LifeExpectancy-Bridging-Header.h */,
 				39CE0E37246DD76700AC6897 /* NavigationViewController.swift */,
@@ -264,7 +261,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39CE0E51246DD76800AC6897 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
