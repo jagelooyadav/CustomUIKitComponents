@@ -306,4 +306,6 @@ public class Color: NSObject {
      - Numeric input field background colour for PINSentry
      */
     @objc public static let whiteColour = UIColor(actualRed: 255.0, green: 255.0, blue: 255.0)
+    
+    @objc public static let greenColour = UIColor(actualRed: 0.0, green: 213.0, blue: 107.0)
 }
