@@ -18,12 +18,8 @@ extension UIImage {
         return UIImage(imageNamed: "tickMark")
     }
     
-    static var crossMarkImage: UIImage? {
-        return UIImage(imageNamed: "tickMark")
-    }
-    
-    static var wifiImage: UIImage? {
-        return UIImage(imageNamed: "wifi")
+    static var untickMarkImage: UIImage? {
+        return UIImage(imageNamed: "untickMark")
     }
 }
 
