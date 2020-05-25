@@ -91,6 +91,16 @@ public class CheckMarkButton: UIControl {
         }
     }
     
+    public var defaultLabelFont: UIFont? {
+        get {
+            return self.checkMarkView.font
+        }
+        
+        set {
+            self.checkMarkView.font = newValue
+        }
+    }
+    
     private var titleLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -105,6 +115,7 @@ public class CheckMarkButton: UIControl {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 8.0
+        stackView.alignment = .center
         return stackView
     }()
     

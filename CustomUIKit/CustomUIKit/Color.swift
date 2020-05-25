@@ -40,7 +40,7 @@ public class Color: NSObject {
      - Button active
      - Radio, checkbox, toggle selected text
      */
-    @objc public static let appColour = UIColor(actualRed: 100, green: 208, blue: 249)
+    @objc public static let appColour = UIColor(actualRed: 87.0, green: 189.0, blue: 95)
     
     /**
      # Light Blue Colour

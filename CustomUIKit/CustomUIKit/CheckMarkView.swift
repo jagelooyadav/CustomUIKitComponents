@@ -52,6 +52,15 @@ public class CheckMarkView: UIView {
         }
     }
     
+    public var font: UIFont? {
+        get {
+            return self.titleLabel.font
+        }
+        set {
+            self.titleLabel.font = newValue
+        }
+    }
+    
     private var widthConstraint: NSLayoutConstraint?
     private var imageWidthConstraint: NSLayoutConstraint?
     
