@@ -31,6 +31,10 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 14.0)
     }
     
+    public class var pageHeading: UIFont {
+        return UIFont.systemFont(ofSize: 32.0)
+    }
+    
     public class var bigBrother: UIFont {
         return UIFont.systemFont(ofSize: 40.0)
     }
