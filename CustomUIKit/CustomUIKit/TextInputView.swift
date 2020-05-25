@@ -248,13 +248,13 @@ public class TextInputView: InputView {
         switch self.state {
         case .normal:
             self.textField.icon = nil
-            self.textField.textColor = Color.appColour
+            self.textField.textColor = Appearance.color
             
         case .valid:
             // customRightView is not required when icon is present
             self.customRightView = nil
             self.textField.icon = .tick
-            self.textField.textColor = Color.appColour
+            self.textField.textColor = Appearance.color
             
         case .invalid:
             // customRightView is not required when icon is present

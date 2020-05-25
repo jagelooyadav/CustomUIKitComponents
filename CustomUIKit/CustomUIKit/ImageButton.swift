@@ -24,14 +24,14 @@ public class ImageButton: ViewControl {
     
     public var isSelected: Bool = false  {
         didSet {
-            self.borderColor = self.isSelected ? Color.appColour : Color.appColour.withAlphaComponent(0.5)
+            self.borderColor = self.isSelected ? Appearance.color : Appearance.color.withAlphaComponent(0.5)
             self.containerView.layer.borderWidth = self.isSelected ? 2.0 : 1.0
-            self.containerView.backgroundColor = Color.appColour.withAlphaComponent(self.isSelected ? 0.3 : 0.01)
+            self.containerView.backgroundColor = Appearance.color.withAlphaComponent(self.isSelected ? 0.3 : 0.01)
         }
     }
     
     public lazy var containerView: ContainerView = { container in
-        container.backgroundColor = Color.appColour.withAlphaComponent(0.01)
+        container.backgroundColor = Appearance.color.withAlphaComponent(0.01)
         container.translatesAutoresizingMaskIntoConstraints = false
         return container
     }(ContainerView())

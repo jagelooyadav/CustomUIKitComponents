@@ -33,14 +33,14 @@ public class ImageInputTextView: ViewControl {
     
     public var isSelected: Bool = false  {
         didSet {
-            self.borderColor = self.isSelected ? Color.appColour : UIColor.clear
+            self.borderColor = self.isSelected ? Appearance.color : UIColor.clear
             self.containerView.layer.borderWidth = self.isSelected ? 2.0 : 0.0
-            self.containerView.backgroundColor = Color.appColour.withAlphaComponent(self.isSelected ? 0.3 : 0.01)
+            self.containerView.backgroundColor = Appearance.color.withAlphaComponent(self.isSelected ? 0.3 : 0.01)
         }
     }
     
     lazy var containerView: ContainerView = { container in
-        container.backgroundColor = Color.appColour.withAlphaComponent(0.01)
+        container.backgroundColor = Appearance.color.withAlphaComponent(0.01)
         container.translatesAutoresizingMaskIntoConstraints = false
         return container
     }(ContainerView())
@@ -95,7 +95,7 @@ public class ImageInputTextView: ViewControl {
         title.translatesAutoresizingMaskIntoConstraints = false
         self.widthConstraint = title.widthAnchor.constraint(equalToConstant: 120.0)
         self.widthConstraint?.isActive = true
-        title.underlineView.backgroundColor = Color.appColour
+        title.underlineView.backgroundColor = Appearance.color
         return title
     }()
     

@@ -66,7 +66,7 @@ public class ImageTextInputViewGroups: ViewControl {
         let vv = UIView()
         vv.translatesAutoresizingMaskIntoConstraints = false
         vv.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
-        vv.backgroundColor = Color.appColour
+        vv.backgroundColor = Appearance.color
         vv.widthAnchor.constraint(equalTo: self.widthAnchor, constant: 1.0)
         return vv
     }()

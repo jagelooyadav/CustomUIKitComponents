@@ -25,7 +25,7 @@ public class HeadingWithSeperator: ViewControl {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.boldHeading
-        label.textColor = Color.appColour
+        label.textColor = Appearance.color
         return label
     }()
     

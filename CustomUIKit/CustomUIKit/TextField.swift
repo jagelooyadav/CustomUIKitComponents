@@ -111,7 +111,7 @@ public class TextField: UITextField {
         self.rightViewMode = .unlessEditing
         self.autocorrectionType = .no
         self.autocapitalizationType = .none
-        self.textColor = Color.appColour
+        self.textColor = Appearance.color
         self.tintColor = Color.black1Colour
     }
     

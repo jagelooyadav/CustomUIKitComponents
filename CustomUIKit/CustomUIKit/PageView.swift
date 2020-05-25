@@ -118,7 +118,7 @@ public class PageView: ViewControl {
         ageInputView.title = content.title
         ageInputView.placeholder = content.description
         self.contentStackView.addArrangedSubview(ageInputView)
-        ageInputView.underlineView.backgroundColor = Color.appColour
+        ageInputView.underlineView.backgroundColor = Appearance.color
         ageInputView.keyboardType = .numberPad
         if content.identifier == "yourAge" {
             self.yourAgeInputTextView = ageInputView

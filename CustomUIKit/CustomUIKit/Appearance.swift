@@ -9,13 +9,17 @@
 import UIKit
 
 public struct Appearance {
-    
+    static var color: UIColor = Color.appColour
     public static func setUpUIAppearance() {
-        
+        self.setUpUIAppearance(appColor: Color.appColour)
+    }
+    
+    public static func setUpUIAppearance(appColor: UIColor) {
+        self.color = appColor
         let appearance = UINavigationBar.appearance()
         
         appearance.tintColor = Color.whiteColour
-        appearance.barTintColor = Color.appColour
+        appearance.barTintColor = appColor
         
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldHeading]
     }

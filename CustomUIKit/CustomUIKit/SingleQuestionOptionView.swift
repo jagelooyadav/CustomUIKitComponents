@@ -55,9 +55,9 @@ public class SingleQuestionOptionView: ViewControl {
     
     public var isSelected: Bool = false  {
         didSet {
-            self.borderColor = self.isSelected ? Color.appColour : Color.appColour.withAlphaComponent(0.5)
+            self.borderColor = self.isSelected ? Appearance.color : Appearance.color.withAlphaComponent(0.5)
             self.containerView.layer.borderWidth = self.isSelected ? 2.0 : 1.0
-            self.containerView.backgroundColor = Color.appColour.withAlphaComponent(self.isSelected ? 0.3 : 0.01)
+            self.containerView.backgroundColor = Appearance.color.withAlphaComponent(self.isSelected ? 0.3 : 0.01)
         }
     }
     
@@ -89,7 +89,7 @@ public class SingleQuestionOptionView: ViewControl {
         let sequenceView = UIView()
         sequenceView.translatesAutoresizingMaskIntoConstraints = false
         sequenceView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        sequenceView.layer.borderColor = Color.appColour.cgColor
+        sequenceView.layer.borderColor = Appearance.color.cgColor
         sequenceView.layer.borderWidth = 0.5
         sequenceView.layer.cornerRadius = 5.0
         let label = UILabel()

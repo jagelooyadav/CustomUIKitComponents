@@ -27,7 +27,7 @@ public class ProgresssHud: UIView {
         sss.axis = .vertical
         sss.addArrangedSubview(self.label)
         self.activity.startAnimating()
-        self.activity.color = Color.appColour
+        self.activity.color = Appearance.color
         sss.addArrangedSubview(self.activity)
         
         vv.addSubview(sss, insets: UIEdgeInsets(top: 16.0, left: 10.0, bottom: 30.0, right: 16.0))
@@ -38,7 +38,7 @@ public class ProgresssHud: UIView {
     public func showInView(_ view: UIView = UIApplication.shared.keyWindow ?? UIView(), text: String = "Please wait...", delay: TimeInterval = 1.0, completion: (() -> Void)?) {
         self.completion = completion
         self.label.text = text
-        self.label.textColor = Color.appColour
+        self.label.textColor = Appearance.color
         self.label.textAlignment = .center
         view.addSubview(backgroundView, insets: .zero)
         view.addSubview(self.activityView)

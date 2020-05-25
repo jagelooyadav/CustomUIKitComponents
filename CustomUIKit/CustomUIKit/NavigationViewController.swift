@@ -30,7 +30,8 @@ class NavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let image = UIImage.init(color: Color.appColour, size: self.navigationBar.bounds.size)
+        let color = Appearance.color
+        let image = UIImage.init(color: color, size: self.navigationBar.bounds.size)
         self.navigationBar.setBackgroundImage(image, for: .default)
     }
     
