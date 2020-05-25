@@ -18,9 +18,12 @@ public class CheckMarkView: UIView {
     
     // MARK: - Variables
 
+    private let imageSizePercent: CGFloat = 0.5
+    
     public var checkMarkSize: CGFloat = 60.0 {
         didSet {
             self.widthConstraint?.constant = self.checkMarkSize
+            self.imageWidthConstraint?.constant = self.checkMarkSize * self.imageSizePercent
             self.updateBorderColor(lineColor: nil)
         }
     }
@@ -50,6 +53,7 @@ public class CheckMarkView: UIView {
     }
     
     private var widthConstraint: NSLayoutConstraint?
+    private var imageWidthConstraint: NSLayoutConstraint?
     
     private var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -91,15 +95,23 @@ public class CheckMarkView: UIView {
     // MARK: - Functions
     
     private func setup() {
+        
+        self.addSubview(self.titleLabel, insets: .zero)
+        self.addSubview(self.imageView)
+        
         let constraint = self.widthAnchor.constraint(equalToConstant: self.checkMarkSize)
+        let imageConstraint = self.imageView.widthAnchor.constraint(equalToConstant: self.checkMarkSize * self.imageSizePercent)
+
         self.widthConstraint = constraint
+        self.imageWidthConstraint = imageConstraint
         NSLayoutConstraint.activate([
             self.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1),
-            constraint
+            self.imageView.widthAnchor.constraint(equalTo: self.imageView.heightAnchor, multiplier: 1),
+            self.imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            self.imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            constraint,
+            imageConstraint
         ])
-        
-        self.addSubview(self.imageView, insets: .standardMargin)
-        self.addSubview(self.titleLabel, insets: .zero)
         
         self.backgroundColor = .clear
     }
