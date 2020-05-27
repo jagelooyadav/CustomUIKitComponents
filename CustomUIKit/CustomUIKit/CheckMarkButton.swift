@@ -10,6 +10,8 @@ import UIKit
 
 public class CheckMarkButton: UIControl {
     
+    public var identifier: Any?
+    
     // MARK: - Variables
     public var checkMarkSize: CGFloat {
         get {
@@ -148,5 +150,6 @@ public class CheckMarkButton: UIControl {
         
         self.addSubview(self.stackView, insets: .zero)
         self.backgroundColor = .clear
+        self.stackView.isUserInteractionEnabled = false
     }
 }
