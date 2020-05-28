@@ -42,7 +42,7 @@ public class Color: NSObject {
      */
     @objc public static let appColour = UIColor(actualRed: 87.0, green: 189.0, blue: 95)
     
-    @objc public static let phoneEstimatorColor = UIColor(actualRed: 87.0, green: 189.0, blue: 95)
+    @objc public static let phoneEstimatorColor = UIColor(actualRed: 200.0, green: 152.0, blue: 152.0)
     
     /**
      # Light Blue Colour

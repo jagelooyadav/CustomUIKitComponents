@@ -9,7 +9,7 @@
 import UIKit
 
 public struct Appearance {
-    static var color: UIColor = Color.appColour
+    public static var color: UIColor = Color.appColour
     public static func setUpUIAppearance() {
         self.setUpUIAppearance(appColor: Color.appColour)
     }

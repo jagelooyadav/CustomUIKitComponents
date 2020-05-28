@@ -46,7 +46,7 @@ open class ScratchView: UIView {
     }
     
     fileprivate func Init() {
-        let image = processPixels(image: UIImage(color: .green)!)
+        let image = processPixels(image: UIImage(color: .white)!)
         if image != nil {
             scratched = image?.cgImage
         } else {

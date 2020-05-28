@@ -41,7 +41,8 @@ open class ScratchUIView: UIView, ScratchViewDelegate {
     }
     
     fileprivate func Init() {
-        maskImage = UIImageView(image: UIImage.init(color: .red, size: self.bounds.size))//UIImageView(image: processPixels(in: UIImage(named: maskPath)!))
+        let color = Appearance.color
+        maskImage = UIImageView(image: UIImage.init(color: color, size: self.bounds.size))//UIImageView(image: processPixels(in: UIImage(named: maskPath)!))
         scratchView = ScratchView(frame: self.frame, CouponImage: coupponPath, ScratchWidth: uiScratchWidth)
         
         maskImage.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
