@@ -11,6 +11,8 @@
 		1FF8D2D5247A5E080050FEC7 /* CheckMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D4247A5E080050FEC7 /* CheckMarkButton.swift */; };
 		1FF8D2D7247A6A050050FEC7 /* UIImage+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */; };
 		1FF8D2D9247A6A360050FEC7 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D8247A6A360050FEC7 /* Media.xcassets */; };
+		398D88D3247FBE90000BC378 /* ScratchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398D88D1247FBE90000BC378 /* ScratchView.swift */; };
+		398D88D4247FBE90000BC378 /* ScratchUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398D88D2247FBE90000BC378 /* ScratchUIView.swift */; };
 		39CE0E11246DD71400AC6897 /* CustomUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CE0E07246DD71400AC6897 /* CustomUIKit.framework */; };
 		39CE0E16246DD71400AC6897 /* CustomUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E15246DD71400AC6897 /* CustomUIKitTests.swift */; };
 		39CE0E18246DD71400AC6897 /* CustomUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 39CE0E0A246DD71400AC6897 /* CustomUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -58,6 +60,8 @@
 		1FF8D2D4247A5E080050FEC7 /* CheckMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButton.swift; sourceTree = "<group>"; };
 		1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Load.swift"; sourceTree = "<group>"; };
 		1FF8D2D8247A6A360050FEC7 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		398D88D1247FBE90000BC378 /* ScratchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchView.swift; sourceTree = "<group>"; };
+		398D88D2247FBE90000BC378 /* ScratchUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchUIView.swift; sourceTree = "<group>"; };
 		39CE0E07246DD71400AC6897 /* CustomUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CE0E0A246DD71400AC6897 /* CustomUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomUIKit.h; sourceTree = "<group>"; };
 		39CE0E0B246DD71400AC6897 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		39CE0E09246DD71400AC6897 /* CustomUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				398D88D2247FBE90000BC378 /* ScratchUIView.swift */,
+				398D88D1247FBE90000BC378 /* ScratchView.swift */,
 				39CE0E2C246DD76500AC6897 /* AccessoryToolBar.swift */,
 				39CE0E2F246DD76600AC6897 /* Appearance.swift */,
 				39CE0E3C246DD76800AC6897 /* Button.swift */,
@@ -295,6 +301,7 @@
 				39CE0E4D246DD76800AC6897 /* Constants.swift in Sources */,
 				39CE0E49246DD76800AC6897 /* ImageGroupButtons.swift in Sources */,
 				39CE0E4A246DD76800AC6897 /* TextInputView.swift in Sources */,
+				398D88D3247FBE90000BC378 /* ScratchView.swift in Sources */,
 				39CE0E47246DD76800AC6897 /* TextField.swift in Sources */,
 				39CE0E56246DD76800AC6897 /* RoundedInformationBox.swift in Sources */,
 				39CE0E45246DD76800AC6897 /* DividerView.swift in Sources */,
@@ -319,6 +326,7 @@
 				39CE0E3D246DD76800AC6897 /* UIFont+Extension.swift in Sources */,
 				39CE0E41246DD76800AC6897 /* UIColor+Custom.swift in Sources */,
 				39CE0E3F246DD76800AC6897 /* ContentData.swift in Sources */,
+				398D88D4247FBE90000BC378 /* ScratchUIView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
