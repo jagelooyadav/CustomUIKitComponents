@@ -42,6 +42,7 @@
 		39CE0E57246DD76800AC6897 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E3B246DD76800AC6897 /* ImageButton.swift */; };
 		39CE0E58246DD76800AC6897 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E3C246DD76800AC6897 /* Button.swift */; };
 		39FF40B92480442200948059 /* ScratchPadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF40B82480442200948059 /* ScratchPadImageView.swift */; };
+		39FF40BD2481894F00948059 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF40BC2481894F00948059 /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		39CE0E3B246DD76800AC6897 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		39CE0E3C246DD76800AC6897 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		39FF40B82480442200948059 /* ScratchPadImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchPadImageView.swift; sourceTree = "<group>"; };
+		39FF40BC2481894F00948059 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 		39CE0E09246DD71400AC6897 /* CustomUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				39FF40BC2481894F00948059 /* Camera.swift */,
 				39FF40B82480442200948059 /* ScratchPadImageView.swift */,
 				39CE0E2C246DD76500AC6897 /* AccessoryToolBar.swift */,
 				39CE0E2F246DD76600AC6897 /* Appearance.swift */,
@@ -318,6 +321,7 @@
 				39CE0E4B246DD76800AC6897 /* Appearance.swift in Sources */,
 				39FF40B92480442200948059 /* ScratchPadImageView.swift in Sources */,
 				39CE0E57246DD76800AC6897 /* ImageButton.swift in Sources */,
+				39FF40BD2481894F00948059 /* Camera.swift in Sources */,
 				1FF8D2D5247A5E080050FEC7 /* CheckMarkButton.swift in Sources */,
 				39CE0E44246DD76800AC6897 /* ImageTextInputViewGroups.swift in Sources */,
 				39CE0E3D246DD76800AC6897 /* UIFont+Extension.swift in Sources */,

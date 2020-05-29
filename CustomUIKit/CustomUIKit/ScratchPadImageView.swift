@@ -1,7 +1,6 @@
 //
-//  GLScratchCardImageView.swift
-//  GLScratchCard
-//
+//  ScratchCardImageView.swift
+//  ScratchCardImageView
 //  Created by Jageloo Yadav : Digital Office on 8/29/17
 //
 
