@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F616FA02482DAF600D76A59 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */; };
 		1F830DEC247BC8600043DD10 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F830DEB247BC8600043DD10 /* CheckMarkView.swift */; };
 		1FF8D2D5247A5E080050FEC7 /* CheckMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D4247A5E080050FEC7 /* CheckMarkButton.swift */; };
 		1FF8D2D7247A6A050050FEC7 /* UIImage+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		1F830DEB247BC8600043DD10 /* CheckMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
 		1FF8D2D4247A5E080050FEC7 /* CheckMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButton.swift; sourceTree = "<group>"; };
 		1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Load.swift"; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				1FF8D2D4247A5E080050FEC7 /* CheckMarkButton.swift */,
 				1F830DEB247BC8600043DD10 /* CheckMarkView.swift */,
 				1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */,
+				1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */,
 				39CE0E0A246DD71400AC6897 /* CustomUIKit.h */,
 				1FF8D2D8247A6A360050FEC7 /* Media.xcassets */,
 				39CE0E0B246DD71400AC6897 /* Info.plist */,
@@ -299,6 +302,7 @@
 			files = (
 				39CE0E43246DD76800AC6897 /* HeadingWithSeperator.swift in Sources */,
 				39CE0E4D246DD76800AC6897 /* Constants.swift in Sources */,
+				1F616FA02482DAF600D76A59 /* UIViewController+Alert.swift in Sources */,
 				39CE0E49246DD76800AC6897 /* ImageGroupButtons.swift in Sources */,
 				39CE0E4A246DD76800AC6897 /* TextInputView.swift in Sources */,
 				39CE0E47246DD76800AC6897 /* TextField.swift in Sources */,
