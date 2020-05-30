@@ -36,25 +36,13 @@ extension Camera {
         }
         
         func configureCaptureDevices() throws {
+            self.frontCamera = AVCaptureDevice.default(.builtInWideAngleCamera,
+                                                       for: .video,
+                                                       position: .front)
             
-            let session = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInDualCamera], mediaType: AVMediaType.video, position: .unspecified)
-            
-            let cameras = session.devices.compactMap { $0 }
-            guard !cameras.isEmpty else { throw CameraControllerError.noCamerasAvailable }
-            
-            for camera in cameras {
-                if camera.position == .front {
-                    self.frontCamera = camera
-                }
-                
-                if camera.position == .back {
-                    self.rearCamera = camera
-                    
-                    try camera.lockForConfiguration()
-                    camera.focusMode = .continuousAutoFocus
-                    camera.unlockForConfiguration()
-                }
-            }
+            self.rearCamera = AVCaptureDevice.default(.builtInWideAngleCamera,
+                                                      for: .video,
+                                                      position: .back)
         }
         
         func configureDeviceInputs() throws {
@@ -90,24 +78,46 @@ extension Camera {
             captureSession.startRunning()
         }
         
-        DispatchQueue(label: "prepare").async {
-            do {
-                createCaptureSession()
-                try configureCaptureDevices()
-                try configureDeviceInputs()
-                try configurePhotoOutput()
-            }
-                
-            catch {
-                DispatchQueue.main.async {
-                    completionHandler?(error)
+        func prepare() {
+            DispatchQueue(label: "prepare").async {
+                do {
+                    createCaptureSession()
+                    try configureCaptureDevices()
+                    try configureDeviceInputs()
+                    try configurePhotoOutput()
+                }
+                    
+                catch {
+                    DispatchQueue.main.async {
+                        completionHandler?(error)
+                    }
+                    
+                    return
                 }
                 
-                return
+                DispatchQueue.main.async {
+                    completionHandler?(nil)
+                }
             }
+        }
+        
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
             
+        case .notDetermined:
+            AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+                if response {
+                    prepare()
+                } else {
+                    DispatchQueue.main.async {
+                        completionHandler?(CameraControllerError.cameraAccessRestricted)
+                    }
+                }
+            }
+        case .authorized:
+            prepare()
+        default:
             DispatchQueue.main.async {
-                completionHandler?(nil)
+                completionHandler?(CameraControllerError.cameraAccessRestricted)
             }
         }
     }
@@ -214,6 +224,7 @@ private extension Camera {
         case inputsAreInvalid
         case invalidOperation
         case noCamerasAvailable
+        case cameraAccessRestricted
         case unknown
     }
     
