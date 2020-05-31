@@ -170,7 +170,7 @@ public class Button: UIButton {
                         activeBorder: nil,
                         pressedText: white, pressedBackground: Color.darkBlueColour,
                         pressedBorder: nil,
-                        disabledText: white, disabledBackground: Color.lightBlueColour.withAlphaComponent(0.5),
+                        disabledText: white, disabledBackground: Appearance.color.withAlphaComponent(0.5),
                         disabledBorder: nil)
                 
             case .secondary:
