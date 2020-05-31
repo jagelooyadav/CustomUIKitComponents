@@ -11,7 +11,7 @@ import UIKit
 public class Camera: NSObject {
     private var captureSession: AVCaptureSession?
     
-    private var currentCameraPosition: CameraPosition?
+    public var currentCameraPosition: CameraPosition?
     
     private var frontCamera: AVCaptureDevice?
     private var frontCameraInput: AVCaptureDeviceInput?
@@ -216,8 +216,7 @@ extension Camera: AVCapturePhotoCaptureDelegate {
         }
     }
 }
-
-private extension Camera {
+public extension Camera {
     enum CameraControllerError: Swift.Error {
         case captureSessionAlreadyRunning
         case captureSessionIsMissing
