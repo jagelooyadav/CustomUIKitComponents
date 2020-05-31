@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F616FA02482DAF600D76A59 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */; };
 		1F830DEC247BC8600043DD10 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F830DEB247BC8600043DD10 /* CheckMarkView.swift */; };
+		1FC7CEB6248393E900DE7E0C /* String+QR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7CEB5248393E900DE7E0C /* String+QR.swift */; };
 		1FF8D2D5247A5E080050FEC7 /* CheckMarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D4247A5E080050FEC7 /* CheckMarkButton.swift */; };
 		1FF8D2D7247A6A050050FEC7 /* UIImage+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */; };
 		1FF8D2D9247A6A360050FEC7 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D8247A6A360050FEC7 /* Media.xcassets */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		1F830DEB247BC8600043DD10 /* CheckMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
+		1FC7CEB5248393E900DE7E0C /* String+QR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+QR.swift"; sourceTree = "<group>"; };
 		1FF8D2D4247A5E080050FEC7 /* CheckMarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkButton.swift; sourceTree = "<group>"; };
 		1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Load.swift"; sourceTree = "<group>"; };
 		1FF8D2D8247A6A360050FEC7 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				1FF8D2D4247A5E080050FEC7 /* CheckMarkButton.swift */,
 				1F830DEB247BC8600043DD10 /* CheckMarkView.swift */,
 				1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */,
+				1FC7CEB5248393E900DE7E0C /* String+QR.swift */,
 				1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */,
 				39CE0E0A246DD71400AC6897 /* CustomUIKit.h */,
 				1FF8D2D8247A6A360050FEC7 /* Media.xcassets */,
@@ -326,6 +329,7 @@
 				39FF40B92480442200948059 /* ScratchPadImageView.swift in Sources */,
 				39CE0E57246DD76800AC6897 /* ImageButton.swift in Sources */,
 				39FF40BD2481894F00948059 /* Camera.swift in Sources */,
+				1FC7CEB6248393E900DE7E0C /* String+QR.swift in Sources */,
 				1FF8D2D5247A5E080050FEC7 /* CheckMarkButton.swift in Sources */,
 				39CE0E44246DD76800AC6897 /* ImageTextInputViewGroups.swift in Sources */,
 				39CE0E3D246DD76800AC6897 /* UIFont+Extension.swift in Sources */,
