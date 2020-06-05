@@ -25,7 +25,7 @@ public extension UIImage {
 class NavigationViewController: UINavigationController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return self.topViewController?.preferredStatusBarStyle ?? .lightContent
     }
     
     override func viewDidLoad() {

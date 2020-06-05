@@ -21,7 +21,6 @@ public protocol ScratchPadImageViewDelegate {
 }
 // MARK:-
 
-
 /// GLScratchCardImageView is a sun class of UIImageview, Provides scratch effect over image view.
 public class ScratchPadImageView: UIImageView {
     // MARK: Public variables
@@ -30,9 +29,9 @@ public class ScratchPadImageView: UIImageView {
     /// - .round
     /// - .square
     /// - .butt
-    public var lineType: CGLineCap = .round
+    public var lineType: CGLineCap = .square
     /// Scratch line width, Default value is **30**
-    public var lineWidth: CGFloat = 40
+    public var lineWidth: CGFloat = 50
     
     /// Default value is **40**, **Important:** Setting 0 will disable this functionality.
     /// - If user scratched above this value and stay ideal for few seconds, Auto scratch will happen and reviles the bottom view
@@ -60,22 +59,15 @@ public class ScratchPadImageView: UIImageView {
         delegates.append(delegate)
     }
     
-    @objc fileprivate func scratchAndShowBottomLayerView() {
-        if currentScratchPercentage >= benchMarkScratchPercentage {
-            self.image = nil
-            scratchEnded()
-        }else{
-            self.image = topLayerImageReference
-        }
-    }
-    
-    fileprivate func scratchEnded() {
-        currentScratchPercentage = 100
-        isScratchEnded = true
-        for delegate in delegates {
-            delegate?.didScratchEnded()
-        }
-    }
+//    @objc fileprivate func scratchAndShowBottomLayerView() {
+//        if currentScratchPercentage >= benchMarkScratchPercentage {
+//            self.image = nil
+//            //scratchEnded()
+//        }else{
+//            self.image = topLayerImageReference
+//        }
+//    }
+//
     // MARK:- Core scratch functionality
     override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard  let touch = touches.first else {
@@ -85,13 +77,6 @@ public class ScratchPadImageView: UIImageView {
     }
     
     public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if benchMarkScratchPercentage != 0 {
-            if timer != nil {
-                timer?.invalidate()
-                timer = nil
-            }
-            timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.scratchAndShowBottomLayerView), userInfo: nil, repeats: true)
-        }
     }
     
     override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -116,7 +101,7 @@ public class ScratchPadImageView: UIImageView {
         currentScratchPercentage = alphaOnlyPersentage(img: img) * 100
 
         if currentScratchPercentage >= 100 && !isScratchEnded {
-            scratchEnded()
+            //scratchEnded()
         }
         for delegate in delegates {
             delegate?.scratchpercentageDidChange(value: currentScratchPercentage)

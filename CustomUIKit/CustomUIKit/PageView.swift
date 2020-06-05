@@ -30,7 +30,7 @@ public class PageView: ViewControl {
         stack.alignment = .fill
         stack.axis = .vertical
         stack.distribution = .fill
-        stack.spacing = 16.0
+        stack.spacing = 0
         return stack
     }()
     
@@ -38,11 +38,14 @@ public class PageView: ViewControl {
     
     private let content: ContentData
     
-    public init(content: ContentData) {
+    public init(content: ContentData, isQuestionViewVetically: Bool = true) {
         self.content = content
+        self.isQuestionViewVetically = isQuestionViewVetically
         super.init(frame: .zero)
         self.setup()
     }
+    
+    private var isQuestionViewVetically: Bool = true
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -74,6 +77,10 @@ public class PageView: ViewControl {
                 let question = Question(title: content.title, options: content.contents.map { $0.title })
                 let questionsView = ObjectiveQestionView.init(question: question)
                 self.contentStackView.addArrangedSubview(questionsView)
+                if !self.isQuestionViewVetically {
+                    questionsView.stackView.distribution = .fillEqually
+                    questionsView.stackView.axis = .horizontal
+                }
                 if content.identifier == "smokingOption" {
                     self.smokingQuestionView = questionsView
                 } else if content.identifier == "didYouSmokeDaily" {

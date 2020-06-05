@@ -53,7 +53,7 @@ public class ObjectiveQestionView: ViewControl {
         self.setup()
     }
     
-    private lazy var stackView: UIStackView = {
+    lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .fill
         stack.distribution = .fill
@@ -65,7 +65,7 @@ public class ObjectiveQestionView: ViewControl {
     private func setup() {
         let titleView = UIView()
         titleView.addSubview(self.titleLabel, insets: UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 0.0))
-        self.stackView.addArrangedSubview(titleView)
+        self.addSubview(titleView, insets: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 16.0, right: 0.0), ignoreConstant: .bottom)
         self.titleLabel.text = self.question.title
         self.titleLabel.numberOfLines = 0
         var index = 0
@@ -79,6 +79,7 @@ public class ObjectiveQestionView: ViewControl {
                 self?.didSelect?(self?.selectionIndex ?? 0,  self?.elements ?? [])
             }
         }
-        self.addSubview(self.stackView, insets: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 16.0, right: 0.0))
+        self.addSubview(self.stackView, insets: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 16.0, right: 0.0), ignoreConstant: .top)
+        self.stackView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 0).isActive = true
     }
 }

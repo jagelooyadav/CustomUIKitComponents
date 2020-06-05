@@ -46,7 +46,7 @@ public class HeadingWithSeperator: ViewControl {
     }
     
     private func setup() {
-        self.addSubview(self.titleLabel, insets: UIEdgeInsets(top: 5, left: 16, bottom: 0, right: 16), ignoreConstant: .bottom)
+        self.addSubview(self.titleLabel, insets: UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16), ignoreConstant: .bottom)
         let divider = DividerView()
         self.addSubview(divider, insets: UIEdgeInsets(top: 16, left: 16, bottom: 10, right: 16), ignoreConstant: .top)
         divider.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 5).isActive = true

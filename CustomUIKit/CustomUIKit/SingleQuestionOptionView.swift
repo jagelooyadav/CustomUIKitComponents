@@ -38,6 +38,7 @@ public class SingleQuestionOptionView: ViewControl {
     
     public init(option: String, at index: Int) {
         self.option = option
+        self.index = index
         super.init(frame: .zero)
         self.setup()
     }
@@ -97,7 +98,7 @@ public class SingleQuestionOptionView: ViewControl {
         label.textAlignment = .center
         label.text = String.init(format: "%C", 65 + index)
         label.font = UIFont.body
-        label.textColor = Color.appColour
+        label.textColor = Appearance.color
         label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         sequenceView.addSubview(label, insets: .zero)
         self.stackView.addArrangedSubview(sequenceView)
