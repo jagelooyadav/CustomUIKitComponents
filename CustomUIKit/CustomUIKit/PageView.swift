@@ -81,6 +81,10 @@ public class PageView: ViewControl {
                     questionsView.stackView.distribution = .fillEqually
                     questionsView.stackView.axis = .horizontal
                 }
+                if content.isContentVetical == true {
+                    questionsView.stackView.distribution = .fill
+                    questionsView.stackView.axis = .vertical
+                }
                 if content.identifier == "smokingOption" {
                     self.smokingQuestionView = questionsView
                 } else if content.identifier == "didYouSmokeDaily" {

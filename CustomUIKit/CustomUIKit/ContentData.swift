@@ -36,4 +36,5 @@ public struct ContentData: Decodable {
     public let names: [String]?
     public var identifier: String?
     public var icon: String?
+    public var isContentVetical: Bool?
 }

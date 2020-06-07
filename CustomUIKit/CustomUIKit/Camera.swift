@@ -130,6 +130,7 @@ extension Camera {
         self.previewLayer?.connection?.videoOrientation = .portrait
         
         view.layer.insertSublayer(self.previewLayer!, at: 0)
+        view.frame = UIScreen.main.bounds
         self.previewLayer?.frame = view.frame
     }
     

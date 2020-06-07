@@ -39,6 +39,7 @@ public class ObjectiveQestionView: ViewControl {
         lable.translatesAutoresizingMaskIntoConstraints = false
         lable.font = UIFont.boldSubHeading
         lable.textColor = Color.black1Colour
+        lable.numberOfLines = 0
         return lable
     }(UILabel())
     
@@ -64,7 +65,7 @@ public class ObjectiveQestionView: ViewControl {
     
     private func setup() {
         let titleView = UIView()
-        titleView.addSubview(self.titleLabel, insets: UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 0.0))
+        titleView.addSubview(self.titleLabel, insets: UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 16.0))
         self.addSubview(titleView, insets: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 16.0, right: 0.0), ignoreConstant: .bottom)
         self.titleLabel.text = self.question.title
         self.titleLabel.numberOfLines = 0
