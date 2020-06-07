@@ -9,6 +9,14 @@
 import UIKit
 import Foundation
 
+public protocol PageViewDelegate: class {
+    func didSelectQuestion(questionIdex: Int, questionView: ObjectiveQestionView)
+}
+
+extension PageViewDelegate {
+    func didSelectQuestion(questionIdex: Int, questionView: ObjectiveQestionView) {}
+}
+
 public class PageView: ViewControl {
     
     public var expectationBox: RoundedInformationBox?
@@ -22,6 +30,10 @@ public class PageView: ViewControl {
     public var alchohalOptionsQuestionView: ObjectiveQestionView?
     public var drinksIPastTextInputView: TextInputView?
     public var imageInputGroups: ImageTextInputViewGroups?
+    
+    public var viewInfo: [String?: ViewControl] = [:]
+    
+    public weak var delegate: PageViewDelegate?
     
     @objc public var footerButtonPress: (() -> Void)?
     
@@ -60,15 +72,18 @@ public class PageView: ViewControl {
                 box.title = content.title
                 self.contentStackView.addArrangedSubview(box)
                 self.expectationBox = box
+                self.viewInfo[content.identifier] = box
                 
             case .HeadingWithSeperator:
                 let heding = HeadingWithSeperator(withString: content.title)
                 self.contentStackView.addArrangedSubview(heding)
+                self.viewInfo[content.identifier] = heding
                 
             case .ImageGroupButtons:
                 let groups = ImageGroupButtons(images: content.images, names: content.names)
                 self.contentStackView.addArrangedSubview(groups)
                 self.sexGroups = groups
+                self.viewInfo[content.identifier] = groups
                 
             case .TextInputView:
                 self.configureTextInputView(content: content)
@@ -92,6 +107,10 @@ public class PageView: ViewControl {
                 } else if "alchohalOption" == content.identifier {
                     self.alchohalOptionsQuestionView = questionsView
                 }
+                questionsView.didSelect = { index, _ in
+                    self.delegate?.didSelectQuestion(questionIdex: index, questionView: questionsView)
+                }
+                self.viewInfo[content.identifier] = questionsView
                 
             case .ImageTextInputViewGroups:
                 let imageDataList = content.contents.map { ImageData(title:  $0.title, icon: $0.icon, identifier: $0.identifier)}
@@ -100,6 +119,7 @@ public class PageView: ViewControl {
                 groups.title = content.title
                 self.contentStackView.addArrangedSubview(groups)
                 self.imageInputGroups = groups
+                self.viewInfo[content.identifier] = groups
                 
             case .ImageInputTextView:
                 let imageInputViw = ImageInputTextView()
@@ -110,6 +130,7 @@ public class PageView: ViewControl {
                 imageInputViw.identifier = content.identifier
                 self.contentStackView.addArrangedSubview(imageInputViw)
                 imageInputViw.isAxisVetical = false
+                self.viewInfo[content.identifier] = imageInputViw
                 
             case .Footer:
                 let button = Button()
@@ -140,6 +161,7 @@ public class PageView: ViewControl {
         } else if "drinksInPast" == content.identifier {
             self.drinksIPastTextInputView = ageInputView
         }
+        self.viewInfo[content.identifier] = ageInputView
     }
     
     @objc private func footerClick() {

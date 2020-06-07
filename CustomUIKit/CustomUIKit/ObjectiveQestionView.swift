@@ -18,7 +18,7 @@ public class ObjectiveQestionView: ViewControl {
     private var elements: [SingleQuestionOptionView] = []
     public var didSelect: ((_ selectedIndex: Int, _ elements: [SingleQuestionOptionView]) -> Void)?
     
-    public var selectionIndex = 0 {
+    public var selectionIndex = -1 {
         didSet {
             guard self.selectionIndex >= 0 else { return }
             self.elements[self.selectionIndex].isSelected = true
