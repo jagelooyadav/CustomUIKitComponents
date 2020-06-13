@@ -110,6 +110,10 @@ public class PageView: ViewControl {
                 questionsView.didSelect = { index, _ in
                     self.delegate?.didSelectQuestion(questionIdex: index, questionView: questionsView)
                 }
+                questionsView.didSelectM = { index, _ in
+                    self.delegate?.didSelectQuestion(questionIdex: index, questionView: questionsView)
+                }
+                questionsView.identifier = content.identifier
                 self.viewInfo[content.identifier] = questionsView
                 
             case .ImageTextInputViewGroups:

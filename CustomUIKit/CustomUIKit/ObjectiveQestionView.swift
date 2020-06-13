@@ -17,15 +17,32 @@ public class ObjectiveQestionView: ViewControl {
     
     private var elements: [SingleQuestionOptionView] = []
     public var didSelect: ((_ selectedIndex: Int, _ elements: [SingleQuestionOptionView]) -> Void)?
+    public var didSelectM: ((_ selectedIndex: Int, _ status: Bool) -> Void)?
+    
+    public var isMultipleSelection = false
+    
+    public var selectedIndexes: [Int] = []
     
     public var selectionIndex = -1 {
         didSet {
             guard self.selectionIndex >= 0 else { return }
-            self.elements[self.selectionIndex].isSelected = true
-            let selected = self.elements[self.selectionIndex]
-            for element in self.elements {
-                guard element != selected else { continue }
-                element.isSelected = false
+            
+            if self.isMultipleSelection {
+                let selected = self.elements[self.selectionIndex]
+                self.elements[self.selectionIndex].isSelected = !selected.isSelected
+                if self.elements[self.selectionIndex].isSelected, !self.selectedIndexes.contains(self.selectionIndex) {
+                    self.selectedIndexes.append(self.selectionIndex)
+                } else {
+                    guard let index = self.selectedIndexes.firstIndex(of: self.selectionIndex) else { return }
+                    self.selectedIndexes.remove(at: index)
+                }
+            } else {
+                self.elements[self.selectionIndex].isSelected = true
+                let selected = self.elements[self.selectionIndex]
+                for element in self.elements {
+                    guard element != selected else { continue }
+                    element.isSelected = false
+                }
             }
         }
     }
@@ -76,9 +93,15 @@ public class ObjectiveQestionView: ViewControl {
             self.elements.append(questionView)
             self.stackView.addArrangedSubview(questionView)
             questionView.didSelect = { [weak self] title, index in
+                guard let selfS = self, !selfS.isMultipleSelection else { return }
                 self?.selectionIndex = self?.elements.firstIndex(of: questionView) ?? 0
                 self?.didSelect?(self?.selectionIndex ?? 0,  self?.elements ?? [])
             }
+            questionView.didSelectM = { [weak self] title, index, status in
+                self?.selectionIndex = self?.elements.firstIndex(of: questionView) ?? 0
+                self?.didSelectM?(self?.selectionIndex ?? 0,  status)
+            }
+            
         }
         self.addSubview(self.stackView, insets: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 16.0, right: 0.0), ignoreConstant: .top)
         self.stackView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 0).isActive = true

@@ -8,6 +8,12 @@
 
 import UIKit
 
+public func executeAfter(_ time: Double, completion: (() -> Void)?) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + time) {
+        completion?()
+    }
+}
+
 extension String {
     
     private func createQR() -> CIImage? {

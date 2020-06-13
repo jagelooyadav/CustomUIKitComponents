@@ -44,6 +44,9 @@ public class SingleQuestionOptionView: ViewControl {
     }
     
     public var didSelect: ((_ title: String?, _ index: Int) -> Void)?
+    
+    public var didSelectM: ((_ title: String?, _ index: Int, _ selectionStatus: Bool) -> Void)?
+    
     public var borderColor: UIColor? {
         get {
             guard let color = self.containerView.layer.borderColor else { return nil }
@@ -112,5 +115,6 @@ public class SingleQuestionOptionView: ViewControl {
     @objc private func click() {
         print("print...")
         self.didSelect?(self.titleLabel.text, self.index)
+        self.didSelectM?(self.titleLabel.text, self.index, self.isSelected)
     }
 }

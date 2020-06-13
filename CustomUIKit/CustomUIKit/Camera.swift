@@ -130,8 +130,7 @@ extension Camera {
         self.previewLayer?.connection?.videoOrientation = .portrait
         
         view.layer.insertSublayer(self.previewLayer!, at: 0)
-        view.frame = UIScreen.main.bounds
-        self.previewLayer?.frame = view.frame
+        self.previewLayer?.frame = CGRect.init(x: 0, y: 0, width: 130, height: 130)
     }
     
     public func switchCameras() throws {
