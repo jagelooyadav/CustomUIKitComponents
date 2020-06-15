@@ -61,7 +61,10 @@ public class SingleQuestionOptionView: ViewControl {
         didSet {
             self.borderColor = self.isSelected ? Appearance.color : Appearance.color.withAlphaComponent(0.5)
             self.containerView.layer.borderWidth = self.isSelected ? 2.0 : 1.0
-            self.containerView.backgroundColor = Appearance.color.withAlphaComponent(self.isSelected ? 0.3 : 0.01)
+            self.containerView.backgroundColor = Appearance.color.withAlphaComponent(self.isSelected ? 1.0 : 0.01)
+            self.titleLabel.textColor = self.isSelected ? .white : Color.black1Colour
+            self.sequenceView.layer.borderColor = self.isSelected ? UIColor.white.cgColor : Appearance.color.cgColor
+            self.label.textColor = self.isSelected ? UIColor.white : Appearance.color
         }
     }
     
@@ -85,18 +88,20 @@ public class SingleQuestionOptionView: ViewControl {
     }
     private lazy var touchButton = UIButton()
     
+    private let sequenceView = UIView()
+    private let label = UILabel()
+    
     private func setup() {
         self.addSubview(self.containerView, insets: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0))
         self.containerView.heightAnchor.constraint(equalToConstant: 48.0).isActive = true
         self.isSelected = false
         self.containerView.addSubview(self.stackView, insets: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0))
-        let sequenceView = UIView()
         sequenceView.translatesAutoresizingMaskIntoConstraints = false
         sequenceView.widthAnchor.constraint(equalToConstant: 30).isActive = true
         sequenceView.layer.borderColor = Appearance.color.cgColor
         sequenceView.layer.borderWidth = 0.5
         sequenceView.layer.cornerRadius = 5.0
-        let label = UILabel()
+
         label.font = UIFont.body
         label.textAlignment = .center
         label.text = String.init(format: "%C", 65 + index)

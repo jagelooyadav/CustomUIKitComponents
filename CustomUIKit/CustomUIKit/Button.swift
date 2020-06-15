@@ -168,7 +168,7 @@ public class Button: UIButton {
                 
                 return (activeText: white, activeBackground: Appearance.color,
                         activeBorder: nil,
-                        pressedText: white, pressedBackground: Color.darkBlueColour,
+                        pressedText: white, pressedBackground: Appearance.color.withAlphaComponent(0.8),
                         pressedBorder: nil,
                         disabledText: white, disabledBackground: Appearance.color.withAlphaComponent(0.5),
                         disabledBorder: nil)
@@ -176,7 +176,7 @@ public class Button: UIButton {
             case .secondary:
                 let white = UIColor.white
                 let darkBlue = Color.darkBlueColour
-                let lightBlue = Color.lightBlueColour
+                let lightBlue = Appearance.color.withAlphaComponent(0.8)
                 let digitalBlue = Appearance.color
                 
                 return (activeText: digitalBlue, activeBackground: white,
