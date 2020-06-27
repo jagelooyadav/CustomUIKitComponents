@@ -65,7 +65,7 @@ extension Camera {
                 captureSession.addInput(audioInput)
                 let output = AVCaptureAudioDataOutput()
                 output.setSampleBufferDelegate(self, queue: DispatchQueue.main)
-                self.captureSession?.addOutput(output)
+                captureSession.addOutput(output)
                 captureSession.startRunning()
             }
         }
@@ -231,7 +231,15 @@ extension Camera {
         self.photoOutput?.capturePhoto(with: settings, delegate: self)
         self.photoCaptureCompletionBlock = completion
     }
+    
+    public func stopAllTasks() {
+        self.captureSession?.stopRunning()
+    }
 
+    private func completion(success: Bool) {
+        self.audioRecordingCompletionBlock?(success)
+        self.captureSession?.stopRunning()
+    }
 }
 
 extension Camera: AVCapturePhotoCaptureDelegate {
@@ -252,11 +260,15 @@ extension Camera: AVCapturePhotoCaptureDelegate {
 }
 
 extension Camera: AVCaptureAudioDataOutputSampleBufferDelegate {
-    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        print("Audio ==")
+    public func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         let channel: AVCaptureAudioChannel? = connection.audioChannels.first
+        let averagePowerLevel = channel?.averagePowerLevel ?? 0.0
         
-        self.audioRecordingCompletionBlock?(true)
+        if averagePowerLevel > 0.0 {
+            self.completion(success: true)
+        } else {
+            print("averagePowerLevel: \(averagePowerLevel)")
+        }
     }
 }
 public extension Camera {
