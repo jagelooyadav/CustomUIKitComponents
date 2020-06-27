@@ -93,7 +93,7 @@ public class SingleQuestionOptionView: ViewControl {
     
     private func setup() {
         self.addSubview(self.containerView, insets: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0.0, right: 16.0))
-        self.containerView.heightAnchor.constraint(equalToConstant: 48.0).isActive = true
+        self.containerView.heightAnchor.constraint(greaterThanOrEqualToConstant: 48.0).isActive = true
         self.isSelected = false
         self.containerView.addSubview(self.stackView, insets: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0))
         sequenceView.translatesAutoresizingMaskIntoConstraints = false
@@ -105,6 +105,7 @@ public class SingleQuestionOptionView: ViewControl {
         label.font = UIFont.body
         label.textAlignment = .center
         label.text = String.init(format: "%C", 65 + index)
+        label.numberOfLines = 0
         label.font = UIFont.body
         label.textColor = Appearance.color
         label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)

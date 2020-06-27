@@ -21,16 +21,28 @@ public class Camera: NSObject {
     private var rearCamera: AVCaptureDevice?
     private var rearCameraInput: AVCaptureDeviceInput?
     
+    //Audio setting
+    private var audioDevice: AVCaptureDevice?
+    private var audioDeviceInput: AVCaptureDeviceInput?
+    
     private var previewLayer: AVCaptureVideoPreviewLayer?
     
     private var flashMode = AVCaptureDevice.FlashMode.off
     private var photoCaptureCompletionBlock: ((UIImage?, Error?) -> Void)?
+    
+    public var audioRecordingCompletionBlock:((Bool) -> Void)?
+    
+    public var isOnlyAudioRecord: Bool = false
+    var audioAssetWritter: AVAssetWriter?
+    
+    var fileLocation: String?
 
 }
 
 extension Camera {
     
-    public func prepare(completionHandler: ((Error?) -> Void)?) {
+    public func prepare(audioFileLocation: String? = nil, completionHandler: ((Error?) -> Void)?) {
+        self.fileLocation = audioFileLocation
         func createCaptureSession() {
             self.captureSession = AVCaptureSession()
         }
@@ -43,6 +55,19 @@ extension Camera {
             self.rearCamera = AVCaptureDevice.default(.builtInWideAngleCamera,
                                                       for: .video,
                                                       position: .back)
+        }
+        
+        func configureAudio() throws {
+            self.audioDevice = AVCaptureDevice.default(for: .audio)
+            guard let audioDevice = self.audioDevice, let captureSession = self.captureSession else { throw CameraControllerError.captureSessionIsMissing }
+            self.audioDeviceInput = try? AVCaptureDeviceInput(device: audioDevice)
+            if let audioInput = self.audioDeviceInput {
+                captureSession.addInput(audioInput)
+                let output = AVCaptureAudioDataOutput()
+                output.setSampleBufferDelegate(self, queue: DispatchQueue.main)
+                self.captureSession?.addOutput(output)
+                captureSession.startRunning()
+            }
         }
         
         func configureDeviceInputs() throws {
@@ -78,13 +103,22 @@ extension Camera {
             captureSession.startRunning()
         }
         
+        func createAssetWriter() {
+            guard let audioURL = self.fileLocation else { return }
+            
+        }
+        
         func prepare() {
             DispatchQueue(label: "prepare").async {
                 do {
                     createCaptureSession()
-                    try configureCaptureDevices()
-                    try configureDeviceInputs()
-                    try configurePhotoOutput()
+                    if self.isOnlyAudioRecord {
+                        try configureAudio()
+                    } else {
+                        try configureCaptureDevices()
+                        try configureDeviceInputs()
+                        try configurePhotoOutput()
+                    }
                 }
                     
                 catch {
@@ -214,6 +248,15 @@ extension Camera: AVCapturePhotoCaptureDelegate {
         else {
             self.photoCaptureCompletionBlock?(nil, CameraControllerError.unknown)
         }
+    }
+}
+
+extension Camera: AVCaptureAudioDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        print("Audio ==")
+        let channel: AVCaptureAudioChannel? = connection.audioChannels.first
+        
+        self.audioRecordingCompletionBlock?(true)
     }
 }
 public extension Camera {
