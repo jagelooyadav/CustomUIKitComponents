@@ -31,9 +31,19 @@ class NavigationViewController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let color = Appearance.color
-        let image = UIImage.init(color: color, size: self.navigationBar.bounds.size)
-        self.navigationBar.setBackgroundImage(image, for: .default)
+        //let color = Appearance.color
+        //let image = UIImage.init(color: color, size: self.navigationBar.bounds.size)
+        //self.navigationBar.setBackgroundImage(image, for: .default)
+        //self.navigationBar.barStyle = .blackTranslucent
+        let navigationBar = navigationController?.navigationBar
+        if #available(iOS 13.0, *) {
+            //let navigationBarAppearence = UINavigationBarAppearance()
+            //navigationBarAppearence.shadowColor = .clear
+            //navigationBar?.scrollEdgeAppearance = navigationBarAppearence
+        } else {
+            // Fallback on earlier versions
+        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
