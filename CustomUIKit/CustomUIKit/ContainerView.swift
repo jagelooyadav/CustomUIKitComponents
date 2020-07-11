@@ -40,6 +40,12 @@ public class ProgresssHud: UIView {
         self.label.text = text
         self.label.textColor = Appearance.color
         self.label.textAlignment = .center
+        //self.label.accessibilityLabel = text
+        if UIAccessibility.isVoiceOverRunning {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+                UIAccessibility.post(notification: .announcement, argument: "Please wait..")
+            }
+        }
         view.addSubview(backgroundView, insets: .zero)
         view.addSubview(self.activityView)
         self.activityView.translatesAutoresizingMaskIntoConstraints = false
