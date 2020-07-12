@@ -19,7 +19,7 @@ public enum IgnoreConstant {
 
 public extension UIView {
     
-    public func addSubview(_ subView: UIView, insets: UIEdgeInsets, ignoreConstant: IgnoreConstant = .none) {
+    func addSubview(_ subView: UIView, insets: UIEdgeInsets, ignoreConstant: IgnoreConstant = .none) {
         
         subView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(subView)

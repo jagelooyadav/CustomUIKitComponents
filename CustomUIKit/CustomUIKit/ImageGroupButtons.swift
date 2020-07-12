@@ -55,15 +55,6 @@ public class ImageGroupButtons: ViewControl {
         return label
     }()
     
-    private lazy var underLine: UIView = {
-        let vv = UIView()
-        vv.translatesAutoresizingMaskIntoConstraints = false
-        vv.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
-        vv.backgroundColor = Appearance.color
-        vv.widthAnchor.constraint(equalTo: self.widthAnchor, constant: 1.0)
-        return vv
-    }()
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()

@@ -286,11 +286,11 @@ public class TextInputView: InputView {
 
 extension TextInputView: UITextFieldDelegate {
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return self.delegate?.inputViewShouldBeginEditing?(inInputView: self) ?? true
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         if self.state == .normal, let rightTopView = self.customRightView {
             // hide the custom right view
             rightTopView.isHidden = true
@@ -299,7 +299,7 @@ extension TextInputView: UITextFieldDelegate {
         self.delegate?.inputViewDidBeginEditing?(inInputView: self)
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         
         if self.state == .normal, let rightTopView = self.customRightView {
             // show the custom right view
@@ -310,19 +310,19 @@ extension TextInputView: UITextFieldDelegate {
         return self.delegate?.inputViewShouldEndEditing?(inInputView: self) ?? true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
         self.delegate?.inputViewDidEndEditing?(inInputView: self)
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return self.delegate?.inputView?(inInputView: self, shouldChangeCharactersIn: range, replacementString: string) ?? true
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return  self.delegate?.inputViewShouldReturn?(inInputView: self) ?? true
     }
     
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+    public func textFieldShouldClear(_ textField: UITextField) -> Bool {
         return self.delegate?.inputViewShouldClear?(inInputView: self) ?? true
     }
 }

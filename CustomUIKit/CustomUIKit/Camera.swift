@@ -102,11 +102,6 @@ extension Camera {
             captureSession.startRunning()
         }
         
-        func createAssetWriter() {
-            guard let audioURL = self.fileLocation else { return }
-            
-        }
-        
         func prepare() {
             DispatchQueue(label: "prepare").async {
                 do {

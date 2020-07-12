@@ -42,8 +42,8 @@ public class ProgresssHud: UIView {
         self.label.textAlignment = .center
         //self.label.accessibilityLabel = text
         if UIAccessibility.isVoiceOverRunning {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-                UIAccessibility.post(notification: .announcement, argument: "Please wait..")
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+                UIAccessibility.post(notification: .announcement, argument: "Get price in progress")
             }
         }
         view.addSubview(backgroundView, insets: .zero)
