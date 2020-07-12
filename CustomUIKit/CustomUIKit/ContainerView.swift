@@ -81,7 +81,5 @@ public class ContainerView: UIView {
     private func setUp() {
         self.layer.cornerRadius = 10.0
         self.clipsToBounds = true
-        
-        //self.backgroundColor = Color.appColour
     }
 }
