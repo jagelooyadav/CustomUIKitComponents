@@ -7,9 +7,14 @@
 //
 
 import UIKit
-struct Question {
-    let title: String
-    let options: [String]
+public struct Question {
+    public let title: String
+    public let options: [String]
+    
+    public init(title: String, options: [String]) {
+        self.title = title
+        self.options = options
+    }
 }
 
 public class ObjectiveQestionView: ViewControl {
@@ -65,13 +70,13 @@ public class ObjectiveQestionView: ViewControl {
         self.setup()
     }
     
-    init(question: Question) {
+    public init(question: Question) {
         self.question = question
         super.init(frame: .zero)
         self.setup()
     }
     
-    lazy var stackView: UIStackView = {
+    public lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .fill
         stack.distribution = .fill
