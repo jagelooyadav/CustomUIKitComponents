@@ -44,6 +44,8 @@
 		39CE0E56246DD76800AC6897 /* RoundedInformationBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E3A246DD76800AC6897 /* RoundedInformationBox.swift */; };
 		39CE0E57246DD76800AC6897 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E3B246DD76800AC6897 /* ImageButton.swift */; };
 		39CE0E58246DD76800AC6897 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E3C246DD76800AC6897 /* Button.swift */; };
+		39D5E3B424D57BA300749C8F /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D5E3B324D57BA300749C8F /* AnimatedTabBarController.swift */; };
+		39D5E3B624D591FE00749C8F /* AmolTabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D5E3B524D591FE00749C8F /* AmolTabBarControllerViewController.swift */; };
 		39FF40B92480442200948059 /* ScratchPadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF40B82480442200948059 /* ScratchPadImageView.swift */; };
 		39FF40BD2481894F00948059 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF40BC2481894F00948059 /* Camera.swift */; };
 /* End PBXBuildFile section */
@@ -99,6 +101,8 @@
 		39CE0E3A246DD76800AC6897 /* RoundedInformationBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedInformationBox.swift; sourceTree = "<group>"; };
 		39CE0E3B246DD76800AC6897 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		39CE0E3C246DD76800AC6897 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		39D5E3B324D57BA300749C8F /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
+		39D5E3B524D591FE00749C8F /* AmolTabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmolTabBarControllerViewController.swift; sourceTree = "<group>"; };
 		39FF40B82480442200948059 /* ScratchPadImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchPadImageView.swift; sourceTree = "<group>"; };
 		39FF40BC2481894F00948059 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +185,8 @@
 				1FF8D2D8247A6A360050FEC7 /* Media.xcassets */,
 				39CE0E0B246DD71400AC6897 /* Info.plist */,
 				39B0713224B20BC5004434B0 /* DraggableButtonView.swift */,
+				39D5E3B324D57BA300749C8F /* AnimatedTabBarController.swift */,
+				39D5E3B524D591FE00749C8F /* AmolTabBarControllerViewController.swift */,
 			);
 			path = CustomUIKit;
 			sourceTree = "<group>";
@@ -315,6 +321,7 @@
 				39CE0E56246DD76800AC6897 /* RoundedInformationBox.swift in Sources */,
 				39CE0E45246DD76800AC6897 /* DividerView.swift in Sources */,
 				39CE0E3E246DD76800AC6897 /* ImageInputTextView.swift in Sources */,
+				39D5E3B424D57BA300749C8F /* AnimatedTabBarController.swift in Sources */,
 				39CE0E4E246DD76800AC6897 /* PageView.swift in Sources */,
 				39CE0E53246DD76800AC6897 /* NavigationViewController.swift in Sources */,
 				39CE0E48246DD76800AC6897 /* AccessoryToolBar.swift in Sources */,
@@ -333,6 +340,7 @@
 				39CE0E57246DD76800AC6897 /* ImageButton.swift in Sources */,
 				39FF40BD2481894F00948059 /* Camera.swift in Sources */,
 				1FC7CEB6248393E900DE7E0C /* String+QR.swift in Sources */,
+				39D5E3B624D591FE00749C8F /* AmolTabBarControllerViewController.swift in Sources */,
 				1FF8D2D5247A5E080050FEC7 /* CheckMarkButton.swift in Sources */,
 				39CE0E44246DD76800AC6897 /* ImageTextInputViewGroups.swift in Sources */,
 				39CE0E3D246DD76800AC6897 /* UIFont+Extension.swift in Sources */,
