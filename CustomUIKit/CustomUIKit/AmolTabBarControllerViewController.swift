@@ -16,7 +16,6 @@ open class AmolTabBarControllerViewController: UITabBarController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         self.viewDidLoadForAnimation()
-
     }
     
     open override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -33,8 +32,9 @@ extension AmolTabBarControllerViewController: AnimatedTabBarControllerProtocol {
     public var barTintGradients: [CGColor] {
         return [gradientColor1, gradientColor2]
     }
+    
     public var tabSelctionIndicatorColor: UIColor {
-        return .gray
+        return UIColor.white.withAlphaComponent(0.1)
     }
 }
 
