@@ -40,19 +40,23 @@ extension AnimatedTabBarControllerProtocol {
     }
     
     public func animatedTabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        SelectionIndicator.animator.addAnimations {
-            guard let items = tabBar.items, let imageView = SelectionIndicator.imageView else {
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            guard let items = tabBar.items, let imageView = SelectionIndicator.imageView  else {
                 return
             }
             let numberOfItems = CGFloat(items.count)
             imageView.center.x = self.tabBar.frame.width / numberOfItems / 2
             let number = -(items.index(of: item)?.distance(to: 0))! + 1
             let index = number - 1
+            guard SelectionIndicator.previousIndex != index else { return }
             let singleItemCenter = tabBar.frame.width/numberOfItems/2
             let itemWidth = tabBar.frame.width/numberOfItems
             imageView.center.x = singleItemCenter + CGFloat(index) * itemWidth
-        }
-        SelectionIndicator.animator.startAnimation()
+            self.updateOfset(forIndex: index)
+            /// update previous index after finsih operation
+            SelectionIndicator.previousIndex = index
+        })
     }
     
     public func viewDidLoadForAnimation() {
@@ -66,11 +70,15 @@ extension AnimatedTabBarControllerProtocol {
         imageView.layer.cornerRadius = 4.0
         imageView.clipsToBounds = true
         self.tabBar.sendSubviewToBack(imageView)
+        
+        // Background Image
         let gradient = CAGradientLayer()
         gradient.frame = self.tabBar.bounds
         gradient.colors = self.barTintGradients
         let image = UIImage.gradientImageWithBounds(bounds: self.tabBar.bounds, colors: self.barTintGradients)
         self.tabBar.backgroundImage = image
+        
+        //Tint colors
         self.tabBar.tintColor = self.itemSelectedTintColor
         self.tabBar.unselectedItemTintColor = self.itemUnSelectedTintColor
         
@@ -81,6 +89,85 @@ extension AnimatedTabBarControllerProtocol {
                 item.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .selected)
             }
         }
+        self.traverseTabs()
+        self.updateOfset(forIndex: 0)
+    }
+    
+    private func updateOfset(forIndex index: Int) {
+        let button = SelectionIndicator.iconButtons[index]
+        guard let items = self.tabBar.items else { return }
+       
+        //Handle first time selection
+        guard let imageView = SelectionIndicator.imageView else { return }
+        button.center.x = imageView.center.x
+        
+        if index == 0 && SelectionIndicator.previousIndex == 0 {
+            var newIndex = index + 1
+            while newIndex < items.count {
+                
+                let button = SelectionIndicator.iconButtons[newIndex]
+                button.center.x = imageView.center.x - SelectionIndicator.adjustment
+                newIndex += 1
+            }
+        }
+        
+        if index > SelectionIndicator.previousIndex {
+            var newIndex = SelectionIndicator.previousIndex
+            
+            while newIndex < index {
+                let button = SelectionIndicator.iconButtons[newIndex]
+               
+                guard let items = tabBar.items else {
+                    return
+                }
+                let numberOfItems = CGFloat(items.count)
+                let singleItemCenter = tabBar.frame.width/numberOfItems/2
+                let itemWidth = tabBar.frame.width/numberOfItems
+                let centerX = singleItemCenter + CGFloat(newIndex) * itemWidth
+                
+                button.center.x = centerX - SelectionIndicator.adjustment
+                newIndex += 1
+            }
+        }
+        
+        if index < SelectionIndicator.previousIndex {
+            var newIndex = index
+            while newIndex <= SelectionIndicator.previousIndex {
+                let button = SelectionIndicator.iconButtons[newIndex]
+                
+                guard let items = tabBar.items else {
+                    return
+                }
+                let numberOfItems = CGFloat(items.count)
+                let singleItemCenter = tabBar.frame.width/numberOfItems/2
+                let itemWidth = tabBar.frame.width/numberOfItems
+                let centerX = singleItemCenter + CGFloat(newIndex) * itemWidth
+                
+                button.center.x = centerX + SelectionIndicator.adjustment
+                newIndex += 1
+            }
+        }
+    }
+    
+    private func traverseTabs() {
+        SelectionIndicator.titleLabels = []
+        SelectionIndicator.iconButtons = []
+        func findSubViews(parent: UIView) {
+            guard !parent.subviews.isEmpty else {
+                return
+            }
+            for subView in parent.subviews {
+                if let label = subView as? UILabel {
+                    SelectionIndicator.titleLabels.append(label)
+                }
+            
+                if let button = subView as? UIControl {
+                    SelectionIndicator.iconButtons.append(button)
+                }
+                findSubViews(parent: subView)
+            }
+        }
+        findSubViews(parent: self.tabBar)
     }
 }
 
@@ -113,10 +200,21 @@ private extension UIImage {
 }
 
 private struct SelectionIndicator {
+    
     static var imageView: UIImageView? = nil
+    
+    static var titleLabels: [UILabel] = []
+    static var iconButtons: [UIControl] = []
+    static var previousIndex: Int = 0
+    
+    static let adjustment: CGFloat = 3.0
     
    static let animator: UIViewPropertyAnimator = {
         return UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut)
+    }()
+    
+    static let buttonAnimator: UIViewPropertyAnimator = {
+        return UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut)
     }()
     static func createIndicatorImage(inTabBar tabBarController: AnimatedTabBarControllerProtocol) {
         guard imageView == nil else { return }
