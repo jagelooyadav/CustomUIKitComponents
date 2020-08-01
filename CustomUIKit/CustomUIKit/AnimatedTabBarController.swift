@@ -47,7 +47,7 @@ extension AnimatedTabBarControllerProtocol {
             }
             let numberOfItems = CGFloat(items.count)
             imageView.center.x = self.tabBar.frame.width / numberOfItems / 2
-            let number = -(items.index(of: item)?.distance(to: 0))! + 1
+            let number = -((items.index(of: item)?.distance(to: 0)) ?? 0) + 1
             let index = number - 1
             guard SelectionIndicator.previousIndex != index else { return }
             let singleItemCenter = tabBar.frame.width/numberOfItems/2
@@ -61,7 +61,7 @@ extension AnimatedTabBarControllerProtocol {
     
     public func viewDidLoadForAnimation() {
         SelectionIndicator.createIndicatorImage(inTabBar: self)
-        guard let imageView = SelectionIndicator.imageView, let items = tabBar.items else {
+        guard let imageView = SelectionIndicator.imageView, let items = tabBar.items, !items.isEmpty else {
             return
         }
         self.tabBar.addSubview(imageView)
@@ -90,36 +90,25 @@ extension AnimatedTabBarControllerProtocol {
             }
         }
         self.traverseTabs()
-        self.updateOfset(forIndex: 0)
+        SelectionIndicator.previousIndex = items.count - 1
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+            self.updateOfset(forIndex: 0)
+        }
     }
     
     private func updateOfset(forIndex index: Int) {
-        let button = SelectionIndicator.iconButtons[index]
-        guard let items = self.tabBar.items else { return }
-       
+        let selectedButton = SelectionIndicator.iconButtons[index]
+        guard let items = tabBar.items else {
+            return
+        }
         //Handle first time selection
         guard let imageView = SelectionIndicator.imageView else { return }
-        button.center.x = imageView.center.x
-        
-        if index == 0 && SelectionIndicator.previousIndex == 0 {
-            var newIndex = index + 1
-            while newIndex < items.count {
-                
-                let button = SelectionIndicator.iconButtons[newIndex]
-                button.center.x = imageView.center.x - SelectionIndicator.adjustment
-                newIndex += 1
-            }
-        }
         
         if index > SelectionIndicator.previousIndex {
             var newIndex = SelectionIndicator.previousIndex
             
             while newIndex < index {
                 let button = SelectionIndicator.iconButtons[newIndex]
-               
-                guard let items = tabBar.items else {
-                    return
-                }
                 let numberOfItems = CGFloat(items.count)
                 let singleItemCenter = tabBar.frame.width/numberOfItems/2
                 let itemWidth = tabBar.frame.width/numberOfItems
@@ -135,9 +124,6 @@ extension AnimatedTabBarControllerProtocol {
             while newIndex <= SelectionIndicator.previousIndex {
                 let button = SelectionIndicator.iconButtons[newIndex]
                 
-                guard let items = tabBar.items else {
-                    return
-                }
                 let numberOfItems = CGFloat(items.count)
                 let singleItemCenter = tabBar.frame.width/numberOfItems/2
                 let itemWidth = tabBar.frame.width/numberOfItems
@@ -147,6 +133,7 @@ extension AnimatedTabBarControllerProtocol {
                 newIndex += 1
             }
         }
+        selectedButton.center.x = imageView.center.x
     }
     
     private func traverseTabs() {
@@ -207,7 +194,7 @@ private struct SelectionIndicator {
     static var iconButtons: [UIControl] = []
     static var previousIndex: Int = 0
     
-    static let adjustment: CGFloat = 3.0
+    static let adjustment: CGFloat = 5.0
     
    static let animator: UIViewPropertyAnimator = {
         return UIViewPropertyAnimator(duration: 0.2, curve: .easeInOut)
