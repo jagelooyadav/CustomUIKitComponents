@@ -91,8 +91,12 @@ extension AnimatedTabBarControllerProtocol {
         }
         self.traverseTabs()
         SelectionIndicator.previousIndex = items.count - 1
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
-            self.updateOfset(forIndex: 0)
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+            UIView.animate(withDuration: 0.3, animations: {
+                      self.updateOfset(forIndex: 0)
+                      SelectionIndicator.previousIndex = 0
+            }, completion: {_ in SelectionIndicator.previousIndex = 0 })
         }
     }
     
