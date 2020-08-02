@@ -75,7 +75,7 @@ extension AnimatedTabBarControllerProtocol {
         let gradient = CAGradientLayer()
         gradient.frame = self.tabBar.bounds
         gradient.colors = self.barTintGradients
-        let image = UIImage.gradientImageWithBounds(bounds: self.tabBar.bounds, colors: self.barTintGradients)
+        let image = UIImage.gradientImage(bounds: self.tabBar.bounds, colors: self.barTintGradients)
         self.tabBar.backgroundImage = image
         
         //Tint colors
@@ -175,19 +175,19 @@ private extension UIImage {
         return UIImage.init(cgImage: cgImage)
     }
     
-    static func gradientImageWithBounds(bounds: CGRect, colors: [CGColor]) -> UIImage? {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = bounds
-        gradientLayer.colors = colors
-        
-        UIGraphicsBeginImageContext(gradientLayer.bounds.size)
-        if let context = UIGraphicsGetCurrentContext() {
-           gradientLayer.render(in: context)
-        }
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
+    static func gradientImage(bounds: CGRect, colors: [CGColor]) -> UIImage? {
+           let gradientLayer = CAGradientLayer()
+           gradientLayer.frame = bounds
+           gradientLayer.colors = colors
+           
+           UIGraphicsBeginImageContext(gradientLayer.bounds.size)
+           if let context = UIGraphicsGetCurrentContext() {
+               gradientLayer.render(in: context)
+           }
+           let image = UIGraphicsGetImageFromCurrentImageContext()
+           UIGraphicsEndImageContext()
+           return image
+       }
 }
 
 private struct SelectionIndicator {
