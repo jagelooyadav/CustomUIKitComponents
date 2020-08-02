@@ -8,7 +8,8 @@
 
 import UIKit
 
-public protocol AnimatedTabBarControllerProtocol: UITabBarController {
+public protocol TabBarItemAnimator {
+    var tabBar: UITabBar { get }
     var tabSelctionIndicatorColor: UIColor { get }
     var tabIndicatorWidth: CGFloat { get }
     func viewDidLoadForAnimation()
@@ -19,7 +20,7 @@ public protocol AnimatedTabBarControllerProtocol: UITabBarController {
     var tabBarItemFont: UIFont? { get }
 }
 
-extension AnimatedTabBarControllerProtocol {
+extension TabBarItemAnimator {
     
     public var tabIndicatorWidth: CGFloat { return 56.0 }
     
@@ -207,7 +208,7 @@ private struct SelectionIndicator {
     static let buttonAnimator: UIViewPropertyAnimator = {
         return UIViewPropertyAnimator(duration: 0.3, curve: .easeInOut)
     }()
-    static func createIndicatorImage(inTabBar tabBarController: AnimatedTabBarControllerProtocol) {
+    static func createIndicatorImage(inTabBar tabBarController: TabBarItemAnimator) {
         guard imageView == nil else { return }
         let color = tabBarController.tabSelctionIndicatorColor
         let scale = UIScreen.main.scale
