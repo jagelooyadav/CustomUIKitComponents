@@ -11,8 +11,8 @@ import UIKit
 
 extension UIFont {
     
-    public class var boldHeading: UIFont {
-        return UIFont.boldSystemFont(ofSize: 18.0)
+    public class var boldHeading: UIFont! {
+        return UIFont(name: "HelveticaNeue", size: 18)
     }
     
     public class var heading: UIFont {
@@ -23,8 +23,8 @@ extension UIFont {
         return UIFont.boldSystemFont(ofSize: 16.0)
     }
     
-    public class var subhHeading: UIFont {
-        return UIFont.boldSystemFont(ofSize: 16.0)
+    public class var subhHeading: UIFont! {
+        return UIFont(name: "HelveticaNeue-Light", size: 18)
     }
     
     public class var body: UIFont {

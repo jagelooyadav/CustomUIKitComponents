@@ -21,6 +21,15 @@ extension UIImage {
     static var untickMarkImage: UIImage? {
         return UIImage(imageNamed: "untickMark")
     }
+    
+    static var redCheckMark: UIImage? {
+           return UIImage(imageNamed: "icon_redx")
+    }
+    
+    static var greenTick: UIImage? {
+        return UIImage(imageNamed: "icon_greencheckmark")
+    }
+
 }
 
 class BundleHelper {

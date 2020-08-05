@@ -46,6 +46,7 @@ public class Button: UIButton {
         
         /// Delete button style.
         case delete
+
     }
     
     // MARK: - Variables
@@ -58,6 +59,21 @@ public class Button: UIButton {
     public var style: Style = .primary {
         didSet {
             self.updateColours()
+        }
+    }
+    
+    public var primaryGradientColors: [CGColor] = [] {
+        didSet {
+            let gradient = CAGradientLayer()
+            gradient.frame = self.bounds
+            gradient.colors = self.primaryGradientColors
+            gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+            gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+            self.layer.insertSublayer(gradient, at: 1)
+            self.layer.cornerRadius = 24.0
+            self.clipsToBounds = true
+            self.backgroundColor = .clear
+            self.layer.borderColor = UIColor.clear.cgColor
         }
     }
     
@@ -176,8 +192,8 @@ public class Button: UIButton {
             case .secondary:
                 let white = UIColor.white
                 let darkBlue = Color.darkBlueColour
-                let lightBlue = Appearance.color.withAlphaComponent(0.8)
-                let digitalBlue = Appearance.color
+                let lightBlue = Appearance.color == .clear ? Color.grey1Colour : Appearance.color.withAlphaComponent(0.8)
+                let digitalBlue = Appearance.color == .clear ? Color.grey1Colour : Appearance.color
                 
                 return (activeText: digitalBlue, activeBackground: white,
                         activeBorder: digitalBlue,
@@ -203,16 +219,20 @@ public class Button: UIButton {
         self.setTitleColor(colours.activeText, for: .normal)
         self.setTitleColor(colours.pressedText, for: .highlighted)
         self.setTitleColor(colours.disabledText, for: .disabled)
-        
+
+        if Appearance.color == .clear {
+            self.setTitleColor(Color.darkGrey3Colour, for: .disabled)
+        }
         self.updateCurrentAppearance()
     }
     
     /// Updates the current appearance for the button state.
     private func updateCurrentAppearance() {
         guard let colours = self.colours else { return }
+        guard self.primaryGradientColors.isEmpty else { return }
         
         if !self.isEnabled {
-            self.backgroundColor = colours.disabledBackground
+            self.backgroundColor = !isSecondaryStyle ? colours.disabledBackground : UIColor.white
             self.layer.borderColor = (colours.disabledBorder ?? colours.disabledBackground).cgColor
         } else if self.isHighlighted {
             self.backgroundColor = colours.pressedBackground
@@ -220,6 +240,10 @@ public class Button: UIButton {
         } else {
             self.backgroundColor = colours.activeBackground
             self.layer.borderColor = (colours.activeBorder ?? colours.activeBackground).cgColor
+            
+        }
+        if Appearance.color == .clear {
+            self.layer.borderColor = Color.grey3Colour.cgColor
         }
     }
     
