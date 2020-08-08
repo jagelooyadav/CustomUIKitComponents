@@ -13,6 +13,8 @@ public class LinearLayerAnimation {
     private let progressLayer = CAShapeLayer()
     private var completion: (() -> Void)?
     
+    var stopAnimation = false
+    
     public init(lineWidth: CGFloat, lineColor: UIColor) {
         self.progressLayer.strokeColor = lineColor.cgColor
         self.progressLayer.lineWidth = lineWidth
@@ -23,15 +25,22 @@ public class LinearLayerAnimation {
                         distanceToCover: CGFloat,
                         completion: (() -> Void)?) {
         self.completion = completion
+        stopAnimation = false
         view.layer.addSublayer(self.progressLayer)
-        self.drawLineFromPoint(start: .zero, toPoint: CGPoint(x: distanceToCover, y: 0.0))
+        self.drawLineFromPoint(start: .zero, toPoint: CGPoint(x: distanceToCover, y: 0.0), duration: duration)
     }
     
-    private func drawLineFromPoint(start : CGPoint, toPoint end:CGPoint) {
+    public func removeAnimationLayer() {
+        self.progressLayer.removeFromSuperlayer()
+        self.progressLayer.path = nil
+        stopAnimation = true
+    }
+    
+    private func drawLineFromPoint(start : CGPoint, toPoint end:CGPoint, duration: CGFloat) {
         //design the path
         let path = UIBezierPath()
         path.move(to: start)
-        var time: CGFloat = 10.0
+        var time: CGFloat = duration
         var distance: CGFloat = 0.0
         self.animate(forTime: &time, timeLapses: &distance, distance: end.x, path: path)
     }
@@ -40,7 +49,7 @@ public class LinearLayerAnimation {
                          timeLapses: inout CGFloat,
                          distance: CGFloat,
                          path: UIBezierPath) {
-        if timeLapses >= second {
+        if timeLapses >= second, !stopAnimation {
             self.completion?()
             return
         }

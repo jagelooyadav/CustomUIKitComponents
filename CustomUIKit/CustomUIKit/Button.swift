@@ -37,7 +37,7 @@ public class Button: UIButton {
     // MARK: - Enums
     
     /// A style of the button.
-    public enum Style {
+    public enum Style: String {
         /// Primary style.
         case primary
         
@@ -46,6 +46,10 @@ public class Button: UIButton {
         
         /// Delete button style.
         case delete
+        
+        /// Underline
+        
+        case underline
 
     }
     
@@ -58,13 +62,13 @@ public class Button: UIButton {
      */
     public var style: Style = .primary {
         didSet {
+            self.gradient.removeFromSuperlayer()
             self.updateColours()
         }
     }
-    
+    let gradient = CAGradientLayer()
     public var primaryGradientColors: [CGColor] = [] {
         didSet {
-            let gradient = CAGradientLayer()
             gradient.frame = self.bounds
             gradient.colors = self.primaryGradientColors
             gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
@@ -74,6 +78,7 @@ public class Button: UIButton {
             self.clipsToBounds = true
             self.backgroundColor = .clear
             self.layer.borderColor = UIColor.clear.cgColor
+            self.setTitleColor(.white, for: .normal)
         }
     }
     
@@ -90,13 +95,14 @@ public class Button: UIButton {
      This is a convenience variable to set `style`, designed only for Objective-C and IBInspectable usage.
      If you are using Swift, directly set `style` instead for better performance.
      */
-    @IBInspectable var isSecondaryStyle: Bool {
+    @IBInspectable var styleString: String {
         get {
-            return self.style == .secondary
+            return ""
         }
         
         set {
-            self.style = newValue ? .secondary : .primary
+            self.style = Style(rawValue: newValue) ?? .primary
+            self.updateCurrentAppearance()
         }
     }
     
@@ -189,7 +195,7 @@ public class Button: UIButton {
                         disabledText: white, disabledBackground: Appearance.color.withAlphaComponent(0.5),
                         disabledBorder: nil)
                 
-            case .secondary:
+            case .secondary, .underline:
                 let white = UIColor.white
                 let darkBlue = Color.darkBlueColour
                 let lightBlue = Appearance.color == .clear ? Color.grey1Colour : Appearance.color.withAlphaComponent(0.8)
@@ -211,7 +217,9 @@ public class Button: UIButton {
                         pressedBorder: nil,
                         disabledText: white, disabledBackground: Color.lightRedColour.withAlphaComponent(0.5),
                         disabledBorder: nil)
+                
             }
+        
         }()
         
         self.colours = colours
@@ -220,7 +228,7 @@ public class Button: UIButton {
         self.setTitleColor(colours.pressedText, for: .highlighted)
         self.setTitleColor(colours.disabledText, for: .disabled)
 
-        if Appearance.color == .clear {
+        if Appearance.color == .clear && self.style != .primary {
             self.setTitleColor(Color.darkGrey3Colour, for: .disabled)
         }
         self.updateCurrentAppearance()
@@ -232,7 +240,7 @@ public class Button: UIButton {
         guard self.primaryGradientColors.isEmpty else { return }
         
         if !self.isEnabled {
-            self.backgroundColor = !isSecondaryStyle ? colours.disabledBackground : UIColor.white
+            self.backgroundColor = self.style == .secondary ? colours.disabledBackground : UIColor.white
             self.layer.borderColor = (colours.disabledBorder ?? colours.disabledBackground).cgColor
         } else if self.isHighlighted {
             self.backgroundColor = colours.pressedBackground
@@ -244,6 +252,13 @@ public class Button: UIButton {
         }
         if Appearance.color == .clear {
             self.layer.borderColor = Color.grey3Colour.cgColor
+        }
+        if self.style == .underline {
+            self.layer.borderColor = UIColor.clear.cgColor
+            self.backgroundColor = .clear
+             self.setTitleColor(Color.black1Colour, for: .normal)
+            self.layer.borderWidth = 0.0
+            self.layer.backgroundColor = UIColor.clear.cgColor
         }
     }
     

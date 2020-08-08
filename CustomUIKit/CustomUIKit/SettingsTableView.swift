@@ -16,12 +16,17 @@ public protocol TableInfo {
     var cornerRadius: CGFloat { get }
     var cellTypes: [CellType] { get }
     var layerAnimationDurations: [CGFloat] { get }
+    var cameraBackImage: UIImage? { get }
+    var camerFrontImage: UIImage? { get }
 }
 
 public extension TableInfo {
     var cornerRadius: Float { return 20.0 }
     var cellTypes: [CellType] { return [CellType]() }
     var layerAnimationDurations: [CGFloat] { return [] }
+    
+    var cameraBackImage: UIImage? { return nil }
+    var camerFrontImage: UIImage? { return nil }
 }
 
 public enum CellType {
@@ -31,6 +36,8 @@ public enum CellType {
     case checkMark
     case crossMark
     case none
+    case cameraBackImage
+    case camerFrontImage
 }
 
 public class SettingsTableView: UITableView, UITableViewDelegate {
@@ -103,9 +110,14 @@ extension SettingsTableView: UITableViewDataSource {
         cell.switchUpdated = { [weak self] index, status in
             self?.switchUpdated?(index, status)
         }
+        cell.cameraBackImage = self.tableInfo.cameraBackImage
+        cell.camerFrontImage = self.tableInfo.camerFrontImage
+        
         cell.cellTypes = self.tableInfo.cellTypes
-        if self.tableInfo.layerAnimationDurations.count > indexPath.row {
+        if self.tableInfo.layerAnimationDurations.count > indexPath.row, cell.cellTypes[indexPath.row] == .progressHud {
             cell.animate(tillDuration: self.tableInfo.layerAnimationDurations[indexPath.row])
+        } else {
+            cell.removeAnimationLayer()
         }
         return cell
     }
@@ -210,11 +222,16 @@ fileprivate class SettingCell: UITableViewCell {
     }
     
     func animate(tillDuration: CGFloat) {
-        self.linearAnimation.animate(in: self.dividerView, duration: tillDuration, distanceToCover: self.frame.width + 32.0, completion: nil)
+        self.linearAnimation.animate(in: self.dividerView, duration: tillDuration, distanceToCover: self.frame.width, completion: nil)
+    }
+    
+    func removeAnimationLayer() {
+        self.linearAnimation.removeAnimationLayer()
     }
     
     func updateSwitchIndex(_ index: Int, rowCount: Int) {
         self.index = index
+        self.rowCount = rowCount
         self.switchView.currentRow = index
     }
     
@@ -231,6 +248,18 @@ fileprivate class SettingCell: UITableViewCell {
         set { self.leftIcon.image = newValue }
     }
     
+    var cameraBackImage: UIImage? {
+        didSet {
+            self.rightIcon.image = self.cameraBackImage
+        }
+    }
+    
+    var camerFrontImage: UIImage? {
+        didSet {
+            self.rightIcon.image = self.camerFrontImage
+        }
+    }
+    
     var switchStatus: Bool {
         get { self.switchView.isOn }
            set { self.switchView.isOn = newValue }
@@ -242,10 +271,11 @@ fileprivate class SettingCell: UITableViewCell {
             self.switchContainerView.removeFromSuperview()
             let cellType = self.cellTypes[index]
             switch self.cellTypes[index] {
-            case .crossMark, .checkMark:
+            case .crossMark, .checkMark, .cameraBackImage, .camerFrontImage:
+                self.testingContainerView.removeFromSuperview()
                 self.stack.addArrangedSubview(self.rightIconContainerView)
                 self.rightIcon.image = cellType == .crossMark ? UIImage.redCheckMark : UIImage.greenTick
-                
+            
             case .progressHud:
                 self.rightIconContainerView.removeFromSuperview()
                 self.stack.addArrangedSubview(testingContainerView)
@@ -255,6 +285,7 @@ fileprivate class SettingCell: UITableViewCell {
             case .none:
                 self.rightIconContainerView.removeFromSuperview()
                 self.switchContainerView.removeFromSuperview()
+                self.testingContainerView.removeFromSuperview()
                 
             default:
                 break
