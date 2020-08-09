@@ -140,6 +140,9 @@ fileprivate class SettingCell: UITableViewCell {
     let dividerView = DividerView()
     private var testingLabel = UILabel()
     
+    var rightIconWidthConstraint: NSLayoutConstraint?
+    var rightIconHeightConstraint: NSLayoutConstraint?
+    
     lazy var linearAnimation: LinearLayerAnimation = {
         LinearLayerAnimation(lineWidth: 2.0, lineColor: UIColor(actualRed: 239.0, green: 110.0, blue: 92.0))
     }()
@@ -223,10 +226,12 @@ fileprivate class SettingCell: UITableViewCell {
         self.contentView.backgroundColor = .clear
         self.selectionStyle = .none
         leftIcon.contentMode = .scaleAspectFit
+        self.rightIconWidthConstraint = self.rightIcon.widthAnchor.constraint(equalToConstant: 40.0)
+        self.rightIconHeightConstraint = self.rightIcon.heightAnchor.constraint(equalToConstant: 40.0)
     }
     
     func animate(tillDuration: CGFloat) {
-        self.linearAnimation.animate(in: self.dividerView, duration: tillDuration, distanceToCover: self.frame.width, completion: nil)
+        self.linearAnimation.animate(in: self.dividerView, duration: tillDuration, distanceToCover: self.frame.width - 30, completion: nil)
     }
     
     func removeAnimationLayer() {
@@ -274,11 +279,18 @@ fileprivate class SettingCell: UITableViewCell {
             guard self.cellTypes.count == self.rowCount, !self.cellTypes.isEmpty else { return }
             self.switchContainerView.removeFromSuperview()
             let cellType = self.cellTypes[index]
-            switch self.cellTypes[index] {
+            switch cellType {
             case .crossMark, .checkMark, .cameraBackImage, .camerFrontImage:
                 self.testingContainerView.removeFromSuperview()
                 self.stack.addArrangedSubview(self.rightIconContainerView)
-                self.rightIcon.image = cellType == .crossMark ? UIImage.redCheckMark : UIImage.greenTick
+                
+                if cellType == .camerFrontImage && (self.camerFrontImage != nil) {
+                    self.rightIcon.image = self.camerFrontImage
+                } else if cellType == .cameraBackImage && (self.cameraBackImage != nil) {
+                    self.rightIcon.image = self.camerFrontImage
+                } else {
+                    self.rightIcon.image = cellType == .crossMark ? UIImage.redCheckMark : UIImage.greenTick
+                }
             
             case .progressHud:
                 self.rightIconContainerView.removeFromSuperview()
@@ -295,6 +307,9 @@ fileprivate class SettingCell: UITableViewCell {
             default:
                 break
             }
+            let isDynamicImage = cellType == .camerFrontImage || cellType == .cameraBackImage
+            self.rightIconWidthConstraint?.isActive = isDynamicImage
+            self.rightIconHeightConstraint?.isActive = isDynamicImage
             self.layoutIfNeeded()
         }
     }
