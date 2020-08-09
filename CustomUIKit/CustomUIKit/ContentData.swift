@@ -25,6 +25,10 @@ public enum ResourceType: String, Decodable {
     case SingleQuestionOptionView
     case ImageTextInputViewGroups
     case ImageInputTextView
+    case Button
+    case Label
+    case Placeholder
+    case UnderLineButton
 }
 
 public struct ContentData: Decodable {
@@ -37,4 +41,5 @@ public struct ContentData: Decodable {
     public var identifier: String?
     public var icon: String?
     public var isContentVetical: Bool?
+    public var textColorName: String?
 }

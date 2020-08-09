@@ -11,10 +11,12 @@ import Foundation
 
 public protocol PageViewDelegate: class {
     func didSelectQuestion(questionIdex: Int, questionView: ObjectiveQestionView)
+    func placeholderView(forIdentifier id: String?) -> UIView?
 }
 
-extension PageViewDelegate {
+public extension PageViewDelegate {
     func didSelectQuestion(questionIdex: Int, questionView: ObjectiveQestionView) {}
+    func placeholderView(forIdentifier id: String?) -> UIView? { return nil }
 }
 
 public class PageView: ViewControl {
@@ -31,13 +33,16 @@ public class PageView: ViewControl {
     public var drinksIPastTextInputView: TextInputView?
     public var imageInputGroups: ImageTextInputViewGroups?
     
-    public var viewInfo: [String?: ViewControl] = [:]
+    private var footerTopConstraint: NSLayoutConstraint?
+    private var contentStackBottomConstraint: NSLayoutConstraint?
+    
+    public var viewInfo: [String?: AnyObject] = [:]
     
     public weak var delegate: PageViewDelegate?
     
     @objc public var footerButtonPress: (() -> Void)?
     
-    private lazy var contentStackView: UIStackView = {
+    public lazy var contentStackView: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .fill
         stack.axis = .vertical
@@ -142,6 +147,35 @@ public class PageView: ViewControl {
                 self.footerParentView.addSubview(button, insets: UIEdgeInsets.init(top: 16, left: 16, bottom: 16, right: 16))
                 button.addTarget(self, action: #selector(self.footerClick), for: .touchUpInside)
                 self.nextButton = button
+                self.footerTopConstraint?.isActive = true
+                self.contentStackBottomConstraint?.isActive = false
+                
+            case .Button:
+                let button = Button()
+                button.setTitle(content.title, for: .normal)
+                self.contentStackView.addArrangedSubview(button)
+                self.viewInfo[content.identifier] = button
+                
+            case .UnderLineButton:
+                let button = Button()
+                button.style = .underline
+                button.setTitle(content.title, for: .normal)
+                self.contentStackView.addArrangedSubview(button)
+                self.viewInfo[content.identifier] = button
+                
+            case .Label:
+                let label = UILabel()
+                label.textColor = content.textColorName == "red" ? UIColor.red : .black
+                self.contentStackView.addArrangedSubview(label)
+                label.text = content.title
+                self.viewInfo[content.identifier] = label
+                label.font = UIFont.subhHeading
+                
+            case .Placeholder:
+                guard let view = self.delegate?.placeholderView(forIdentifier: content.identifier) else {
+                   continue
+                }
+                self.contentStackView.addArrangedSubview(view)
                 
             default:
                 continue
@@ -174,7 +208,9 @@ public class PageView: ViewControl {
     private func setup() {
         self.addSubview(self.contentStackView, insets: .zero, ignoreConstant: .bottom)
         self.addSubview(self.footerParentView, insets: .zero, ignoreConstant: .top)
-        self.footerParentView.topAnchor.constraint(greaterThanOrEqualTo: self.contentStackView.bottomAnchor, constant: 16.0).isActive = true
+        self.footerTopConstraint = self.footerParentView.topAnchor.constraint(greaterThanOrEqualTo: self.contentStackView.bottomAnchor, constant: 16.0)
+        self.contentStackBottomConstraint = self.bottomAnchor.constraint(equalTo: contentStackView.bottomAnchor, constant: 0)
+        self.contentStackBottomConstraint?.isActive = true
         self.setupUIForDynamicContent()
     }
 }

@@ -14,6 +14,7 @@
 		1FF8D2D7247A6A050050FEC7 /* UIImage+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */; };
 		1FF8D2D9247A6A360050FEC7 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D8247A6A360050FEC7 /* Media.xcassets */; };
 		3921F2F724DB1D2D000D65D5 /* LinearLayerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921F2F624DB1D2D000D65D5 /* LinearLayerAnimation.swift */; };
+		395ABA8024DF0E4B00BF3A9B /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ABA7F24DF0E4B00BF3A9B /* ModalView.swift */; };
 		39B0713324B20BC5004434B0 /* DraggableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0713224B20BC5004434B0 /* DraggableButtonView.swift */; };
 		39CE0E11246DD71400AC6897 /* CustomUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CE0E07246DD71400AC6897 /* CustomUIKit.framework */; };
 		39CE0E16246DD71400AC6897 /* CustomUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E15246DD71400AC6897 /* CustomUIKitTests.swift */; };
@@ -45,8 +46,8 @@
 		39CE0E56246DD76800AC6897 /* RoundedInformationBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E3A246DD76800AC6897 /* RoundedInformationBox.swift */; };
 		39CE0E57246DD76800AC6897 /* ImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E3B246DD76800AC6897 /* ImageButton.swift */; };
 		39CE0E58246DD76800AC6897 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E3C246DD76800AC6897 /* Button.swift */; };
-		39D5E3B424D57BA300749C8F /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D5E3B324D57BA300749C8F /* AnimatedTabBarController.swift */; };
 		39D5E3B024D1EF7800749C8F /* SettingsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D5E3AF24D1EF7800749C8F /* SettingsTableView.swift */; };
+		39D5E3B424D57BA300749C8F /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D5E3B324D57BA300749C8F /* AnimatedTabBarController.swift */; };
 		39FF40B92480442200948059 /* ScratchPadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF40B82480442200948059 /* ScratchPadImageView.swift */; };
 		39FF40BD2481894F00948059 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF40BC2481894F00948059 /* Camera.swift */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Load.swift"; sourceTree = "<group>"; };
 		1FF8D2D8247A6A360050FEC7 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		3921F2F624DB1D2D000D65D5 /* LinearLayerAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearLayerAnimation.swift; sourceTree = "<group>"; };
+		395ABA7F24DF0E4B00BF3A9B /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		39B0713224B20BC5004434B0 /* DraggableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableButtonView.swift; sourceTree = "<group>"; };
 		39CE0E07246DD71400AC6897 /* CustomUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CE0E0A246DD71400AC6897 /* CustomUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomUIKit.h; sourceTree = "<group>"; };
@@ -103,8 +105,8 @@
 		39CE0E3A246DD76800AC6897 /* RoundedInformationBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedInformationBox.swift; sourceTree = "<group>"; };
 		39CE0E3B246DD76800AC6897 /* ImageButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageButton.swift; sourceTree = "<group>"; };
 		39CE0E3C246DD76800AC6897 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		39D5E3B324D57BA300749C8F /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		39D5E3AF24D1EF7800749C8F /* SettingsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableView.swift; sourceTree = "<group>"; };
+		39D5E3B324D57BA300749C8F /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		39FF40B82480442200948059 /* ScratchPadImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchPadImageView.swift; sourceTree = "<group>"; };
 		39FF40BC2481894F00948059 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -190,6 +192,7 @@
 				39D5E3B324D57BA300749C8F /* AnimatedTabBarController.swift */,
 				39D5E3AF24D1EF7800749C8F /* SettingsTableView.swift */,
 				3921F2F624DB1D2D000D65D5 /* LinearLayerAnimation.swift */,
+				395ABA7F24DF0E4B00BF3A9B /* ModalView.swift */,
 			);
 			path = CustomUIKit;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				39CE0E56246DD76800AC6897 /* RoundedInformationBox.swift in Sources */,
 				39CE0E45246DD76800AC6897 /* DividerView.swift in Sources */,
 				39CE0E3E246DD76800AC6897 /* ImageInputTextView.swift in Sources */,
+				395ABA8024DF0E4B00BF3A9B /* ModalView.swift in Sources */,
 				39D5E3B424D57BA300749C8F /* AnimatedTabBarController.swift in Sources */,
 				39CE0E4E246DD76800AC6897 /* PageView.swift in Sources */,
 				39CE0E53246DD76800AC6897 /* NavigationViewController.swift in Sources */,
@@ -425,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -483,7 +487,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

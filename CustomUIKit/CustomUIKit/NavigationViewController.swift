@@ -37,13 +37,14 @@ public extension UIImage {
         return image
     }
 }
-class NavigationViewController: UINavigationController {
+
+public class NavigationViewController: UINavigationController {
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         return self.topViewController?.preferredStatusBarStyle ?? .lightContent
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         //let color = Appearance.color
         //let image = UIImage.init(color: color, size: self.navigationBar.bounds.size)
@@ -60,7 +61,7 @@ class NavigationViewController: UINavigationController {
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.navigationItem.backBarButtonItem?.setBackgroundImage(UIImage.init(named: "back"), for: .normal, barMetrics: .default)
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage(named: "back")

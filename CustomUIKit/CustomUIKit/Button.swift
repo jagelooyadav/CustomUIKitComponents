@@ -73,7 +73,7 @@ public class Button: UIButton {
             gradient.colors = self.primaryGradientColors
             gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
             gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
-            self.layer.insertSublayer(gradient, at: 1)
+            self.layer.insertSublayer(gradient, at: 0)
             self.layer.cornerRadius = 24.0
             self.clipsToBounds = true
             self.backgroundColor = .clear
@@ -183,6 +183,7 @@ public class Button: UIButton {
     
     /// Updates the defined colours based upon the style.
     private func updateColours() {
+        guard self.primaryGradientColors.isEmpty else { return }
         let colours: Colours = {
             switch self.style {
             case .primary:
