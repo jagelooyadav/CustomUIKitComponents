@@ -55,7 +55,8 @@ public class PageView: ViewControl {
     
     private let content: ContentData
     
-    public init(content: ContentData, isQuestionViewVetically: Bool = true) {
+    public init(content: ContentData, isQuestionViewVetically: Bool = true, delegate: PageViewDelegate? = nil) {
+        self.delegate = delegate
         self.content = content
         self.isQuestionViewVetically = isQuestionViewVetically
         super.init(frame: .zero)

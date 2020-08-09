@@ -90,6 +90,10 @@ public class SettingsTableView: UITableView, UITableViewDelegate {
     public override var intrinsicContentSize: CGSize {
       return CGSize(width: contentSize.width, height: contentSize.height + 40)
     }
+    
+    public func disableCornerRadious() {
+        self.layer.cornerRadius = 0.0
+    }
 }
 
 extension SettingsTableView: UITableViewDataSource {

@@ -85,7 +85,6 @@ public class ModalView: UIView {
         self.addSubview(transparentView, insets: .zero)
         transparentView.alpha = self.modelInfo.coverAlpha
         transparentView.backgroundColor = UIColor(actualRed: 88.0, green: 57.0, blue: 131.0)
-        self.addContentView()
         transparentView.addTarget(self, action: #selector(self.dismiss), for: .touchUpInside)
         transparentView.isUserInteractionEnabled = true
         transparentView.isEnabled = true
@@ -107,11 +106,11 @@ public class ModalView: UIView {
     }
     
     public func show(inView view: UIView? = UIApplication.shared.keyWindow,
-                     topMargin: CGFloat = 60.0,
-                     bottomMargin: CGFloat = 20.0) {
+                     topMargin: CGFloat = 10,
+                     bottomMargin: CGFloat = 10) {
         guard let superView = view else { return }
         superView.addSubview(self, insets: .zero)
-        
+        self.addContentView()
         superView.addSubview(self.containerView)
         /// adding constraint
         NSLayoutConstraint.activate([
@@ -127,7 +126,8 @@ public class ModalView: UIView {
     }
     
     @objc public func dismiss() {
-        self.removeFromSuperview()
+        self.contentHolder.removeFromSuperview()
         self.containerView.removeFromSuperview()
+        self.removeFromSuperview()
     }
 }
