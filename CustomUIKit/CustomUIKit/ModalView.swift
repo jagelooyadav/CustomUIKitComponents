@@ -30,7 +30,7 @@ public extension ModalInfo {
     var coverColor: UIColor { return .white }
     var coverAlpha: CGFloat { return 0.7 }
     var containerBorderColor: UIColor { return .red }
-    var cornerRadius: CGFloat { return 40.0 }
+    var cornerRadius: CGFloat { return 30.0 }
     var modalTitle: String? { return "Evaluating your device" }
     func pageRendered() {}
 }
@@ -117,8 +117,9 @@ public class ModalView: UIView {
         NSLayoutConstraint.activate([
             self.containerView.leadingAnchor.constraint(equalTo: superView.leadingAnchor),
             superView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor),
-            self.containerView.topAnchor.constraint(equalTo: superView.topAnchor,constant: topMargin),
-            superView.bottomAnchor.constraint(greaterThanOrEqualTo: self.containerView.bottomAnchor, constant: bottomMargin)
+            self.containerView.topAnchor.constraint(greaterThanOrEqualTo: superView.topAnchor,constant: topMargin),
+            superView.bottomAnchor.constraint(greaterThanOrEqualTo: self.containerView.bottomAnchor, constant: bottomMargin),
+            self.containerView.centerYAnchor.constraint(equalTo: superView.centerYAnchor)
         ])
         executeAfter(0.1) {
             self.modelInfo.pageRendered()

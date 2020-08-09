@@ -283,13 +283,15 @@ fileprivate class SettingCell: UITableViewCell {
                 self.testingLabel.textColor = Color.darkGrey3Colour
                 
             case .none:
-                self.rightIconContainerView.removeFromSuperview()
                 self.switchContainerView.removeFromSuperview()
                 self.testingContainerView.removeFromSuperview()
+                self.stack.addArrangedSubview(self.rightIconContainerView)
+                self.rightIcon.image = nil
                 
             default:
                 break
             }
+            self.layoutIfNeeded()
         }
     }
 }

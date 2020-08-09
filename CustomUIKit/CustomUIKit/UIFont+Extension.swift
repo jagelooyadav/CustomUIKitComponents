@@ -24,11 +24,15 @@ extension UIFont {
     }
     
     public class var subhHeading: UIFont! {
-        return UIFont(name: "HelveticaNeue-Light", size: 18)
+        return UIFont(name: "HelveticaNeue-Light", size: 16)
     }
     
     public class var body: UIFont {
-        return UIFont.systemFont(ofSize: 14.0)
+        return UIFont(name: "HelveticaNeue-Light", size: 14)!
+    }
+    
+    public class var boldBody: UIFont {
+        return UIFont(name: "HelveticaNeue-Bold", size: 14)!
     }
     
     public class var pageHeading: UIFont {

@@ -179,6 +179,7 @@ public class Button: UIButton {
         self.heightConstraint?.isActive = true
         
         self.updateColours()
+        self.titleLabel?.font = UIFont.boldBody
     }
     
     /// Updates the defined colours based upon the style.

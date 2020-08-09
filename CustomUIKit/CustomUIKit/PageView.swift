@@ -169,7 +169,8 @@ public class PageView: ViewControl {
                 self.contentStackView.addArrangedSubview(label)
                 label.text = content.title
                 self.viewInfo[content.identifier] = label
-                label.font = UIFont.subhHeading
+                label.font = UIFont.body
+                label.numberOfLines = 0
                 
             case .Placeholder:
                 guard let view = self.delegate?.placeholderView(forIdentifier: content.identifier) else {
