@@ -64,7 +64,7 @@ public class ModalView: UIView {
     public func setup() {
         self.addSubview(self.backgroundImage, insets: .zero, ignoreConstant: .bottom)
         self.addSubview(self.modalTitleLabel,
-                        insets: UIEdgeInsets(top: 25,
+                        insets: UIEdgeInsets(top: (UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0.0) + 20.0,
                                              left: 16,
                                              bottom: 16,
                                              right: 16),
@@ -118,7 +118,7 @@ public class ModalView: UIView {
             superView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor),
             self.containerView.topAnchor.constraint(greaterThanOrEqualTo: superView.topAnchor,constant: topMargin),
             superView.bottomAnchor.constraint(greaterThanOrEqualTo: self.containerView.bottomAnchor, constant: bottomMargin),
-            self.containerView.centerYAnchor.constraint(equalTo: superView.centerYAnchor)
+            self.containerView.centerYAnchor.constraint(equalTo: superView.centerYAnchor, constant: -topMargin)
         ])
         executeAfter(0.1) {
             self.modelInfo.pageRendered()
