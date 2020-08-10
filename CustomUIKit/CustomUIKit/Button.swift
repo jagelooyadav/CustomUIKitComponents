@@ -34,6 +34,13 @@ public class Button: UIButton {
         disabledBorder: UIColor?
     )
     
+    public var primaryColor = Appearance.color {
+        didSet {
+            self.updateColours()
+            self.updateCurrentAppearance()
+        }
+    }
+    
     // MARK: - Enums
     
     /// A style of the button.
@@ -190,18 +197,18 @@ public class Button: UIButton {
             case .primary:
                 let white = UIColor.white
                 
-                return (activeText: white, activeBackground: Appearance.color,
+                return (activeText: white, activeBackground: self.primaryColor,
                         activeBorder: nil,
-                        pressedText: white, pressedBackground: Appearance.color.withAlphaComponent(0.8),
+                        pressedText: white, pressedBackground: self.primaryColor.withAlphaComponent(0.8),
                         pressedBorder: nil,
-                        disabledText: white, disabledBackground: Appearance.color.withAlphaComponent(0.5),
+                        disabledText: white, disabledBackground: self.primaryColor.withAlphaComponent(0.5),
                         disabledBorder: nil)
                 
             case .secondary, .underline:
                 let white = UIColor.white
                 let darkBlue = Color.darkBlueColour
-                let lightBlue = Appearance.color == .clear ? Color.grey1Colour : Appearance.color.withAlphaComponent(0.8)
-                let digitalBlue = Appearance.color == .clear ? Color.grey1Colour : Appearance.color
+                let lightBlue = self.primaryColor == .clear ? Color.grey1Colour : self.primaryColor.withAlphaComponent(0.8)
+                let digitalBlue = self.primaryColor == .clear ? Color.grey1Colour : self.primaryColor
                 
                 return (activeText: digitalBlue, activeBackground: white,
                         activeBorder: digitalBlue,
@@ -230,7 +237,7 @@ public class Button: UIButton {
         self.setTitleColor(colours.pressedText, for: .highlighted)
         self.setTitleColor(colours.disabledText, for: .disabled)
 
-        if Appearance.color == .clear && self.style != .primary {
+        if self.primaryColor == .clear && self.style != .primary {
             self.setTitleColor(Color.darkGrey3Colour, for: .disabled)
         }
         self.updateCurrentAppearance()
@@ -252,7 +259,7 @@ public class Button: UIButton {
             self.layer.borderColor = (colours.activeBorder ?? colours.activeBackground).cgColor
             
         }
-        if Appearance.color == .clear {
+        if self.primaryColor == .clear {
             self.layer.borderColor = Color.grey3Colour.cgColor
         }
         if self.style == .underline {

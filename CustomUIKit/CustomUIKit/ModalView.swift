@@ -85,7 +85,7 @@ public class ModalView: UIView {
         self.addSubview(transparentView, insets: .zero)
         transparentView.alpha = self.modelInfo.coverAlpha
         transparentView.backgroundColor = UIColor(actualRed: 88.0, green: 57.0, blue: 131.0)
-        transparentView.addTarget(self, action: #selector(self.dismiss), for: .touchUpInside)
+        //transparentView.addTarget(self, action: #selector(self.dismiss), for: .touchUpInside)
         transparentView.isUserInteractionEnabled = true
         transparentView.isEnabled = true
     }
@@ -101,6 +101,7 @@ public class ModalView: UIView {
         self.contentHolder.layer.cornerRadius = self.modelInfo.cornerRadius
         
         if let contentView = self.modelInfo.contentView {
+            self.contentHolder.subviews.first?.removeFromSuperview()
             self.contentHolder.addSubview(contentView, insets: UIEdgeInsets.init(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0))
         }
     }
