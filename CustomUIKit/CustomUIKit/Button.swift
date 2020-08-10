@@ -201,7 +201,7 @@ public class Button: UIButton {
                         activeBorder: nil,
                         pressedText: white, pressedBackground: self.primaryColor.withAlphaComponent(0.8),
                         pressedBorder: nil,
-                        disabledText: white, disabledBackground: self.primaryColor.withAlphaComponent(0.5),
+                        disabledText: self.primaryColor, disabledBackground: self.primaryColor.withAlphaComponent(0.5),
                         disabledBorder: nil)
                 
             case .secondary, .underline:
