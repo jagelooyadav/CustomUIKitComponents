@@ -14,6 +14,9 @@
 		1FF8D2D7247A6A050050FEC7 /* UIImage+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */; };
 		1FF8D2D9247A6A360050FEC7 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FF8D2D8247A6A360050FEC7 /* Media.xcassets */; };
 		3921F2F724DB1D2D000D65D5 /* LinearLayerAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3921F2F624DB1D2D000D65D5 /* LinearLayerAnimation.swift */; };
+		3940FDF724E1A1F600F0866A /* HeadingWithDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940FDF624E1A1F600F0866A /* HeadingWithDescriptionView.swift */; };
+		3940FDF924E1AD1400F0866A /* ShadowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940FDF824E1AD1400F0866A /* ShadowProvider.swift */; };
+		3940FDFB24E1AF8E00F0866A /* RoundTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940FDFA24E1AF8E00F0866A /* RoundTextInputView.swift */; };
 		395ABA8024DF0E4B00BF3A9B /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ABA7F24DF0E4B00BF3A9B /* ModalView.swift */; };
 		39B0713324B20BC5004434B0 /* DraggableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0713224B20BC5004434B0 /* DraggableButtonView.swift */; };
 		39CE0E11246DD71400AC6897 /* CustomUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CE0E07246DD71400AC6897 /* CustomUIKit.framework */; };
@@ -70,6 +73,9 @@
 		1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Load.swift"; sourceTree = "<group>"; };
 		1FF8D2D8247A6A360050FEC7 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		3921F2F624DB1D2D000D65D5 /* LinearLayerAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearLayerAnimation.swift; sourceTree = "<group>"; };
+		3940FDF624E1A1F600F0866A /* HeadingWithDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingWithDescriptionView.swift; sourceTree = "<group>"; };
+		3940FDF824E1AD1400F0866A /* ShadowProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowProvider.swift; sourceTree = "<group>"; };
+		3940FDFA24E1AF8E00F0866A /* RoundTextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextInputView.swift; sourceTree = "<group>"; };
 		395ABA7F24DF0E4B00BF3A9B /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		39B0713224B20BC5004434B0 /* DraggableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableButtonView.swift; sourceTree = "<group>"; };
 		39CE0E07246DD71400AC6897 /* CustomUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +182,7 @@
 				39CE0E2A246DD76500AC6897 /* SingleQuestionOptionView.swift */,
 				39CE0E2B246DD76500AC6897 /* TextField.swift */,
 				39CE0E2E246DD76600AC6897 /* TextInputView.swift */,
+				3940FDF824E1AD1400F0866A /* ShadowProvider.swift */,
 				39CE0E25246DD76500AC6897 /* UIColor+Custom.swift */,
 				39CE0E21246DD76400AC6897 /* UIFont+Extension.swift */,
 				39CE0E38246DD76700AC6897 /* UIView+Extension.swift */,
@@ -193,6 +200,8 @@
 				39D5E3AF24D1EF7800749C8F /* SettingsTableView.swift */,
 				3921F2F624DB1D2D000D65D5 /* LinearLayerAnimation.swift */,
 				395ABA7F24DF0E4B00BF3A9B /* ModalView.swift */,
+				3940FDF624E1A1F600F0866A /* HeadingWithDescriptionView.swift */,
+				3940FDFA24E1AF8E00F0866A /* RoundTextInputView.swift */,
 			);
 			path = CustomUIKit;
 			sourceTree = "<group>";
@@ -331,6 +340,7 @@
 				395ABA8024DF0E4B00BF3A9B /* ModalView.swift in Sources */,
 				39D5E3B424D57BA300749C8F /* AnimatedTabBarController.swift in Sources */,
 				39CE0E4E246DD76800AC6897 /* PageView.swift in Sources */,
+				3940FDFB24E1AF8E00F0866A /* RoundTextInputView.swift in Sources */,
 				39CE0E53246DD76800AC6897 /* NavigationViewController.swift in Sources */,
 				39CE0E48246DD76800AC6897 /* AccessoryToolBar.swift in Sources */,
 				39CE0E46246DD76800AC6897 /* SingleQuestionOptionView.swift in Sources */,
@@ -338,10 +348,12 @@
 				39D5E3B024D1EF7800749C8F /* SettingsTableView.swift in Sources */,
 				39CE0E4F246DD76800AC6897 /* Color.swift in Sources */,
 				39CE0E40246DD76800AC6897 /* InputView.swift in Sources */,
+				3940FDF924E1AD1400F0866A /* ShadowProvider.swift in Sources */,
 				39CE0E58246DD76800AC6897 /* Button.swift in Sources */,
 				39CE0E55246DD76800AC6897 /* ObjectiveQestionView.swift in Sources */,
 				39CE0E42246DD76800AC6897 /* ContainerView.swift in Sources */,
 				1F830DEC247BC8600043DD10 /* CheckMarkView.swift in Sources */,
+				3940FDF724E1A1F600F0866A /* HeadingWithDescriptionView.swift in Sources */,
 				1FF8D2D7247A6A050050FEC7 /* UIImage+Load.swift in Sources */,
 				39CE0E54246DD76800AC6897 /* UIView+Extension.swift in Sources */,
 				39CE0E4B246DD76800AC6897 /* Appearance.swift in Sources */,

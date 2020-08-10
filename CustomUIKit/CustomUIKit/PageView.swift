@@ -48,6 +48,7 @@ public class PageView: ViewControl {
         stack.axis = .vertical
         stack.distribution = .fill
         stack.spacing = 0
+        stack.backgroundColor = .clear
         return stack
     }()
     
@@ -156,6 +157,7 @@ public class PageView: ViewControl {
                 button.setTitle(content.title, for: .normal)
                 self.contentStackView.addArrangedSubview(button)
                 self.viewInfo[content.identifier] = button
+                button.primaryColor = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
                 
             case .UnderLineButton:
                 let button = Button()
@@ -173,10 +175,24 @@ public class PageView: ViewControl {
                 label.font = UIFont.body
                 label.numberOfLines = 0
                 
+            case .HeadingWithDescriptionView:
+                let view = HeadingWithDescriptionView()
+                self.contentStackView.addArrangedSubview(view)
+                self.viewInfo[content.identifier] = view
+                view.title = content.title
+                view.descriptionText = content.description
+                
             case .Placeholder:
                 guard let view = self.delegate?.placeholderView(forIdentifier: content.identifier) else {
                    continue
                 }
+                self.contentStackView.addArrangedSubview(view)
+                
+            case .RoundTextInputView:
+                let view = RoundTextInputView()
+                view.title = content.title
+                view.placeholder = content.description
+                self.viewInfo[content.identifier] = view
                 self.contentStackView.addArrangedSubview(view)
                 
             default:

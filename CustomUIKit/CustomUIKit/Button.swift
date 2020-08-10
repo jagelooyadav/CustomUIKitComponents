@@ -34,7 +34,7 @@ public class Button: UIButton {
         disabledBorder: UIColor?
     )
     
-    public var primaryColor = Appearance.color {
+    public var primaryColor = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0) {
         didSet {
             self.updateColours()
             self.updateCurrentAppearance()

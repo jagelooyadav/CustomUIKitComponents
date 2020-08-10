@@ -17,7 +17,11 @@ public struct Question {
     }
 }
 
-public class ObjectiveQestionView: ViewControl {
+public class ObjectiveQestionView: ViewControl, ShadowProvider {
+    public var containerView: UIView! {
+        return self
+    }
+    
     private var question: Question!
     
     private var elements: [SingleQuestionOptionView] = []
@@ -59,7 +63,7 @@ public class ObjectiveQestionView: ViewControl {
     
     private  lazy var titleLabel: UILabel = { lable in
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.font = UIFont.boldSubHeading
+        lable.font = UIFont.subhHeading
         lable.textColor = Color.black1Colour
         lable.numberOfLines = 0
         return lable
@@ -86,9 +90,11 @@ public class ObjectiveQestionView: ViewControl {
     }()
     
     private func setup() {
+        let containerView = UIView()
         let titleView = UIView()
-        titleView.addSubview(self.titleLabel, insets: UIEdgeInsets(top: 0.0, left: 16.0, bottom: 0.0, right: 16.0))
-        self.addSubview(titleView, insets: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 16.0, right: 0.0), ignoreConstant: .bottom)
+        titleView.backgroundColor = .clear
+        titleView.addSubview(self.titleLabel, insets: UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0))
+        containerView.addSubview(titleView, insets: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0), ignoreConstant: .bottom)
         self.titleLabel.text = self.question.title
         self.titleLabel.numberOfLines = 0
         var index = 0
@@ -108,7 +114,18 @@ public class ObjectiveQestionView: ViewControl {
             }
             
         }
-        self.addSubview(self.stackView, insets: UIEdgeInsets(top: 16.0, left: 0.0, bottom: 16.0, right: 0.0), ignoreConstant: .top)
+        containerView.addSubview(self.stackView, insets: UIEdgeInsets(top: 0.0, left: 0.0, bottom: 16.0, right: 0.0), ignoreConstant: .top)
         self.stackView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 0).isActive = true
+        self.backgroundColor = .clear
+        self.stackView.backgroundColor = .clear
+        containerView.layer.cornerRadius = 20.0
+        containerView.backgroundColor = .white
+        containerView.clipsToBounds = true
+        self.addSubview( containerView, insets: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 0, right: 16.0))
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        self.dropShadow()
     }
 }

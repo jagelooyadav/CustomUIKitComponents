@@ -56,15 +56,16 @@ public class SingleQuestionOptionView: ViewControl {
             self.containerView.layer.borderColor = newValue?.cgColor
         }
     }
-    
+    let color = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
     public var isSelected: Bool = false  {
         didSet {
-            self.borderColor = self.isSelected ? Appearance.color : Appearance.color.withAlphaComponent(0.5)
+            //button.primaryColor = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
+            self.borderColor = self.isSelected ? color : color.withAlphaComponent(0.5)
             self.containerView.layer.borderWidth = self.isSelected ? 2.0 : 1.0
-            self.containerView.backgroundColor = Appearance.color.withAlphaComponent(self.isSelected ? 1.0 : 0.01)
+            self.containerView.backgroundColor = color.withAlphaComponent(self.isSelected ? 1.0 : 0.01)
             self.titleLabel.textColor = self.isSelected ? .white : Color.black1Colour
-            self.sequenceView.layer.borderColor = self.isSelected ? UIColor.white.cgColor : Appearance.color.cgColor
-            self.label.textColor = self.isSelected ? UIColor.white : Appearance.color
+            self.sequenceView.layer.borderColor = self.isSelected ? UIColor.white.cgColor : color.cgColor
+            self.label.textColor = self.isSelected ? UIColor.white : color
         }
     }
     
@@ -98,7 +99,7 @@ public class SingleQuestionOptionView: ViewControl {
         self.containerView.addSubview(self.stackView, insets: UIEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0))
         sequenceView.translatesAutoresizingMaskIntoConstraints = false
         sequenceView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-        sequenceView.layer.borderColor = Appearance.color.cgColor
+        sequenceView.layer.borderColor = color.cgColor
         sequenceView.layer.borderWidth = 0.5
         sequenceView.layer.cornerRadius = 5.0
 
@@ -107,7 +108,7 @@ public class SingleQuestionOptionView: ViewControl {
         label.text = String.init(format: "%C", 65 + index)
         label.numberOfLines = 0
         label.font = UIFont.body
-        label.textColor = Appearance.color
+        label.textColor = color
         label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         sequenceView.addSubview(label, insets: .zero)
         self.stackView.addArrangedSubview(sequenceView)

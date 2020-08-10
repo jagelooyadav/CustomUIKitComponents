@@ -29,6 +29,8 @@ public enum ResourceType: String, Decodable {
     case Label
     case Placeholder
     case UnderLineButton
+    case HeadingWithDescriptionView
+    case RoundTextInputView
 }
 
 public struct ContentData: Decodable {
