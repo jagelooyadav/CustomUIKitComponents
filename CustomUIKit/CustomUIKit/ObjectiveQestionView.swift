@@ -61,7 +61,7 @@ public class ObjectiveQestionView: ViewControl, ShadowProvider {
         self.setup()
     }
     
-    private  lazy var titleLabel: UILabel = { lable in
+    public lazy var titleLabel: UILabel = { lable in
         lable.translatesAutoresizingMaskIntoConstraints = false
         lable.font = UIFont.subhHeading
         lable.textColor = Color.black1Colour

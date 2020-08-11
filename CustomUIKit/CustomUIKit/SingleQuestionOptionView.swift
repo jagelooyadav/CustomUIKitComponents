@@ -111,7 +111,7 @@ public class SingleQuestionOptionView: ViewControl {
         label.textColor = color
         label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         sequenceView.addSubview(label, insets: .zero)
-        self.stackView.addArrangedSubview(sequenceView)
+        //self.stackView.addArrangedSubview(sequenceView)
         self.stackView.addArrangedSubview(self.titleLabel)
         self.titleLabel.text = self.option
         
