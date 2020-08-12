@@ -24,7 +24,7 @@ public class HeadingWithDescriptionView: UIView {
         self.setup()
     }
     
-    private lazy var headingLabel: UILabel = { lable in
+    public lazy var headingLabel: UILabel = { lable in
         lable.translatesAutoresizingMaskIntoConstraints = false
         lable.font = UIFont.subhHeading
         lable.textColor = Color.black1Colour

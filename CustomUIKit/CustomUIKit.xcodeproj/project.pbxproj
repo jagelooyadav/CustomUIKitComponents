@@ -18,6 +18,7 @@
 		3940FDF924E1AD1400F0866A /* ShadowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940FDF824E1AD1400F0866A /* ShadowProvider.swift */; };
 		3940FDFB24E1AF8E00F0866A /* RoundTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3940FDFA24E1AF8E00F0866A /* RoundTextInputView.swift */; };
 		395ABA8024DF0E4B00BF3A9B /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ABA7F24DF0E4B00BF3A9B /* ModalView.swift */; };
+		396934C024E457B700AE29BA /* ContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396934BF24E457B700AE29BA /* ContentListView.swift */; };
 		39B0713324B20BC5004434B0 /* DraggableButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B0713224B20BC5004434B0 /* DraggableButtonView.swift */; };
 		39CE0E11246DD71400AC6897 /* CustomUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39CE0E07246DD71400AC6897 /* CustomUIKit.framework */; };
 		39CE0E16246DD71400AC6897 /* CustomUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39CE0E15246DD71400AC6897 /* CustomUIKitTests.swift */; };
@@ -77,6 +78,7 @@
 		3940FDF824E1AD1400F0866A /* ShadowProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowProvider.swift; sourceTree = "<group>"; };
 		3940FDFA24E1AF8E00F0866A /* RoundTextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextInputView.swift; sourceTree = "<group>"; };
 		395ABA7F24DF0E4B00BF3A9B /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		396934BF24E457B700AE29BA /* ContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentListView.swift; sourceTree = "<group>"; };
 		39B0713224B20BC5004434B0 /* DraggableButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DraggableButtonView.swift; sourceTree = "<group>"; };
 		39CE0E07246DD71400AC6897 /* CustomUIKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CustomUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39CE0E0A246DD71400AC6897 /* CustomUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomUIKit.h; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				395ABA7F24DF0E4B00BF3A9B /* ModalView.swift */,
 				3940FDF624E1A1F600F0866A /* HeadingWithDescriptionView.swift */,
 				3940FDFA24E1AF8E00F0866A /* RoundTextInputView.swift */,
+				396934BF24E457B700AE29BA /* ContentListView.swift */,
 			);
 			path = CustomUIKit;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				39D5E3B424D57BA300749C8F /* AnimatedTabBarController.swift in Sources */,
 				39CE0E4E246DD76800AC6897 /* PageView.swift in Sources */,
 				3940FDFB24E1AF8E00F0866A /* RoundTextInputView.swift in Sources */,
+				396934C024E457B700AE29BA /* ContentListView.swift in Sources */,
 				39CE0E53246DD76800AC6897 /* NavigationViewController.swift in Sources */,
 				39CE0E48246DD76800AC6897 /* AccessoryToolBar.swift in Sources */,
 				39CE0E46246DD76800AC6897 /* SingleQuestionOptionView.swift in Sources */,

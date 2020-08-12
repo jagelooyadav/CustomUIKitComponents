@@ -31,6 +31,7 @@ public enum ResourceType: String, Decodable {
     case UnderLineButton
     case HeadingWithDescriptionView
     case RoundTextInputView
+    case ContentListView
 }
 
 public struct ContentData: Decodable {

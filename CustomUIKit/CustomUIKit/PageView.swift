@@ -195,6 +195,12 @@ public class PageView: ViewControl {
                 self.viewInfo[content.identifier] = view
                 self.contentStackView.addArrangedSubview(view)
                 
+                
+            case .ContentListView:
+                let contentView = ContentListView(items: content.names?.compactMap({$0}) ?? [])
+                self.viewInfo[content.identifier] = contentView
+                self.contentStackView.addArrangedSubview(contentView)
+                
             default:
                 continue
             }
