@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
-    convenience init?(imageNamed: String) {
+     convenience init?(imageNamed: String) {
         self.init(named: imageNamed, in: BundleHelper.currentBundle, compatibleWith: nil)
     }
     

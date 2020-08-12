@@ -85,7 +85,7 @@ public class ModalView: UIView {
         self.addSubview(transparentView, insets: .zero)
         transparentView.alpha = self.modelInfo.coverAlpha
         transparentView.backgroundColor = UIColor(actualRed: 88.0, green: 57.0, blue: 131.0)
-        //transparentView.addTarget(self, action: #selector(self.dismiss), for: .touchUpInside)
+        transparentView.addTarget(self, action: #selector(self.dismiss), for: .touchUpInside)
         transparentView.isUserInteractionEnabled = true
         transparentView.isEnabled = true
     }

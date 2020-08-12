@@ -21,7 +21,7 @@ public class DividerView: ViewControl {
     }
     
     private func setup() {
-        self.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
+        self.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         self.backgroundColor = Appearance.color
     }
 }
