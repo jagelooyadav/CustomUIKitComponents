@@ -73,7 +73,7 @@ public class Button: UIButton {
             self.updateColours()
         }
     }
-    let gradient = CAGradientLayer()
+    public let gradient = CAGradientLayer()
     public var primaryGradientColors: [CGColor] = [] {
         didSet {
             gradient.frame = self.bounds

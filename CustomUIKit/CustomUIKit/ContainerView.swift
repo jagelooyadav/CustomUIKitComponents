@@ -38,7 +38,7 @@ public class ProgresssHud: UIView {
     public func showInView(_ view: UIView = UIApplication.shared.keyWindow ?? UIView(), text: String = "Please wait...", delay: TimeInterval = 1.0, completion: (() -> Void)?) {
         self.completion = completion
         self.label.text = text
-        self.label.textColor = Appearance.color
+        self.label.textColor = self.appearanceColor
         self.label.textAlignment = .center
         view.addSubview(backgroundView, insets: .zero)
         view.addSubview(self.activityView)
@@ -49,6 +49,18 @@ public class ProgresssHud: UIView {
         self.activityView.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
         self.activityView.layer.cornerRadius = 15.0
         self.perform(#selector(self.hide), with: nil, afterDelay: delay)
+    }
+    
+    public var appearanceColor: UIColor {
+        get {
+            return self.label.textColor
+        }
+        
+        set {
+            self.label.textColor = newValue
+            self.activityView.tintColor = newValue
+            self.activity.color = newValue
+        }
     }
     
     @objc public func hide() {

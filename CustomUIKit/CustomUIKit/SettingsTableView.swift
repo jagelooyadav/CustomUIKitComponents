@@ -231,7 +231,7 @@ fileprivate class SettingCell: UITableViewCell {
     }
     
     func animate(tillDuration: CGFloat) {
-        self.linearAnimation.animate(in: self.dividerView, duration: tillDuration, distanceToCover: self.frame.width - 10, completion: nil)
+        self.linearAnimation.animate(in: self.dividerView, duration: tillDuration, distanceToCover: self.frame.width, completion: nil)
     }
     
     func removeAnimationLayer() {
