@@ -216,7 +216,7 @@ public class TextInputView: InputView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.rightViewMode = .always
         textField.addTarget(self, action: #selector(textFieldTextDidChange), for: .editingChanged)
-        textField.font = UIFont.subhHeading
+        textField.font = UIFont.subSFHeading
         return textField
     }()
     

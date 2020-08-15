@@ -26,7 +26,7 @@ public class HeadingWithDescriptionView: UIView {
     
     public lazy var headingLabel: UILabel = { lable in
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.font = UIFont.subhHeading
+        lable.font = UIFont.subSFHeading
         lable.textColor = Color.black1Colour
         lable.numberOfLines = 0
         return lable
@@ -34,7 +34,7 @@ public class HeadingWithDescriptionView: UIView {
     
     private lazy var descriptionLabel: UILabel = { lable in
            lable.translatesAutoresizingMaskIntoConstraints = false
-           lable.font = UIFont.body
+           lable.font = UIFont.sfBody
            lable.textColor = Color.black1Colour
            lable.numberOfLines = 0
            return lable

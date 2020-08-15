@@ -103,7 +103,7 @@ public class SingleQuestionOptionView: ViewControl {
         sequenceView.layer.borderWidth = 0.5
         sequenceView.layer.cornerRadius = 5.0
 
-        label.font = UIFont.body
+        label.font = UIFont.sfBody
         label.textAlignment = .center
         label.text = String.init(format: "%C", 65 + index)
         label.numberOfLines = 0

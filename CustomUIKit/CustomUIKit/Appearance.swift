@@ -28,6 +28,6 @@ public struct Appearance {
         let image = UIImage.init(color: color, size: CGSize.init(width: 1000.0, height: 100.0))
         appearance.setBackgroundImage(image, for: .default)
         appearance.shadowImage = UIImage()
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: tintColor, NSAttributedString.Key.font: UIFont.boldHeading]
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: tintColor, NSAttributedString.Key.font: UIFont.subSFNavigation]
     }
 }

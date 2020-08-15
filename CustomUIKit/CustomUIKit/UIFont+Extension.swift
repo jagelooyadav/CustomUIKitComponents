@@ -47,3 +47,34 @@ extension UIFont {
         return UIFont.systemFont(ofSize: 40.0)
     }
 }
+
+extension UIFont {
+
+    public class var boldSFHeading: UIFont! {
+        return UIFont(name: "SFProText-Bold", size: 18)
+    }
+    
+    public class var boldSFSubHeading: UIFont! {
+        return UIFont(name: "SFProText-Bold", size: 16)
+    }
+    
+    public class var subSFHeading: UIFont! {
+        return UIFont(name: "SFProText-Light", size: 16)
+    }
+    
+    public class var subSFNavigation: UIFont! {
+        return UIFont(name: "SFProText-Light", size: 17)
+    }
+    
+    public class var sfBody: UIFont {
+        return UIFont(name: "SFProText-Light", size: 14)!
+    }
+    
+    public class var sfBoldBody: UIFont {
+        return UIFont(name: "SFProText-Bold", size: 14)!
+    }
+    
+    public class var sfPageHeading: UIFont {
+        return UIFont(name: "SFProText-Bold", size: 26)!
+    }
+}

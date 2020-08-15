@@ -18,6 +18,7 @@ public protocol TableInfo {
     var layerAnimationDurations: [CGFloat] { get }
     var cameraBackImage: UIImage? { get }
     var camerFrontImage: UIImage? { get }
+    var textFont: UIFont? { get }
 }
 
 public extension TableInfo {
@@ -27,6 +28,10 @@ public extension TableInfo {
     
     var cameraBackImage: UIImage? { return nil }
     var camerFrontImage: UIImage? { return nil }
+    
+    var textFont: UIFont? {
+        return UIFont.init(name: "Helvetica-Light", size: 16)
+    }
 }
 
 public enum CellType {
