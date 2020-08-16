@@ -107,7 +107,7 @@ public class SingleQuestionOptionView: ViewControl {
         label.textAlignment = .center
         label.text = String.init(format: "%C", 65 + index)
         label.numberOfLines = 0
-        label.font = UIFont.body
+        label.font = UIFont.sfBody
         label.textColor = color
         label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         sequenceView.addSubview(label, insets: .zero)

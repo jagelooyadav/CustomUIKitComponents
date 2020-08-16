@@ -44,6 +44,13 @@ public class NavigationViewController: UINavigationController {
         return self.topViewController?.preferredStatusBarStyle ?? .lightContent
     }
     
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        if self.traitCollection.userInterfaceIdiom == .pad {
+            return .all
+        }
+        return .portrait
+    }
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         //let color = Appearance.color
