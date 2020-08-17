@@ -16,7 +16,7 @@ public struct Appearance {
         self.setUpUIAppearance(appColor: Color.appColour)
     }
     
-    public static func setUpUIAppearance(appColor: UIColor, tintColor: UIColor = .white) {
+    @discardableResult public static func setUpUIAppearance(appColor: UIColor, tintColor: UIColor = .white) -> UIAppearance {
         self.color = appColor
         self.tintColor = tintColor
         let appearance = UINavigationBar.appearance()
@@ -29,5 +29,6 @@ public struct Appearance {
         appearance.setBackgroundImage(image, for: .default)
         appearance.shadowImage = UIImage()
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: tintColor, NSAttributedString.Key.font: UIFont.subSFNavigation]
+        return appearance
     }
 }

@@ -26,7 +26,7 @@ public class HeadingWithDescriptionView: UIView {
     
     public lazy var headingLabel: UILabel = { lable in
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.font = UIFont.subSFHeading
+        lable.font = UIFont.boldSFSubHeading
         lable.textColor = Color.black1Colour
         lable.numberOfLines = 0
         return lable
@@ -47,7 +47,7 @@ public class HeadingWithDescriptionView: UIView {
     
     private func setup() {
         self.backgroundColor = .clear
-        self.addSubview(self.stackView, insets: UIEdgeInsets(top: 16.0, left: 16.0, bottom: 16.0, right: 16.0))
+        self.addSubview(self.stackView, insets: UIEdgeInsets(top: 16.0, left: 40.0, bottom: 16.0, right: 40.0))
         self.stackView.addArrangedSubview(self.headingLabel)
         self.stackView.addArrangedSubview(self.descriptionLabel)
         self.headingLabel.textAlignment = .center

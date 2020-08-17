@@ -63,8 +63,8 @@ public class ObjectiveQestionView: ViewControl, ShadowProvider {
     
     public lazy var titleLabel: UILabel = { lable in
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.font = UIFont.boldSFHeading
-        lable.textColor = Color.black1Colour
+        lable.font = UIFont.sfBoldBody
+        lable.textColor = .black
         lable.numberOfLines = 0
         return lable
     }(UILabel())

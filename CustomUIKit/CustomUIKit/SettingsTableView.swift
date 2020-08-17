@@ -192,6 +192,11 @@ fileprivate class SettingCell: UITableViewCell {
     
     @objc private func valueChanged(_ sender: CustomSwitch) {
         self.switchUpdated?(sender.currentRow, sender.isOn)
+        if !sender.isOn {
+             self.switchView.thumbTintColor = UIColor.init(actualRed: 239.0, green: 110.0, blue: 92.0)
+        } else {
+            self.switchView.thumbTintColor = .white
+        }
     }
     
     private lazy var titleContainerView: UIView = {
@@ -247,6 +252,11 @@ fileprivate class SettingCell: UITableViewCell {
         self.index = index
         self.rowCount = rowCount
         self.switchView.currentRow = index
+        if !self.switchView.isOn {
+             self.switchView.thumbTintColor = UIColor.init(actualRed: 239.0, green: 110.0, blue: 92.0)
+        } else {
+            self.switchView.thumbTintColor = .white
+        }
     }
     
     var title: String? {

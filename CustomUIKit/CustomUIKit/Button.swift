@@ -78,8 +78,8 @@ public class Button: UIButton {
         didSet {
             gradient.frame = self.bounds
             gradient.colors = self.primaryGradientColors
-            gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
-            gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+            gradient.startPoint = CGPoint(x: 0.0, y: 0.50)
+            gradient.endPoint = CGPoint(x: 1.0, y: 0.50)
             self.layer.insertSublayer(gradient, at: 0)
             self.layer.cornerRadius = 24.0
             self.clipsToBounds = true

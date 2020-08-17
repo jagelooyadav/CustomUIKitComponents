@@ -151,6 +151,7 @@ public class PageView: ViewControl {
                 self.nextButton = button
                 self.footerTopConstraint?.isActive = true
                 self.contentStackBottomConstraint?.isActive = false
+                self.viewInfo[content.identifier] = button
                 
             case .Button:
                 let button = Button()
@@ -158,6 +159,7 @@ public class PageView: ViewControl {
                 self.contentStackView.addArrangedSubview(button)
                 self.viewInfo[content.identifier] = button
                 button.primaryColor = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
+                self.viewInfo[content.identifier] = button
                 
             case .UnderLineButton:
                 let button = Button()

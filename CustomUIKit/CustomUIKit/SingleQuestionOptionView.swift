@@ -26,8 +26,8 @@ public class SingleQuestionOptionView: ViewControl {
     
     private  lazy var titleLabel: UILabel = { lable in
         lable.translatesAutoresizingMaskIntoConstraints = false
-        lable.font = UIFont.body
-        lable.textColor = Color.black1Colour
+        lable.font = UIFont.sfRegularBody
+        lable.textColor = .black
         return lable
     }(UILabel())
     
@@ -57,12 +57,23 @@ public class SingleQuestionOptionView: ViewControl {
         }
     }
     let color = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
+    public let gradient = CAGradientLayer()
     public var isSelected: Bool = false  {
         didSet {
             //button.primaryColor = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
             self.borderColor = self.isSelected ? color : color.withAlphaComponent(0.5)
-            self.containerView.layer.borderWidth = self.isSelected ? 2.0 : 1.0
-            self.containerView.backgroundColor = color.withAlphaComponent(self.isSelected ? 1.0 : 0.01)
+            self.containerView.layer.borderWidth = self.isSelected ? 0.0 : 2.0
+            
+            gradient.frame = self.bounds
+            gradient.colors = [UIColor.init(actualRed: 239.0, green: 110.0, blue: 92.0).cgColor,UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0).cgColor]
+            gradient.startPoint = CGPoint(x: 0.0, y: 0.50)
+            gradient.endPoint = CGPoint(x: 1.0, y: 0.50)
+            if self.isSelected {
+                containerView.layer.insertSublayer(gradient, at: 0)
+            } else {
+                gradient.removeFromSuperlayer()
+            }
+            
             self.titleLabel.textColor = self.isSelected ? .white : Color.black1Colour
             self.sequenceView.layer.borderColor = self.isSelected ? UIColor.white.cgColor : color.cgColor
             self.label.textColor = self.isSelected ? UIColor.white : color

@@ -174,7 +174,7 @@ public class InputView: ViewControl {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
-        label.font = UIFont.subSFHeading
+        label.font = UIFont.boldSFRegualarSubHeading
         return label
     }()
     

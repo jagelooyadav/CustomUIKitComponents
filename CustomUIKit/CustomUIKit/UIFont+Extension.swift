@@ -58,6 +58,10 @@ extension UIFont {
         return UIFont(name: "SFProText-Bold", size: 16)
     }
     
+    public class var boldSFRegualarSubHeading: UIFont! {
+           return UIFont(name: "SFProText-Regular", size: 16)
+    }
+    
     public class var subSFHeading: UIFont! {
         return UIFont(name: "SFProText-Light", size: 16)
     }
@@ -72,6 +76,10 @@ extension UIFont {
     
     public class var sfBoldBody: UIFont {
         return UIFont(name: "SFProText-Bold", size: 14)!
+    }
+    
+    public class var sfRegularBody: UIFont {
+        return UIFont(name: "SFProText-Regular", size: 14)!
     }
     
     public class var sfPageHeading: UIFont {
