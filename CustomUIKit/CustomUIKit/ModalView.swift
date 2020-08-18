@@ -119,7 +119,7 @@ public class ModalView: UIView {
             superView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor),
             self.containerView.topAnchor.constraint(greaterThanOrEqualTo: superView.topAnchor,constant: topMargin),
             superView.bottomAnchor.constraint(greaterThanOrEqualTo: self.containerView.bottomAnchor, constant: bottomMargin),
-            self.containerView.centerYAnchor.constraint(equalTo: superView.centerYAnchor, constant: -topMargin)
+            self.containerView.centerYAnchor.constraint(equalTo: superView.centerYAnchor, constant: 0)
         ])
         executeAfter(0.1) {
             self.modelInfo.pageRendered()

@@ -193,7 +193,7 @@ fileprivate class SettingCell: UITableViewCell {
     @objc private func valueChanged(_ sender: CustomSwitch) {
         self.switchUpdated?(sender.currentRow, sender.isOn)
         if !sender.isOn {
-             self.switchView.thumbTintColor = UIColor.init(actualRed: 239.0, green: 110.0, blue: 92.0)
+             self.switchView.thumbTintColor = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
         } else {
             self.switchView.thumbTintColor = .white
         }
@@ -253,7 +253,8 @@ fileprivate class SettingCell: UITableViewCell {
         self.rowCount = rowCount
         self.switchView.currentRow = index
         if !self.switchView.isOn {
-             self.switchView.thumbTintColor = UIColor.init(actualRed: 239.0, green: 110.0, blue: 92.0)
+             self.switchView.thumbTintColor = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
+
         } else {
             self.switchView.thumbTintColor = .white
         }

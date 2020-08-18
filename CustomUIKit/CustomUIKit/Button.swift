@@ -76,11 +76,13 @@ public class Button: UIButton {
     public let gradient = CAGradientLayer()
     public var primaryGradientColors: [CGColor] = [] {
         didSet {
-            gradient.frame = self.bounds
-            gradient.colors = self.primaryGradientColors
-            gradient.startPoint = CGPoint(x: 0.0, y: 0.50)
-            gradient.endPoint = CGPoint(x: 1.0, y: 0.50)
-            self.layer.insertSublayer(gradient, at: 0)
+//            gradient.frame = self.bounds
+//            gradient.colors = self.primaryGradientColors
+//            gradient.startPoint = CGPoint(x: 0.0, y: 0.50)
+//            gradient.endPoint = CGPoint(x: 1.0, y: 0.50)
+//            gradient.locations = [0.0, 0.5]
+//            self.layer.insertSublayer(gradient, at: 0)
+            self.setBackgroundImage(UIImage.gradientButton, for: .normal)
             self.layer.cornerRadius = 24.0
             self.clipsToBounds = true
             self.backgroundColor = .clear

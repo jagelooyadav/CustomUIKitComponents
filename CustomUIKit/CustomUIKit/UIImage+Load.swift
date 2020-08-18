@@ -29,6 +29,10 @@ public extension UIImage {
     static var greenTick: UIImage? {
         return UIImage(imageNamed: "icon_greencheckmark")
     }
+    
+    static var gradientButton: UIImage? {
+           return UIImage(imageNamed: "button")
+    }
 
 }
 

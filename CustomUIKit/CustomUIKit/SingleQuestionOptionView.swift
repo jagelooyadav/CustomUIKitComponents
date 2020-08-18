@@ -60,14 +60,14 @@ public class SingleQuestionOptionView: ViewControl {
     public let gradient = CAGradientLayer()
     public var isSelected: Bool = false  {
         didSet {
-            //button.primaryColor = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
             self.borderColor = self.isSelected ? color : color.withAlphaComponent(0.5)
             self.containerView.layer.borderWidth = self.isSelected ? 0.0 : 2.0
             
             gradient.frame = self.bounds
-            gradient.colors = [UIColor.init(actualRed: 239.0, green: 110.0, blue: 92.0).cgColor,UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0).cgColor]
-            gradient.startPoint = CGPoint(x: 0.0, y: 0.50)
-            gradient.endPoint = CGPoint(x: 1.0, y: 0.50)
+            gradient.colors = [UIColor.orange.cgColor,UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0).cgColor]
+            gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+            gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+            gradient.locations = [0.0, 0.5]
             if self.isSelected {
                 containerView.layer.insertSublayer(gradient, at: 0)
             } else {
