@@ -27,7 +27,7 @@ public class ContentListView: UIView {
         return stack
     }()
     
-    init(items: [String]) {
+    public init(items: [String]) {
         self.items = items
         super.init(frame: .zero)
         self.renderView()
@@ -47,7 +47,7 @@ public class ContentListView: UIView {
             sequenceView.widthAnchor.constraint(equalToConstant: 40.0).isActive = true
             sequence.textColor = Color.darkTextColour
             sequence.font = UIFont.body
-            sequence.text = "\(number)."
+            sequence.text = "○"
             let hStack = self.stackView
             hStack.spacing = 0
             hStack.addArrangedSubview(sequenceView)
