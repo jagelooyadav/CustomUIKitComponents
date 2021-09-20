@@ -55,6 +55,7 @@
 		39D5E3B424D57BA300749C8F /* AnimatedTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D5E3B324D57BA300749C8F /* AnimatedTabBarController.swift */; };
 		39FF40B92480442200948059 /* ScratchPadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF40B82480442200948059 /* ScratchPadImageView.swift */; };
 		39FF40BD2481894F00948059 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FF40BC2481894F00948059 /* Camera.swift */; };
+		4D316FA426F72320008A539F /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D316FA326F72320008A539F /* ProductCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		39D5E3B324D57BA300749C8F /* AnimatedTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTabBarController.swift; sourceTree = "<group>"; };
 		39FF40B82480442200948059 /* ScratchPadImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratchPadImageView.swift; sourceTree = "<group>"; };
 		39FF40BC2481894F00948059 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		4D316FA326F72320008A539F /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				1FF8D2D6247A6A050050FEC7 /* UIImage+Load.swift */,
 				1FC7CEB5248393E900DE7E0C /* String+QR.swift */,
 				1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */,
+				4D316FA326F72320008A539F /* ProductCardView.swift */,
 				39CE0E0A246DD71400AC6897 /* CustomUIKit.h */,
 				1FF8D2D8247A6A360050FEC7 /* Media.xcassets */,
 				39CE0E0B246DD71400AC6897 /* Info.plist */,
@@ -339,6 +342,7 @@
 				39CE0E49246DD76800AC6897 /* ImageGroupButtons.swift in Sources */,
 				39CE0E4A246DD76800AC6897 /* TextInputView.swift in Sources */,
 				3921F2F724DB1D2D000D65D5 /* LinearLayerAnimation.swift in Sources */,
+				4D316FA426F72320008A539F /* ProductCardView.swift in Sources */,
 				39CE0E47246DD76800AC6897 /* TextField.swift in Sources */,
 				39CE0E56246DD76800AC6897 /* RoundedInformationBox.swift in Sources */,
 				161EBE9A26F8849E004AE843 /* CheveronActionableLabelCard.swift in Sources */,
