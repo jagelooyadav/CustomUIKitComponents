@@ -12,11 +12,14 @@ import Foundation
 public protocol PageViewDelegate: class {
     func didSelectQuestion(questionIdex: Int, questionView: ObjectiveQestionView)
     func placeholderView(forIdentifier id: String?) -> UIView?
+    
+    func didSelectCheveron(identifier: String?)
 }
 
 public extension PageViewDelegate {
     func didSelectQuestion(questionIdex: Int, questionView: ObjectiveQestionView) {}
     func placeholderView(forIdentifier id: String?) -> UIView? { return nil }
+    func didSelectCheveron(identifier: String?){}
 }
 
 public class PageView: ViewControl {
@@ -198,12 +201,20 @@ public class PageView: ViewControl {
                 self.contentStackView.addArrangedSubview(view)
                 
                 
-            case .ContentListView:
-                let contentView = ContentListView(items: content.names?.compactMap({$0}) ?? [])
-                self.viewInfo[content.identifier] = contentView
-                self.contentStackView.addArrangedSubview(contentView)
-                
-            default:
+                case .ContentListView:
+                    let contentView = ContentListView(items: content.names?.compactMap({$0}) ?? [])
+                    self.viewInfo[content.identifier] = contentView
+                    self.contentStackView.addArrangedSubview(contentView)
+                    
+                case .CheveronLabelCard:
+                    let cheveronCard = CheveronActionableLabelCard()
+                    cheveronCard.title = content.title
+                    self.contentStackView.addArrangedSubview(cheveronCard)
+                    self.viewInfo[content.identifier] = cheveronCard
+                    cheveronCard.action = {
+                        self.delegate?.didSelectCheveron(identifier: content.identifier)
+                    }
+                default:
                 continue
             }
         }

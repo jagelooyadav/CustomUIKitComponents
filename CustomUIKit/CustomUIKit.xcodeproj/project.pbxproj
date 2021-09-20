@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161EBE9A26F8849E004AE843 /* CheveronActionableLabelCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161EBE9926F8849E004AE843 /* CheveronActionableLabelCard.swift */; };
 		1F616FA02482DAF600D76A59 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */; };
 		1F830DEC247BC8600043DD10 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F830DEB247BC8600043DD10 /* CheckMarkView.swift */; };
 		1FC7CEB6248393E900DE7E0C /* String+QR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7CEB5248393E900DE7E0C /* String+QR.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		161EBE9926F8849E004AE843 /* CheveronActionableLabelCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheveronActionableLabelCard.swift; sourceTree = "<group>"; };
 		1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		1F830DEB247BC8600043DD10 /* CheckMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
 		1FC7CEB5248393E900DE7E0C /* String+QR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+QR.swift"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				3940FDF624E1A1F600F0866A /* HeadingWithDescriptionView.swift */,
 				3940FDFA24E1AF8E00F0866A /* RoundTextInputView.swift */,
 				396934BF24E457B700AE29BA /* ContentListView.swift */,
+				161EBE9926F8849E004AE843 /* CheveronActionableLabelCard.swift */,
 			);
 			path = CustomUIKit;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				3921F2F724DB1D2D000D65D5 /* LinearLayerAnimation.swift in Sources */,
 				39CE0E47246DD76800AC6897 /* TextField.swift in Sources */,
 				39CE0E56246DD76800AC6897 /* RoundedInformationBox.swift in Sources */,
+				161EBE9A26F8849E004AE843 /* CheveronActionableLabelCard.swift in Sources */,
 				39CE0E45246DD76800AC6897 /* DividerView.swift in Sources */,
 				39CE0E3E246DD76800AC6897 /* ImageInputTextView.swift in Sources */,
 				395ABA8024DF0E4B00BF3A9B /* ModalView.swift in Sources */,
