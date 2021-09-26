@@ -74,7 +74,8 @@ public class IconButtonCard: ViewControl {
         let container = ContainerView()
         self.backgroundColor = .clear
         self.addSubview(container)
-        container.anchorToSuperView(leading: 16.0, trailing: 16.0)
+        container.anchorToSuperView(leading: 0, trailing: 0)
+        container.backgroundColor = .clear
         let contentStack = UIStackView()
         contentStack.axis = .horizontal
         contentStack.spacing = 20.0
