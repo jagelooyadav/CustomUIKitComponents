@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		161EBE9A26F8849E004AE843 /* CheveronActionableLabelCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161EBE9926F8849E004AE843 /* CheveronActionableLabelCard.swift */; };
+		161EBEA526F90CC1004AE843 /* IconButtonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161EBEA426F90CC1004AE843 /* IconButtonCard.swift */; };
+		1648E39C27008400002DC62F /* IconButtonCardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1648E39B27008400002DC62F /* IconButtonCardContainer.swift */; };
 		1F616FA02482DAF600D76A59 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */; };
 		1F830DEC247BC8600043DD10 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F830DEB247BC8600043DD10 /* CheckMarkView.swift */; };
 		1FC7CEB6248393E900DE7E0C /* String+QR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7CEB5248393E900DE7E0C /* String+QR.swift */; };
@@ -70,6 +72,8 @@
 
 /* Begin PBXFileReference section */
 		161EBE9926F8849E004AE843 /* CheveronActionableLabelCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheveronActionableLabelCard.swift; sourceTree = "<group>"; };
+		161EBEA426F90CC1004AE843 /* IconButtonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonCard.swift; sourceTree = "<group>"; };
+		1648E39B27008400002DC62F /* IconButtonCardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonCardContainer.swift; sourceTree = "<group>"; };
 		1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		1F830DEB247BC8600043DD10 /* CheckMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
 		1FC7CEB5248393E900DE7E0C /* String+QR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+QR.swift"; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				3940FDFA24E1AF8E00F0866A /* RoundTextInputView.swift */,
 				396934BF24E457B700AE29BA /* ContentListView.swift */,
 				161EBE9926F8849E004AE843 /* CheveronActionableLabelCard.swift */,
+				161EBEA426F90CC1004AE843 /* IconButtonCard.swift */,
+				1648E39B27008400002DC62F /* IconButtonCardContainer.swift */,
 			);
 			path = CustomUIKit;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 			files = (
 				39CE0E43246DD76800AC6897 /* HeadingWithSeperator.swift in Sources */,
 				39CE0E4D246DD76800AC6897 /* Constants.swift in Sources */,
+				1648E39C27008400002DC62F /* IconButtonCardContainer.swift in Sources */,
 				1F616FA02482DAF600D76A59 /* UIViewController+Alert.swift in Sources */,
 				39CE0E49246DD76800AC6897 /* ImageGroupButtons.swift in Sources */,
 				39CE0E4A246DD76800AC6897 /* TextInputView.swift in Sources */,
@@ -361,6 +368,7 @@
 				39CE0E4F246DD76800AC6897 /* Color.swift in Sources */,
 				39CE0E40246DD76800AC6897 /* InputView.swift in Sources */,
 				3940FDF924E1AD1400F0866A /* ShadowProvider.swift in Sources */,
+				161EBEA526F90CC1004AE843 /* IconButtonCard.swift in Sources */,
 				39CE0E58246DD76800AC6897 /* Button.swift in Sources */,
 				39CE0E55246DD76800AC6897 /* ObjectiveQestionView.swift in Sources */,
 				39CE0E42246DD76800AC6897 /* ContainerView.swift in Sources */,

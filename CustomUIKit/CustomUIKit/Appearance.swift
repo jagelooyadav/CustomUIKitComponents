@@ -21,7 +21,7 @@ public struct Appearance {
         self.tintColor = tintColor
         let appearance = UINavigationBar.appearance()
         
-        appearance.tintColor = Color.whiteColour
+        appearance.tintColor = tintColor
         
         appearance.barTintColor = appColor
         appearance.backgroundColor = appColor
