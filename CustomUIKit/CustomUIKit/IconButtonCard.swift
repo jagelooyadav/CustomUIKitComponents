@@ -90,6 +90,9 @@ public class IconButtonCard: ViewControl {
         let button = UIButton()
         titleLabel.textColor = .blue
         button.addTarget(self, action: #selector(self.didSelect), for: .touchUpInside)
+        self.addSubview(button)
+        button.backgroundColor = .clear
+        button.anchorToSuperView()
     }
     
     @objc private func didSelect() {
