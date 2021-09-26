@@ -16,7 +16,9 @@ public class IconButtonCard: ViewControl {
         }
         
         set {
-            titleLabel.text = newValue
+            let attributedString = NSAttributedString(string: newValue,
+                                                      attributes: [NSAttributedString.Key.underlineStyle: 1])
+            titleLabel.attributedText = attributedString
         }
     }
     

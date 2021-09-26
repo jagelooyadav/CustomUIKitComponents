@@ -48,16 +48,17 @@ public class IconButtonCardContainer: UIView {
     private func setup() {
         let container = ContainerView()
         self.addSubview(container)
-        container.anchorToSuperView(leading: 16.0, trailing: 16.0, top: 16.0)
+        container.anchorToSuperView(leading: 16.0, trailing: 16.0, top: 0.0)
         container.addSubview(titleLabel)
         titleLabel.anchorToSuperView(bottomRelation: .ignore,
                                      leading: 16.0,
-                                     trailing: 16.0)
+                                     trailing: 16.0,
+                                     top: 16.0)
         container.addSubview(contentStack)
         contentStack.anchorToSuperView(topAnchor: titleLabel.bottomAnchor,
                                        top: 20,
                                        bottom: 20.0)
-        titleLabel.font = UIFont.boldBody
+        titleLabel.font = UIFont.boldSubHeading
     }
     
     public func addChild(subview: UIView) {
