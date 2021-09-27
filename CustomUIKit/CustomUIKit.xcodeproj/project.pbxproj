@@ -76,6 +76,7 @@
 		161EBEA426F90CC1004AE843 /* IconButtonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonCard.swift; sourceTree = "<group>"; };
 		1648E39B27008400002DC62F /* IconButtonCardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonCardContainer.swift; sourceTree = "<group>"; };
 		1648E3AD2700A5BF002DC62F /* ProductPriceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPriceCard.swift; sourceTree = "<group>"; };
+		1648E3B12701AE9A002DC62F /* Components Description.rtfd */ = {isa = PBXFileReference; lastKnownFileType = wrapper.rtfd; path = "Components Description.rtfd"; sourceTree = "<group>"; };
 		1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		1F830DEB247BC8600043DD10 /* CheckMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
 		1FC7CEB5248393E900DE7E0C /* String+QR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+QR.swift"; sourceTree = "<group>"; };
@@ -220,6 +221,7 @@
 				161EBEA426F90CC1004AE843 /* IconButtonCard.swift */,
 				1648E39B27008400002DC62F /* IconButtonCardContainer.swift */,
 				1648E3AD2700A5BF002DC62F /* ProductPriceCard.swift */,
+				1648E3B12701AE9A002DC62F /* Components Description.rtfd */,
 			);
 			path = CustomUIKit;
 			sourceTree = "<group>";
