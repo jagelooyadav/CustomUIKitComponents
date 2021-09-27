@@ -56,7 +56,8 @@ public class IconButtonCard: ViewControl {
     private lazy var cheveronImageView: UIImageView = { image in
         image.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
         image.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
-        image.backgroundColor = .red
+        image.backgroundColor = Color.grey2Colour
+        image.contentMode = .scaleToFill
         return image
     }(UIImageView())
     
@@ -100,5 +101,11 @@ public class IconButtonCard: ViewControl {
     
     @objc private func didSelect() {
         action?(self.identifier)
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        cheveronImageView.clipsToBounds = true
+        cheveronImageView.layer.cornerRadius = 5.0
     }
 }

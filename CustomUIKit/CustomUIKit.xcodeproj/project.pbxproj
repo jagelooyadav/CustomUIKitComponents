@@ -10,6 +10,7 @@
 		161EBE9A26F8849E004AE843 /* CheveronActionableLabelCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161EBE9926F8849E004AE843 /* CheveronActionableLabelCard.swift */; };
 		161EBEA526F90CC1004AE843 /* IconButtonCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161EBEA426F90CC1004AE843 /* IconButtonCard.swift */; };
 		1648E39C27008400002DC62F /* IconButtonCardContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1648E39B27008400002DC62F /* IconButtonCardContainer.swift */; };
+		1648E3AE2700A5BF002DC62F /* ProductPriceCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1648E3AD2700A5BF002DC62F /* ProductPriceCard.swift */; };
 		1F616FA02482DAF600D76A59 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */; };
 		1F830DEC247BC8600043DD10 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F830DEB247BC8600043DD10 /* CheckMarkView.swift */; };
 		1FC7CEB6248393E900DE7E0C /* String+QR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC7CEB5248393E900DE7E0C /* String+QR.swift */; };
@@ -74,6 +75,7 @@
 		161EBE9926F8849E004AE843 /* CheveronActionableLabelCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheveronActionableLabelCard.swift; sourceTree = "<group>"; };
 		161EBEA426F90CC1004AE843 /* IconButtonCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonCard.swift; sourceTree = "<group>"; };
 		1648E39B27008400002DC62F /* IconButtonCardContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconButtonCardContainer.swift; sourceTree = "<group>"; };
+		1648E3AD2700A5BF002DC62F /* ProductPriceCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductPriceCard.swift; sourceTree = "<group>"; };
 		1F616F9F2482DAF600D76A59 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		1F830DEB247BC8600043DD10 /* CheckMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
 		1FC7CEB5248393E900DE7E0C /* String+QR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+QR.swift"; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				161EBE9926F8849E004AE843 /* CheveronActionableLabelCard.swift */,
 				161EBEA426F90CC1004AE843 /* IconButtonCard.swift */,
 				1648E39B27008400002DC62F /* IconButtonCardContainer.swift */,
+				1648E3AD2700A5BF002DC62F /* ProductPriceCard.swift */,
 			);
 			path = CustomUIKit;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				1F830DEC247BC8600043DD10 /* CheckMarkView.swift in Sources */,
 				3940FDF724E1A1F600F0866A /* HeadingWithDescriptionView.swift in Sources */,
 				1FF8D2D7247A6A050050FEC7 /* UIImage+Load.swift in Sources */,
+				1648E3AE2700A5BF002DC62F /* ProductPriceCard.swift in Sources */,
 				39CE0E54246DD76800AC6897 /* UIView+Extension.swift in Sources */,
 				39CE0E4B246DD76800AC6897 /* Appearance.swift in Sources */,
 				39FF40B92480442200948059 /* ScratchPadImageView.swift in Sources */,

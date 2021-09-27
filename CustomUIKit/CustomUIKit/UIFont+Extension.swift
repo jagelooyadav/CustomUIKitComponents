@@ -85,4 +85,8 @@ extension UIFont {
     public class var sfPageHeading: UIFont {
         return UIFont(name: "SFProText-Bold", size: 26)!
     }
+    
+    public class var priceBigHeading: UIFont {
+        return UIFont(name: "SFProText-Bold", size: 40)!
+    }
 }
