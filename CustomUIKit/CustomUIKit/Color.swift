@@ -28,18 +28,6 @@ public class Color: NSObject {
      */
     @objc public static let darkBlueColour = UIColor(actualRed: 41, green: 51, blue: 10)
     
-    /**
-     # Digital Blue Colour
-     
-     #0076B6
-     
-     ## Example usages
-     
-     - Navigation bar
-     - Link text
-     - Button active
-     - Radio, checkbox, toggle selected text
-     */
     @objc public static let appColour = UIColor(actualRed: 87.0, green: 189.0, blue: 95)
     
     @objc public static let phoneEstimatorColor = UIColor(actualRed: 19.0, green: 56.0, blue: 202.0)

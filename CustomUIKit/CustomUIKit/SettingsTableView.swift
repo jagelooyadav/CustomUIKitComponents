@@ -9,7 +9,7 @@
 import UIKit
 
 
-public protocol TableInfo {
+public protocol TableInfo: class {
     var icons: [UIImage] { get }
     var titles: [String] { get }
     var switchStatuses: [Bool] { get }
@@ -46,7 +46,7 @@ public enum CellType {
 }
 
 public class SettingsTableView: UITableView, UITableViewDelegate {
-    let tableInfo: TableInfo
+    weak var tableInfo: TableInfo!
     let identifier = "settingIdentifier"
     
     public var switchUpdated: ((_ row: Int, _ status: Bool) -> Void)?

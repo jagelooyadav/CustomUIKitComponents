@@ -2,7 +2,7 @@
 //  Camera.swift
 //  Camera
 //
-//  Created by Jageloo Yadav : Digital Office on 8/29/19.
+//  Created by Jageloo Yadav on 8/29/19.
 //
 //
 import AVFoundation

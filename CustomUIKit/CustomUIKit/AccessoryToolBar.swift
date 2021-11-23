@@ -2,7 +2,7 @@
 //  AccessoryToolBar.swift
 //  CustomUIKit
 //
-//  Created by Jageloo Yadav : Digital Office on 8/29/17.
+//  Created by Jageloo Yadav on 8/29/17.
 //
 //
 
