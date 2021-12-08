@@ -86,10 +86,6 @@ public class SettingsTableView: UITableView, UITableViewDelegate {
         if bounds.size != intrinsicContentSize {
             invalidateIntrinsicContentSize()
         }
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 3, height: 3)
-        self.layer.shadowOpacity = 0.7
-        self.layer.shadowRadius = 4.0
     }
     
     public override var intrinsicContentSize: CGSize {

@@ -70,8 +70,19 @@ public class ProgresssHud: UIView {
     }
 }
 
-public class ContainerView: UIView {
-
+public class ContainerView: UIView, ShadowProvider {
+    let container = UIView()
+    
+    public var containerView: UIView! {
+        return self
+    }
+    
+    public var shouldAddShadow: Bool = false {
+        didSet {
+            self.layoutIfNeeded()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -85,8 +96,16 @@ public class ContainerView: UIView {
     }
     
     private func setUp() {
-        self.layer.cornerRadius = 10.0
-        self.clipsToBounds = true
-        self.backgroundColor = .white
+        self.addSubview(container)
+        container.anchorToSuperView(leading: 16, trailing: 16, top: 16, bottom: 16)
+        container.backgroundColor = .white
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        container.layer.cornerRadius = 10.0
+        if shouldAddShadow {
+            self.dropShadow()
+        }
     }
 }
