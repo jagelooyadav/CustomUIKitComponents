@@ -67,7 +67,7 @@ public class ImageTextInputViewGroups: ViewControl {
         vv.translatesAutoresizingMaskIntoConstraints = false
         vv.heightAnchor.constraint(equalToConstant: 1.0).isActive = true
         vv.backgroundColor = Appearance.color
-        vv.widthAnchor.constraint(equalTo: self.widthAnchor, constant: 1.0)
+        vv.widthAnchor.constraint(equalTo: self.widthAnchor, constant: 1.0).isActive = true
         return vv
     }()
     

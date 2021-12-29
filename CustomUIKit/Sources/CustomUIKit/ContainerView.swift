@@ -19,7 +19,7 @@ public class ProgresssHud: UIView {
     
     lazy var label = UILabel()
     
-    lazy var activity = UIActivityIndicatorView.init(style: .whiteLarge)
+    lazy var activity = UIActivityIndicatorView.init(style: .large)
     
     lazy var activityView: UIView =  { vv in
         vv.backgroundColor = .white
