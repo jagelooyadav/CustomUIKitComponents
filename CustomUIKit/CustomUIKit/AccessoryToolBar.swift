@@ -92,7 +92,7 @@ public class AccessoryToolBar: UIToolbar {
         guard let activeView = self.activeView else {
             return nil
         }
-        return inputViews?.index(of: activeView)
+        return inputViews?.firstIndex(of: activeView)
     }
     
     private func setUpToolBar() {

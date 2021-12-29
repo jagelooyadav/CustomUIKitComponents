@@ -48,7 +48,7 @@ extension TabBarItemAnimator {
             }
             let numberOfItems = CGFloat(items.count)
             imageView.center.x = self.tabBar.frame.width / numberOfItems / 2
-            let number = -((items.index(of: item)?.distance(to: 0)) ?? 0) + 1
+            let number = -((items.firstIndex(of: item)?.distance(to: 0)) ?? 0) + 1
             let index = number - 1
             guard SelectionIndicator.previousIndex != index else { return }
             let singleItemCenter = tabBar.frame.width/numberOfItems/2
