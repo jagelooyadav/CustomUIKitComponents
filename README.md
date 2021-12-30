@@ -45,9 +45,8 @@ Componets has put label and divider horizontaly.
 For exoample below code will display heading like below
 ```
 let headingWithSeperator = HeadingWithSeperator()
- headingWithSeperator.title = "Some heading text"
- headingWithSeperator.textColor = .green
- 
+headingWithSeperator.title = "Some heading text"
+headingWithSeperator.textColor = .green
 ```
 <img width="274" alt="HeadingWithSeperator" src="https://user-images.githubusercontent.com/2247603/147768377-3c32385b-8889-40f4-b9fa-8f7625c9dcfe.png">
 
