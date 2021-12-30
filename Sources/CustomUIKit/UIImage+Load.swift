@@ -11,7 +11,7 @@ import UIKit
 public extension UIImage {
     
      convenience init?(imageNamed: String) {
-        self.init(named: imageNamed, in: BundleHelper.currentBundle, compatibleWith: nil)
+         self.init(named: imageNamed, in: Bundle.module, compatibleWith: nil)
     }
     
     static var tickMarkImage: UIImage? {
