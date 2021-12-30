@@ -2,7 +2,8 @@
 
 Components are created below:
 
-1- SettingsTableView - This is custom table view implmented table data source inside itself. Caller just needs to pass view model/controller which implments TableInfo.
+# SettingsTableView
+This is custom table view implmented table data source inside itself. Caller just needs to pass view model/controller which implments TableInfo.
 
 For example. To show image like below
 
