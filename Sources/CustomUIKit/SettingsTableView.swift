@@ -222,7 +222,7 @@ fileprivate class SettingCell: UITableViewCell {
         self.contentView.addSubview(cellContainerView, insets: .zero)
         cellContainerView.translatesAutoresizingMaskIntoConstraints = false
         cellContainerView.addSubview(stack, insets: UIEdgeInsets.init(top: 0, left: 26, bottom: 1, right: 26))
-        dividerView.backgroundColor = Color.grey3Colour
+        dividerView.backgroundColor = Color.grey3
         cellContainerView.addSubview(dividerView, insets: UIEdgeInsets.init(top: 0, left: 16, bottom: 0, right: 16), ignoreConstant: .top)
         stack.addArrangedSubview(leftIcon)
         stack.addArrangedSubview(titleContainerView)
@@ -308,7 +308,7 @@ fileprivate class SettingCell: UITableViewCell {
                 self.rightIconContainerView.removeFromSuperview()
                 self.stack.addArrangedSubview(testingContainerView)
                 self.testingLabel.text = "Testing.."
-                self.testingLabel.textColor = Color.darkGrey3Colour
+                self.testingLabel.textColor = Color.darkGrey3
                 
             case .none:
                 self.switchContainerView.removeFromSuperview()

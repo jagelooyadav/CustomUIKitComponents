@@ -135,11 +135,11 @@ public class CheckMarkView: UIView {
             self.titleLabel.isHidden = false
         case .tick:
             self.imageView.image = self.tickImage
-            borderColor = Color.greenColour
+            borderColor = Color.green
             self.titleLabel.isHidden = true
         case .cross:
             self.imageView.image = self.untickImage
-            borderColor = Color.warningColour
+            borderColor = Color.warning
             self.titleLabel.isHidden = true
         }
         self.updateBorderColor(lineColor: borderColor)

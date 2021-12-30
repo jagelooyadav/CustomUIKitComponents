@@ -28,7 +28,7 @@ public class TextInputView: InputView {
     }
     
     /// Color that is assigned to text field's text color - when input text is invalid.
-    public var textFieldInvalidTextColor: UIColor? = Color.darkRedColour {
+    public var textFieldInvalidTextColor: UIColor? = Color.darkRed {
         didSet {
             self.textField.textColor = self.textFieldInvalidTextColor ?? self.textField.textColor
         }
@@ -243,7 +243,7 @@ public class TextInputView: InputView {
             
         case .disabled:
             self.isEnabled = false
-            self.textField.textColor = Color.grey2Colour
+            self.textField.textColor = Color.grey2
             self.textField.icon = nil
             self.textField.placeholder = self.placeholder
         }

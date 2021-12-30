@@ -86,7 +86,7 @@ public class ProductCardView: ViewControl {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.boldSFRegualarSubHeading
-        label.textColor = Color.grey1Colour
+        label.textColor = Color.grey1
         return label
     }()
     
@@ -95,7 +95,7 @@ public class ProductCardView: ViewControl {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.boldSFRegualarSubHeading
-        label.textColor = Color.darkGrey1Colour
+        label.textColor = Color.darkGrey1
         return label
     }()
     
@@ -132,7 +132,7 @@ public class ProductCardView: ViewControl {
                                 top: 16, bottom: 16)
     
         let  devider = DividerView()
-        devider.backgroundColor = Color.grey3Colour
+        devider.backgroundColor = Color.grey3
         devider.translatesAutoresizingMaskIntoConstraints = false
         stack.addArrangedSubview(productImageView)
         stack.addArrangedSubview(producttitleLabel)

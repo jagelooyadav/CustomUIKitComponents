@@ -208,9 +208,9 @@ public class Button: UIButton {
                 
             case .secondary, .underline:
                 let white = UIColor.white
-                let darkBlue = Color.darkBlueColour
-                let lightBlue = self.primaryColor == .clear ? Color.grey1Colour : self.primaryColor.withAlphaComponent(0.8)
-                let digitalBlue = self.primaryColor == .clear ? Color.grey1Colour : self.primaryColor
+                let darkBlue = Color.darkBlue
+                let lightBlue = self.primaryColor == .clear ? Color.grey1 : self.primaryColor.withAlphaComponent(0.8)
+                let digitalBlue = self.primaryColor == .clear ? Color.grey1 : self.primaryColor
                 
                 return (activeText: digitalBlue, activeBackground: white,
                         activeBorder: digitalBlue,
@@ -224,9 +224,9 @@ public class Button: UIButton {
                 
                 return (activeText: white, activeBackground: .red,
                         activeBorder: nil,
-                        pressedText: white, pressedBackground: Color.darkRedColour,
+                        pressedText: white, pressedBackground: Color.darkRed,
                         pressedBorder: nil,
-                        disabledText: white, disabledBackground: Color.lightRedColour.withAlphaComponent(0.5),
+                        disabledText: white, disabledBackground: Color.lightRed.withAlphaComponent(0.5),
                         disabledBorder: nil)
                 
             }
@@ -240,7 +240,7 @@ public class Button: UIButton {
         self.setTitleColor(colours.disabledText, for: .disabled)
 
         if self.primaryColor == .clear && self.style != .primary {
-            self.setTitleColor(Color.darkGrey3Colour, for: .disabled)
+            self.setTitleColor(Color.darkGrey3, for: .disabled)
         }
         self.updateCurrentAppearance()
     }
@@ -262,12 +262,12 @@ public class Button: UIButton {
             
         }
         if self.primaryColor == .clear {
-            self.layer.borderColor = Color.grey3Colour.cgColor
+            self.layer.borderColor = Color.grey3.cgColor
         }
         if self.style == .underline {
             self.layer.borderColor = UIColor.clear.cgColor
             self.backgroundColor = .clear
-             self.setTitleColor(Color.black1Colour, for: .normal)
+             self.setTitleColor(Color.black2, for: .normal)
             self.layer.borderWidth = 0.0
             self.layer.backgroundColor = UIColor.clear.cgColor
         }

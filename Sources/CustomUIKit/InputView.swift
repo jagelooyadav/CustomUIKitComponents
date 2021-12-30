@@ -119,7 +119,7 @@ public class InputView: ViewControl {
     /**
      Color for the optional message displayed below the input area.
      */
-    public var messageTextColor: UIColor? = Color.darkRedColour {
+    public var messageTextColor: UIColor? = Color.darkRed {
         didSet {
             
             self.messageLabel.textColor = self.messageTextColor ?? self.messageLabel.textColor
@@ -323,18 +323,18 @@ public class InputView: ViewControl {
     func updateStyle() {
         switch self.state {
         case .invalid:
-            self.titleLabel.textColor = Color.darkTextColour
-            self.underlineView.backgroundColor = Color.darkRedColour
-            self.messageLabel.textColor = Color.darkRedColour
+            self.titleLabel.textColor = Color.darkText
+            self.underlineView.backgroundColor = Color.darkRed
+            self.messageLabel.textColor = Color.darkRed
         case .disabled:
-            self.underlineView.backgroundColor = Color.grey4Colour
-            self.messageLabel.textColor = Color.grey2Colour
-            self.titleLabel.textColor = Color.grey2Colour
+            self.underlineView.backgroundColor = Color.grey4
+            self.messageLabel.textColor = Color.grey2
+            self.titleLabel.textColor = Color.grey2
         case .normal,
              .valid:
-            self.titleLabel.textColor = Color.darkTextColour
-            self.underlineView.backgroundColor = Color.grey3Colour
-            self.messageLabel.textColor = Color.lightTextColour
+            self.titleLabel.textColor = Color.darkText
+            self.underlineView.backgroundColor = Color.grey3
+            self.messageLabel.textColor = Color.lightText
         }
     }
 }

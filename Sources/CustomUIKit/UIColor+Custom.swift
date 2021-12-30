@@ -20,8 +20,4 @@ extension UIColor {
                   blue: blue / selfType.maxColourValue,
                   alpha: alpha)
     }
- 
-    public convenience init(actualColorValue colorValue: CGFloat, alpha: CGFloat = 1.0) {
-        self.init(actualRed: colorValue, green: colorValue, blue: colorValue, alpha: alpha)
-    }
 }

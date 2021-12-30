@@ -10,7 +10,7 @@ import UIKit
 
 public struct Appearance {
     public static var color: UIColor = Color.appColour
-    public static var tintColor: UIColor = Color.whiteColour
+    public static var tintColor: UIColor = Color.white
     
     public static func setUpUIAppearance() {
         self.setUpUIAppearance(appColor: Color.appColour)

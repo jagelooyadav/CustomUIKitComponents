@@ -56,7 +56,7 @@ public class IconButtonCard: ViewControl {
     private lazy var cheveronImageView: UIImageView = { image in
         image.heightAnchor.constraint(equalToConstant: 60.0).isActive = true
         image.widthAnchor.constraint(equalToConstant: 60.0).isActive = true
-        image.backgroundColor = Color.grey2Colour
+        image.backgroundColor = Color.grey2
         image.contentMode = .scaleToFill
         return image
     }(UIImageView())

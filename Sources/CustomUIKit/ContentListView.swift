@@ -31,7 +31,7 @@ public class ContentListView: UIView {
         self.items = items
         super.init(frame: .zero)
         self.renderView()
-        self.backgroundColor = Color.grey4Colour
+        self.backgroundColor = Color.grey4
     }
     
     public func renderView() {
@@ -45,7 +45,7 @@ public class ContentListView: UIView {
             sequenceView.addSubview(sequence, insets: UIEdgeInsets(top: 0, left: 0, bottom: 0.0, right: 16.0))
             sequenceView.translatesAutoresizingMaskIntoConstraints = false
             sequenceView.widthAnchor.constraint(equalToConstant: 40.0).isActive = true
-            sequence.textColor = Color.darkTextColour
+            sequence.textColor = Color.darkText
             sequence.font = UIFont.body
             sequence.text = "○"
             let hStack = self.stackView
@@ -62,7 +62,7 @@ public class ContentListView: UIView {
             text.text = item
             text.font = UIFont.body
            
-            text.textColor = Color.darkTextColour
+            text.textColor = Color.darkText
             hStack.addArrangedSubview(view)
             self.verticalStack.addArrangedSubview(hStack)
             number += 1
