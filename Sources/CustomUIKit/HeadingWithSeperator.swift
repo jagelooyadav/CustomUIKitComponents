@@ -11,6 +11,7 @@ import UIKit
 public class HeadingWithSeperator: ViewControl {
     
     private let heading: String?
+    private let divider = DividerView()
     
     public init(withString string: String? = nil) {
         self.heading = string
@@ -39,6 +40,26 @@ public class HeadingWithSeperator: ViewControl {
         }
     }
     
+    public var textColor: UIColor {
+        get {
+            return self.titleLabel.textColor
+        }
+        
+        set {
+            self.titleLabel.textColor = newValue
+        }
+    }
+    
+    public var divideColor: UIColor? {
+        get {
+            return self.divider.backgroundColor
+        }
+        
+        set {
+            self.divider.backgroundColor = newValue
+        }
+    }
+    
     required init?(coder aDecoder: NSCoder) {
         self.heading = nil
         super.init(coder: aDecoder)
@@ -47,7 +68,6 @@ public class HeadingWithSeperator: ViewControl {
     
     private func setup() {
         self.addSubview(self.titleLabel, insets: UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16), ignoreConstant: .bottom)
-        let divider = DividerView()
         self.addSubview(divider, insets: UIEdgeInsets(top: 16, left: 16, bottom: 10, right: 16), ignoreConstant: .top)
         divider.topAnchor.constraint(equalTo: self.titleLabel.bottomAnchor, constant: 5).isActive = true
         self.titleLabel.text = self.heading
