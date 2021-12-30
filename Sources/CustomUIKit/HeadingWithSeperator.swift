@@ -12,7 +12,7 @@ public class HeadingWithSeperator: ViewControl {
     
     private let heading: String?
     
-    init(withString string: String? = nil) {
+    public init(withString string: String? = nil) {
         self.heading = string
         super.init(frame: .zero)
         self.setup()
