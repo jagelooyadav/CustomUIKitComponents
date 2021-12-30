@@ -50,6 +50,15 @@ public class HeadingWithSeperator: ViewControl {
         }
     }
     
+    public var titleFont: UIFont {
+        get {
+            return self.titleLabel.font
+        }
+        set {
+            self.titleLabel.font = newValue
+        }
+    }
+    
     public var divideColor: UIColor? {
         get {
             return self.divider.backgroundColor
