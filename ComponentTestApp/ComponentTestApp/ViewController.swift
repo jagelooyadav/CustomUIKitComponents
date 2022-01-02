@@ -12,8 +12,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let button = Button()
-        // Do any additional setup after loading the view.
+        let button = Button(type: .custom)
+        self.view.addSubview(button)
+        button.setTitle("Custom button", for: .normal)
+        button.customType = .plane
+        button.anchorToSuperView(topAnchor: view.safeAreaLayoutGuide.topAnchor,
+                                 bottomRelation: .ignore,
+                                 leading: 20.0,
+                                 trailing: 20.0,
+                                 top: 20.0)
+        button.primaryColor = .blue
+        button.customType  = .bordered
     }
 }
 

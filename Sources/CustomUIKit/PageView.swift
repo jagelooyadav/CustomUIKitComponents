@@ -161,12 +161,12 @@ public class PageView: ViewControl {
                 button.setTitle(content.title, for: .normal)
                 self.contentStackView.addArrangedSubview(button)
                 self.viewInfo[content.identifier] = button
-                button.primaryColor = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
+                //button.primaryColor = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
                 self.viewInfo[content.identifier] = button
                 
             case .UnderLineButton:
                 let button = Button()
-                button.style = .underline
+                //button.style = .underline
                 button.setTitle(content.title, for: .normal)
                 self.contentStackView.addArrangedSubview(button)
                 self.viewInfo[content.identifier] = button
