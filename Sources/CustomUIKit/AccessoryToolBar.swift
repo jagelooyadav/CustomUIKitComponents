@@ -9,25 +9,16 @@
 import UIKit
 
 public class AccessoryToolBar: UIToolbar {
-
-    // MARK: - Constants
-
-    /// The horizontal spacing beeen tool bar buttons.
     private static let horizontalSpacing: CGFloat = 37.0
 
-    // MARK: - Variables
-
-    /// All input views in the view controller.
     public var inputViews: [UIView]? {
         didSet {
             self.setUpToolBar()
         }
     }
-    
-    /// Completion handler called on done button
+
     public var done: (() -> Void)?
-    
-    // Current active textfield in the view controller. set this value in the text field begin editing method
+
      @objc public var activeView: UIView? {
         didSet {
             guard let inputViews = self.inputViews, inputViews.count > 1 else {
@@ -67,9 +58,7 @@ public class AccessoryToolBar: UIToolbar {
         return doneButton
     }()
     
-    // MARK: Function
 
-    /// This add done button to right side of the tool bar
     private func addDoneButton() {
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         
@@ -77,7 +66,6 @@ public class AccessoryToolBar: UIToolbar {
         self.sizeToFit()
     }
     
-    /// This add right and left arrow to left side and done button to right side of the tool bar
     private func addNextAndPreviousButton() {
         let flexButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
         
@@ -97,8 +85,7 @@ public class AccessoryToolBar: UIToolbar {
     
     private func setUpToolBar() {
         guard let inputViews = self.inputViews else { return }
-        
-//        self.backgroundColor = Colours.
+
         if inputViews.count > 1 {
             self.addNextAndPreviousButton()
         } else {
@@ -106,8 +93,6 @@ public class AccessoryToolBar: UIToolbar {
         }
     }
     
-    // MARK: - Initialiser
-
     @objc convenience init(inputViews: [UIView]) {
         self.init()
         
@@ -115,8 +100,6 @@ public class AccessoryToolBar: UIToolbar {
         self.setUpToolBar()
     }
     
-    // MARK: Button Actions
-
     @objc private func doneButtonPressed() {
         self.activeView?.resignFirstResponder()
         self.done?()
