@@ -31,9 +31,6 @@ open class BaseViewController: UIViewController {
             scrollingContentView.widthAnchor.constraint(equalTo: wrapperView.widthAnchor).isActive = true
             scrollingContentView.heightAnchor.constraint(greaterThanOrEqualTo: wrapperView.heightAnchor).isActive = true
         }
-        self.view.addSubview(self.backgroundImage, insets: .zero, ignoreConstant: .bottom)
-    
-        self.view.sendSubviewToBack(self.backgroundImage)
     }
     
     public override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -41,7 +38,7 @@ open class BaseViewController: UIViewController {
     }
     
     open var shouldEmbedInScrollView: Bool {
-        return false
+        return true
     }
     
     @objc func back() {
