@@ -22,6 +22,8 @@ class ViewController: BaseViewController {
                                 trailing: 20.0,
                                 top: 0)
         
+        /// Add buttons components
+        
         let label = UILabel()
         label.text = "Buttons"
         label.font = UIFont.bigBrother
@@ -35,8 +37,8 @@ class ViewController: BaseViewController {
         
         stack.addArrangedSubview(createButton(type: .bordered, color: .green))
         stack.addArrangedSubview(createButton(type: .plane, color: .green))
-    
         
+        //Add button code sample label
         stack.addArrangedSubview(createButtonCodeSample())
     }
     
