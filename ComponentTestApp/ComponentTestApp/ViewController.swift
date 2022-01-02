@@ -25,7 +25,7 @@ class ViewController: BaseViewController {
         /// Add buttons components
         
         let label = UILabel()
-        label.text = "Buttons"
+        label.text = "Button"
         label.font = UIFont.bigBrother
     
         stack.addArrangedSubview(label)
