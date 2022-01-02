@@ -7,7 +7,7 @@
 
 import UIKit
  
-public class Button: UIButton {
+open class Button: UIButton {
     public enum ButtonType {
         case bordered
         case plane
@@ -54,18 +54,18 @@ public class Button: UIButton {
     private var heightConstraint: NSLayoutConstraint?
     
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         self.setup()
     }
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setup()
     }
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         self.setup()
     }

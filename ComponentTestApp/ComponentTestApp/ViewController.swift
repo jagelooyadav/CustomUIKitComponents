@@ -39,7 +39,11 @@ class ViewController: BaseViewController {
         stack.addArrangedSubview(createButton(type: .plane, color: .green))
         
         //Add button code sample label
-        stack.addArrangedSubview(createButtonCodeSample())
+        stack.addArrangedSubview(createSampleCodeView(self.createButtonHTML()))
+        
+        stack.addArrangedSubview(createPlaceholder(title: "ProgressBarButton"))
+        stack.addArrangedSubview(createProgressButton())
+        stack.addArrangedSubview(createSampleCodeView(createProgressBarButtonHTML()))
     }
     
     func createButton(type: Button.ButtonType, color: UIColor) -> Button {
@@ -51,9 +55,41 @@ class ViewController: BaseViewController {
         return button
     }
     
-    func createButtonCodeSample() -> UIView {
+    func createPlaceholder(title: String) -> UIView {
+        let label = UILabel()
+        label.text = title
+        label.font = UIFont.bigBrother
+        return label
+    }
+    
+    func createSampleCodeView(_ html: String) -> UIView {
+        let htmlData = NSString(string: html).data(using: String.Encoding.unicode.rawValue)
+        let options = [NSAttributedString.DocumentReadingOptionKey.documentType:
+                        NSAttributedString.DocumentType.html]
+        let attributedString = try? NSMutableAttributedString(data: htmlData ?? Data(),
+                                                              options: options,
+                                                              documentAttributes: nil)
+        let codeSample = UILabel()
+        codeSample.numberOfLines = 0
+        codeSample.textColor = .black
+        codeSample.attributedText = attributedString
+        return codeSample
+    }
+    
+    func createProgressButton() -> UIView {
+        let button = ProgressBarButton()
+        button.primaryColor = .red
+        button.progressValueLabel = "Progress: 70 %"
+        button.progress = 0.70
+        return button
+    }
+    
+    override var shouldEmbedInScrollView: Bool {
+        return true
+    }
+    
+    func createButtonHTML() -> String {
         let html = """
-        
         <HTML>
         <head>
         <style>
@@ -81,21 +117,19 @@ class ViewController: BaseViewController {
         </Body>
         </HTML>
         """
-        let htmlData = NSString(string: html).data(using: String.Encoding.unicode.rawValue)
-        let options = [NSAttributedString.DocumentReadingOptionKey.documentType:
-                        NSAttributedString.DocumentType.html]
-        let attributedString = try? NSMutableAttributedString(data: htmlData ?? Data(),
-                                                              options: options,
-                                                              documentAttributes: nil)
-        let codeSample = UILabel()
-        codeSample.numberOfLines = 0
-        codeSample.textColor = .black
-        codeSample.attributedText = attributedString
-        return codeSample
+        return html
     }
     
-    override var shouldEmbedInScrollView: Bool {
-        return true
+    func createProgressBarButtonHTML() -> String {
+        let html = """
+        <p style = "margin-left: 40px; background-color:clear;font-size: 20px">
+            let button = ProgressBarButton()<BR>
+            button.primaryColor = .red<BR>
+            button.progressValueLabel = "Progress: 70 %"<BR>
+            button.progress = 0.70
+        </p>
+        """
+        return html
     }
 }
 
