@@ -16,7 +16,7 @@
 		16DF1D3427815B6500DC1BBF /* ComponentTestAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DF1D3327815B6500DC1BBF /* ComponentTestAppTests.swift */; };
 		16DF1D3E27815B6500DC1BBF /* ComponentTestAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DF1D3D27815B6500DC1BBF /* ComponentTestAppUITests.swift */; };
 		16DF1D4027815B6500DC1BBF /* ComponentTestAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DF1D3F27815B6500DC1BBF /* ComponentTestAppUITestsLaunchTests.swift */; };
-		16DF1DB227815C1E00DC1BBF /* CustomUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 16DF1DB127815C1E00DC1BBF /* CustomUIKit */; };
+		16DF1DC0278161BD00DC1BBF /* CustomUIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 16DF1DBF278161BD00DC1BBF /* CustomUIKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +50,7 @@
 		16DF1D3927815B6500DC1BBF /* ComponentTestAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ComponentTestAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16DF1D3D27815B6500DC1BBF /* ComponentTestAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTestAppUITests.swift; sourceTree = "<group>"; };
 		16DF1D3F27815B6500DC1BBF /* ComponentTestAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentTestAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		16DF1DBD278161AD00DC1BBF /* package */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = package; path = ../package; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16DF1DB227815C1E00DC1BBF /* CustomUIKit in Frameworks */,
+				16DF1DC0278161BD00DC1BBF /* CustomUIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +82,12 @@
 		16DF1D1027815B6400DC1BBF = {
 			isa = PBXGroup;
 			children = (
+				16DF1DBC278161AD00DC1BBF /* Packages */,
 				16DF1D1B27815B6400DC1BBF /* ComponentTestApp */,
 				16DF1D3227815B6500DC1BBF /* ComponentTestAppTests */,
 				16DF1D3C27815B6500DC1BBF /* ComponentTestAppUITests */,
 				16DF1D1A27815B6400DC1BBF /* Products */,
+				16DF1DBE278161BD00DC1BBF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +132,21 @@
 			path = ComponentTestAppUITests;
 			sourceTree = "<group>";
 		};
+		16DF1DBC278161AD00DC1BBF /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				16DF1DBD278161AD00DC1BBF /* package */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		16DF1DBE278161BD00DC1BBF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,7 +164,7 @@
 			);
 			name = ComponentTestApp;
 			packageProductDependencies = (
-				16DF1DB127815C1E00DC1BBF /* CustomUIKit */,
+				16DF1DBF278161BD00DC1BBF /* CustomUIKit */,
 			);
 			productName = ComponentTestApp;
 			productReference = 16DF1D1927815B6400DC1BBF /* ComponentTestApp.app */;
@@ -221,7 +239,6 @@
 			);
 			mainGroup = 16DF1D1027815B6400DC1BBF;
 			packageReferences = (
-				16DF1DB027815C1E00DC1BBF /* XCRemoteSwiftPackageReference "CustomUIKitComponents" */,
 			);
 			productRefGroup = 16DF1D1A27815B6400DC1BBF /* Products */;
 			projectDirPath = "";
@@ -607,21 +624,9 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		16DF1DB027815C1E00DC1BBF /* XCRemoteSwiftPackageReference "CustomUIKitComponents" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jagelooyadav/CustomUIKitComponents.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		16DF1DB127815C1E00DC1BBF /* CustomUIKit */ = {
+		16DF1DBF278161BD00DC1BBF /* CustomUIKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 16DF1DB027815C1E00DC1BBF /* XCRemoteSwiftPackageReference "CustomUIKitComponents" */;
 			productName = CustomUIKit;
 		};
 /* End XCSwiftPackageProductDependency section */
