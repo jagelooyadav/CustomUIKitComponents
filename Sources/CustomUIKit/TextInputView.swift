@@ -8,33 +8,26 @@
 
 import UIKit
 
-////
 public class TextInputView: InputView {
     
-    // MARK: Public
-    
-    /// The text field delegate.
     @objc public weak var delegate: TextInputViewDelegate? {
         didSet {
             self.textField.delegate = self.delegate != nil ? self : nil
         }
     }
-    
-    /// Color that is assigned to text field's text color - when input text is valid.
+
     public var textFieldTextColor: UIColor? {
         didSet {
             self.textField.textColor = self.textFieldTextColor ?? self.textField.textColor
         }
     }
-    
-    /// Color that is assigned to text field's text color - when input text is invalid.
+
     public var textFieldInvalidTextColor: UIColor? = Color.darkRed {
         didSet {
             self.textField.textColor = self.textFieldInvalidTextColor ?? self.textField.textColor
         }
     }
-    
-    /// Determines if the text field is enabled.
+
     public var isEnabled: Bool {
         get {
             return self.textField.isEnabled
@@ -44,8 +37,7 @@ public class TextInputView: InputView {
             self.textField.isEnabled = newValue
         }
     }
-    
-    /// The string that is displayed when there is no other text in the text input view.
+
     @objc public var placeholder: String? {
         get {
             return self.textField.placeholder
@@ -55,8 +47,7 @@ public class TextInputView: InputView {
             
         }
     }
-    
-    /// The custom input view to display when the text input view becomes the first responder
+
     @objc public var textFieldInputView: UIView? {
         get {
             return self.textField.inputView
@@ -66,8 +57,7 @@ public class TextInputView: InputView {
             self.textField.inputView = newValue
         }
     }
-    
-    /// The custom accessory view to display when the text input view becomes the first responder
+ 
     @objc public var textFieldInputAccessoryView: UIView? {
         get {
             return self.textField.inputAccessoryView
@@ -77,8 +67,7 @@ public class TextInputView: InputView {
             self.textField.inputAccessoryView = newValue
         }
     }
-    
-    /// The keyboard style associated with the text input view.
+ 
     @objc public var keyboardType: UIKeyboardType {
         get {
             return self.textField.keyboardType
@@ -88,8 +77,7 @@ public class TextInputView: InputView {
             self.textField.keyboardType = newValue
         }
     }
-    
-    /// The autocorrection style for the text input view.
+   
     @objc public var autocorrectionType: UITextAutocorrectionType {
         get {
             return self.textField.autocorrectionType
@@ -99,8 +87,7 @@ public class TextInputView: InputView {
             self.textField.autocorrectionType = newValue
         }
     }
-    
-    /// The supplementary image which is displayed by the text field.
+
     @objc public var supplementaryImage: UIImage? {
         get {
             return self.textField.supplementaryImage
@@ -113,16 +100,13 @@ public class TextInputView: InputView {
 
     public var customRightView: UIView? {
         didSet {
-            // if right view already exists then remove
+    
             oldValue?.removeFromSuperview()
             
             guard let newValue = self.customRightView else { return }
-            
-            // add the view over TextView to hide rightView of TextView
+     
             self.addSubview(newValue)
             newValue.translatesAutoresizingMaskIntoConstraints = false
-            
-            // Constraints to add the custom right view on right side of text view.
             NSLayoutConstraint.activate([
                 newValue.topAnchor.constraint(equalTo: self.textField.topAnchor, constant: 0.0),
                 self.textField.bottomAnchor.constraint(equalTo: newValue.bottomAnchor, constant: 0.0),
@@ -131,8 +115,6 @@ public class TextInputView: InputView {
             
         }
     }
-    
-    /// Accessibility text for the textField.
     public var textFieldAccessibilityHintText: String? {
         get {
             return self.textField.accessibilityHint
@@ -153,8 +135,7 @@ public class TextInputView: InputView {
             self.textField.text = newValue
         }
     }
-    
-    /// The text field displayed by the view. Do not access this externally.
+
     @objc override public var valueView: UIView? {
         return self.textField
     }
@@ -166,15 +147,11 @@ public class TextInputView: InputView {
     @discardableResult override public func resignFirstResponder() -> Bool {
         return self.textField.resignFirstResponder()
     }
-    
-    /// Returns `true` if the text input view is the first responder, `false` otherwise.
+ 
     override public var isFirstResponder: Bool {
         return self.textField.isFirstResponder
     }
-    
-    // MARK: IBInspectable
-    
-    /// The localisation key to use for the placeholder for input view text field.
+
     @IBInspectable public var placeholderLocalisationKey: String? {
         didSet {
             guard let key = self.placeholderLocalisationKey else { return }
@@ -182,8 +159,6 @@ public class TextInputView: InputView {
             self.placeholder = key
         }
     }
-    
-    /// Identifies whether the text object should disable text copying and in some cases hide the text being entered.
     @IBInspectable public var isSecureTextEntry: Bool {
         get {
             return self.textField.isSecureTextEntry
@@ -193,10 +168,6 @@ public class TextInputView: InputView {
             self.textField.isSecureTextEntry = newValue
         }
     }
-    
-    // MARK: Private
-    
-    /// The text field.
      public var textField: TextField = {
         let textField = TextField()
         
@@ -210,14 +181,12 @@ public class TextInputView: InputView {
     @objc func insertTextAtCurrentPostion(text: String) {
         self.textField.insertText(text)
     }
-    
-    /// called when textfield text changed and tells the delegate about text change
+
     @objc private func textFieldTextDidChange() {
         
         self.delegate?.inputViewTextDidChange?(inInputView: self)
     }
     
-    // MARK: UIView
     override func updateStyle() {
         super.updateStyle()
         
@@ -306,7 +275,6 @@ extension TextInputView: UITextFieldDelegate {
     }
 }
 
-/// A delegate to observe changes within `TextInputView`.
 @objc public protocol TextInputViewDelegate: AnyObject {
         @objc optional func inputViewShouldBeginEditing(inInputView inputView: TextInputView) -> Bool
     

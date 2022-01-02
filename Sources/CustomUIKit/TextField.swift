@@ -9,10 +9,7 @@
 import UIKit
 
 public class TextField: UITextField {
-    
-    // MARK: - Types
-    
-    /// A validation icon which can be displayed within the text field.
+ 
     public enum Icon {
         case tick
         
@@ -30,46 +27,24 @@ public class TextField: UITextField {
             }())
         }
     }
-    
-    // MARK: - Constants
-    
-    /// The amount of space used beeen each image when multiple views are displayed.
+
     private static let rightViewImageSpacing: CGFloat = 12.0
-    
-    // MARK: - Variables
-    
-    /**
-     The validation icon to be displayed by the text field.
-     
-     The default value is `nil`.
-     */
+   
     public var icon: Icon? {
         didSet {
             self.updateRightView()
         }
     }
-    
-    /**
-     The supplementary image which is displayed by the text field.
-     
-     If `icon` is also set, this image will be displayed to the right of it.
-     
-     The default value is `nil`.
-     */
+   
     public var supplementaryImage: UIImage? {
         didSet {
             self.updateRightView()
         }
     }
-    
-    /// Right padding for texfield
+ 
     public var textFieldRightPadding: CGFloat?
 
-    /// Holds the customized keyboard clear button title
     fileprivate var clearButtonTitle: String?
-    
-    // MARK: - Initialisers
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -81,11 +56,7 @@ public class TextField: UITextField {
         
         self.setup()
     }
-    
-    // MARK: - Functions
-
-    // MARK: UITextField
-    
+  
     override public func textRect(forBounds bounds: CGRect) -> CGRect {
         guard let rightPadding = self.textFieldRightPadding else {
             return bounds
@@ -95,17 +66,13 @@ public class TextField: UITextField {
     
     override public func addSubview(_ view: UIView) {
         super.addSubview(view)
-        
-        // Modify the clear button when added.
+   
         if let button = view as? UIButton {
             button.setImage(UIImage(named: Constants.ImageNames.dismiss), for: .normal)
             button.setImage(nil, for: .highlighted)
         }
     }
-    
-    // MARK: Private
-    
-    /// Performs setup of the text field.
+ 
     private func setup() {
         self.clearButtonMode = .whileEditing
         self.rightViewMode = .unlessEditing
@@ -114,31 +81,26 @@ public class TextField: UITextField {
         self.textColor = Appearance.color
         self.tintColor = Color.black1Colour
     }
-    
-    /// Updates the content displayed in the `rightView`.
+
     private func updateRightView() {
         var imageViews: [UIImageView] = []
-        
-        // Add the icon image view, if required.
+      
         if let icon = self.icon {
             let imageView = UIImageView(image: icon.image)
             imageView.sizeToFit()
             imageViews.append(imageView)
         }
-        
-        // Add the supplementary image view, if required.
+     
         if let image = self.supplementaryImage {
             let imageView = UIImageView(image: image)
             imageView.sizeToFit()
             imageViews.append(imageView)
         }
-        
-        // Create a single view which represents the icon(s) to be displayed.
         let view: UIView? = {
             let count = imageViews.count
             
             if count > 1 {
-                // If there are multiple image views, use a stack view.
+             
                 let stackView = UIStackView()
                 
                 stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -152,9 +114,8 @@ public class TextField: UITextField {
                 }
                 
                 return stackView
-            } else if count > 0 { // swiftlint:disable:this empty_count
-                // Disabling the SwiftLint rule is justifiable here as it is more effective to reuse the `count` value.
-                // If there is a single image view, return this view directly.
+            } else if count > 0 {
+                
                 return imageViews.first
             } else {
                 return nil
@@ -171,8 +132,7 @@ public class TextField: UITextField {
 // MARK: KeyboardEventHandler
 
 extension TextField {
-    
-    /// Insert a text into TextField if delgate `shouldChangeCharactersIn:` returns `true`
+
     private func insertTextAtCurrentPostion(text: String) {
         guard let selectedRange = self.selectedRange() else { return }
         let shouldChangeCharacter = self.delegate?.textField?(self,
@@ -183,8 +143,7 @@ extension TextField {
             self.insertText(text)
         }
     }
-    
-    /// Clears the TextField text
+
     private func clearTextFieldText() {
         let shouldClearText = self.delegate?.textFieldShouldClear?(self) ?? true
         
@@ -198,7 +157,6 @@ extension TextField {
 }
 
 fileprivate extension TextField {
-    /// returns the NSRange for selected text in the texfield
     func selectedRange() -> NSRange? {
         guard let textRange = self.selectedTextRange else { return nil }
         
