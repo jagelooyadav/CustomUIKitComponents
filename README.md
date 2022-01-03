@@ -50,5 +50,17 @@ headingWithSeperator.textColor = .green
 ```
 <img width="274" alt="HeadingWithSeperator" src="https://user-images.githubusercontent.com/2247603/147768377-3c32385b-8889-40f4-b9fa-8f7625c9dcfe.png">
 
+# PrgressBarButton
+Customise UIButton view to add progress funtionality
+Sample code
+```
+let button = ProgressBarButton()
+button.primaryColor = .red
+button.progressValueLabel = "Progress: 70 %"
+button.progress = 0.70
+```
+<img width="485" alt="Progress bar button" src="https://user-images.githubusercontent.com/2247603/147928727-7801bf04-6b3f-456f-b913-0f910cd01a6b.png">
+
+
 
 
