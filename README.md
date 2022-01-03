@@ -61,6 +61,20 @@ button.progress = 0.70
 ```
 <img width="485" alt="Progress bar button" src="https://user-images.githubusercontent.com/2247603/147928727-7801bf04-6b3f-456f-b913-0f910cd01a6b.png">
 
+# Multi Choice question view
+Created components for qustion view with multiple choice or objective type question view with custom font/color/theme view
+
+```
+let question3 = Question(title: "Why should you use custom ui component instead making fresh every time?",
+                                                                        options: ["It will decrease code lines in project",
+                                                                                  "It will reduce time in development",
+                                                                                  "It increase time in development",
+                                                                                  "It will reduce time in development"])
+let questionView3 = ObjectiveQestionView(question: question3)
+questionView3.questionTintColor = .green
+questionView3.isMultipleSelection = true
+```
+<img width="490" alt="Question View" src="https://user-images.githubusercontent.com/2247603/147929100-0503c98e-8f47-49f9-8abd-f6d984d73f4d.png">
 
 
 
