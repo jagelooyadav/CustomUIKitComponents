@@ -129,3 +129,40 @@ public class ObjectiveQestionView: ViewControl, ShadowProvider {
         self.dropShadow()
     }
 }
+
+extension ObjectiveQestionView {
+    
+    // Customise font
+    public var titleFont: UIFont? {
+        get {
+            return self.titleLabel.font
+        }
+        set {
+            self.titleLabel.font = newValue
+        }
+    }
+    
+    // Customise font
+    public var titleColor: UIColor? {
+        get {
+            return self.titleLabel.textColor
+        }
+        set {
+            self.titleLabel.textColor = newValue
+        }
+    }
+    
+    //Customise
+    public var questionTintColor: UIColor? {
+        get {
+            return nil
+        }
+        
+        set {
+            guard let newValue = newValue else { return }
+            for questionView in self.elements {
+                questionView.questionTintColor = newValue
+            }
+        }
+    }
+}

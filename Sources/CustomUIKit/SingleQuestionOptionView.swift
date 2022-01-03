@@ -28,6 +28,7 @@ public class SingleQuestionOptionView: ViewControl {
         lable.translatesAutoresizingMaskIntoConstraints = false
         lable.font = UIFont.sfRegularBody
         lable.textColor = .black
+        lable.numberOfLines = 0
         return lable
     }(UILabel())
     
@@ -56,7 +57,13 @@ public class SingleQuestionOptionView: ViewControl {
             self.containerView.layer.borderColor = newValue?.cgColor
         }
     }
-    let color = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0)
+    private var color = UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0) {
+        didSet {
+            let selectedValue = self.isSelected
+            self.isSelected = selectedValue
+        }
+    }
+    
     public let gradient = CAGradientLayer()
     public var isSelected: Bool = false  {
         didSet {
@@ -65,7 +72,7 @@ public class SingleQuestionOptionView: ViewControl {
             
             gradient.frame = self.containerView.bounds
             
-            gradient.colors = [UIColor.orange.cgColor,UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0).cgColor]
+            gradient.colors = [UIColor.orange.cgColor,color.cgColor]
             gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
             gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
             gradient.locations = [0.0, 0.5]
@@ -136,5 +143,30 @@ public class SingleQuestionOptionView: ViewControl {
         print("print...")
         self.didSelect?(self.titleLabel.text, self.index)
         self.didSelectM?(self.titleLabel.text, self.index, self.isSelected)
+    }
+}
+
+extension SingleQuestionOptionView {
+    //Customise question font
+    var questionLabelFont: UIFont? {
+        get {
+            return self.titleLabel.font
+        }
+        
+        set {
+            self.titleLabel.font = newValue
+        }
+    }
+    
+    //Customise
+    var questionTintColor: UIColor? {
+        get {
+            return color
+        }
+        
+        set {
+            guard let newValue = newValue else { return }
+            color = newValue
+        }
     }
 }

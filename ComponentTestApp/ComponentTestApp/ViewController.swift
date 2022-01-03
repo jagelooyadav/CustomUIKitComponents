@@ -45,12 +45,42 @@ class ViewController: BaseViewController {
         stack.addArrangedSubview(createProgressButton())
         stack.addArrangedSubview(createSampleCodeView(createProgressBarButtonHTML()))
         
-        stack.addArrangedSubview(createPlaceholder(title: "Multiple type question component"))
-        let questionView = ObjectiveQestionView.init(question: Question(title: "Why should you use custom ui component?",
-                                                                        options: ["It will decrease code lines in prject",
+        stack.addArrangedSubview(createPlaceholder(title: "Question View - Blue"))
+        let question1 = Question(title: "Why should you use custom ui component instead making fresh every time?",
+                                                                        options: ["It will decrease code lines in project",
                                                                                   "It will reduce time in development",
-                                                                                  "It increase time in development"]))
-        stack.addArrangedSubview(questionView)
+                                                                                  "It increase time in development",
+                                                                                  "It will reduce time in development"])
+        let questionView1 = ObjectiveQestionView(question: question1)
+        questionView1.questionTintColor = .blue
+        questionView1.isMultipleSelection = true
+        stack.addArrangedSubview(questionView1)
+        
+        /// Red
+        stack.addArrangedSubview(createPlaceholder(title: "Question View - Blue"))
+        let question2 = Question(title: "Why should you use custom ui component instead making fresh every time?",
+                                                                        options: ["It will decrease code lines in project",
+                                                                                  "It will reduce time in development",
+                                                                                  "It increase time in development",
+                                                                                  "It will reduce time in development"])
+        let questionView2 = ObjectiveQestionView(question: question2)
+        questionView2.questionTintColor = .red
+        questionView2.isMultipleSelection = true
+        stack.addArrangedSubview(questionView2)
+        
+        
+        /// green
+        stack.addArrangedSubview(createPlaceholder(title: "Question View - Blue"))
+        let question3 = Question(title: "Why should you use custom ui component instead making fresh every time?",
+                                                                        options: ["It will decrease code lines in project",
+                                                                                  "It will reduce time in development",
+                                                                                  "It increase time in development",
+                                                                                  "It will reduce time in development"])
+        let questionView3 = ObjectiveQestionView(question: question3)
+        questionView3.questionTintColor = .green
+        questionView3.isMultipleSelection = true
+        stack.addArrangedSubview(questionView3)
+        stack.addArrangedSubview(createSampleCodeView(createQuestionViewHTML()))
     }
     
     func createButton(type: Button.ButtonType, color: UIColor) -> Button {
@@ -65,6 +95,7 @@ class ViewController: BaseViewController {
     func createPlaceholder(title: String) -> UIView {
         let label = UILabel()
         label.text = title
+        label.numberOfLines = 0
         label.font = UIFont.bigBrother
         return label
     }
@@ -134,6 +165,24 @@ class ViewController: BaseViewController {
             button.primaryColor = .red<BR>
             button.progressValueLabel = "Progress: 70 %"<BR>
             button.progress = 0.70
+        </p>
+        """
+        return html
+    }
+    
+    func createQuestionViewHTML() -> String {
+        let html = """
+        <p style = "margin-left: 40px; background-color:clear;font-size: 20px">
+        <i>
+            let question = Question(title: "Why should you use custom ui component instead making fresh every time?",
+                                                                            options: ["It will decrease code lines in project",
+                                                                                      "It will reduce time in development",
+                                                                                      "It increase time in development",
+                                                                                      "It will reduce time in development"])
+            let questionView = ObjectiveQestionView(question: question)
+            questionView.questionTintColor = .blue
+            questionView.isMultipleSelection = true
+        </i>
         </p>
         """
         return html
