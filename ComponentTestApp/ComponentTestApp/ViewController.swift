@@ -44,6 +44,13 @@ class ViewController: BaseViewController {
         stack.addArrangedSubview(createPlaceholder(title: "ProgressBarButton"))
         stack.addArrangedSubview(createProgressButton())
         stack.addArrangedSubview(createSampleCodeView(createProgressBarButtonHTML()))
+        
+        stack.addArrangedSubview(createPlaceholder(title: "Multiple type question component"))
+        let questionView = ObjectiveQestionView.init(question: Question(title: "Why should you use custom ui component?",
+                                                                        options: ["It will decrease code lines in prject",
+                                                                                  "It will reduce time in development",
+                                                                                  "It increase time in development"]))
+        stack.addArrangedSubview(questionView)
     }
     
     func createButton(type: Button.ButtonType, color: UIColor) -> Button {

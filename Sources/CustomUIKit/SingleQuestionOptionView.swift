@@ -13,11 +13,11 @@ public class SingleQuestionOptionView: ViewControl {
     private var option: String!
     private var index = 0
     
-    public lazy var containerView: ContainerView = { container in
+    public lazy var containerView: UIView = { container in
         container.translatesAutoresizingMaskIntoConstraints = false
         container.layer.cornerRadius = 5.0
         return container
-    }(ContainerView())
+    }(UIView())
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,11 +63,13 @@ public class SingleQuestionOptionView: ViewControl {
             self.borderColor = self.isSelected ? color : color.withAlphaComponent(0.5)
             self.containerView.layer.borderWidth = self.isSelected ? 0.0 : 2.0
             
-            gradient.frame = self.bounds
+            gradient.frame = self.containerView.bounds
+            
             gradient.colors = [UIColor.orange.cgColor,UIColor.init(actualRed: 237.0, green: 63.0, blue: 110.0).cgColor]
             gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
             gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
             gradient.locations = [0.0, 0.5]
+            gradient.cornerRadius = 5.0
             if self.isSelected {
                 containerView.layer.insertSublayer(gradient, at: 0)
             } else {
@@ -122,7 +124,7 @@ public class SingleQuestionOptionView: ViewControl {
         label.textColor = color
         label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
         sequenceView.addSubview(label, insets: .zero)
-        //self.stackView.addArrangedSubview(sequenceView)
+        self.stackView.addArrangedSubview(sequenceView)
         self.stackView.addArrangedSubview(self.titleLabel)
         self.titleLabel.text = self.option
         
