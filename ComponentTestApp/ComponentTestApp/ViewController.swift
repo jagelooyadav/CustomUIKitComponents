@@ -45,17 +45,6 @@ class ViewController: BaseViewController {
         stack.addArrangedSubview(createProgressButton())
         stack.addArrangedSubview(createSampleCodeView(createProgressBarButtonHTML()))
         
-        stack.addArrangedSubview(createPlaceholder(title: "Question View - Blue"))
-        let question1 = Question(title: "Why should you use custom ui component instead making fresh every time?",
-                                                                        options: ["It will decrease code lines in project",
-                                                                                  "It will reduce time in development",
-                                                                                  "It increase time in development",
-                                                                                  "It will reduce time in development"])
-        let questionView1 = ObjectiveQestionView(question: question1)
-        questionView1.questionTintColor = .blue
-        questionView1.isMultipleSelection = true
-        stack.addArrangedSubview(questionView1)
-        
         /// Red
         stack.addArrangedSubview(createPlaceholder(title: "Question View - Blue"))
         let question2 = Question(title: "Why should you use custom ui component instead making fresh every time?",
@@ -70,17 +59,21 @@ class ViewController: BaseViewController {
         
         
         /// green
-        stack.addArrangedSubview(createPlaceholder(title: "Question View - Blue"))
+        stack.addArrangedSubview(createPlaceholder(title: "Question View - Green"))
         let question3 = Question(title: "Why should you use custom ui component instead making fresh every time?",
                                                                         options: ["It will decrease code lines in project",
                                                                                   "It will reduce time in development",
                                                                                   "It increase time in development",
                                                                                   "It will reduce time in development"])
         let questionView3 = ObjectiveQestionView(question: question3)
-        questionView3.questionTintColor = .green
+        questionView3.questionTintColor = .lightGray
         questionView3.isMultipleSelection = true
         stack.addArrangedSubview(questionView3)
         stack.addArrangedSubview(createSampleCodeView(createQuestionViewHTML()))
+    }
+    
+    override var shouldEmbedInScrollView: Bool {
+        return true
     }
     
     func createButton(type: Button.ButtonType, color: UIColor) -> Button {
@@ -120,10 +113,6 @@ class ViewController: BaseViewController {
         button.progressValueLabel = "Progress: 70 %"
         button.progress = 0.70
         return button
-    }
-    
-    override var shouldEmbedInScrollView: Bool {
-        return true
     }
     
     func createButtonHTML() -> String {
@@ -178,9 +167,9 @@ class ViewController: BaseViewController {
                                                                             options: ["It will decrease code lines in project",
                                                                                       "It will reduce time in development",
                                                                                       "It increase time in development",
-                                                                                      "It will reduce time in development"])
-            let questionView = ObjectiveQestionView(question: question)
-            questionView.questionTintColor = .blue
+                                                                                      "It will reduce time in development"])<BR>
+            let questionView = ObjectiveQestionView(question: question)<BR>
+            questionView.questionTintColor = .blue<BR>
             questionView.isMultipleSelection = true
         </i>
         </p>
