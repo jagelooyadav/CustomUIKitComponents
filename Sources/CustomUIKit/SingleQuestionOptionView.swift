@@ -93,7 +93,7 @@ public class SingleQuestionOptionView: ViewControl {
         let stack = UIStackView()
         stack.alignment = .fill
         stack.axis = .horizontal
-        stack.distribution = .fillProportionally
+        stack.distribution = .fill
         stack.spacing = 16.0
         return stack
     }()
@@ -130,9 +130,17 @@ public class SingleQuestionOptionView: ViewControl {
         label.font = UIFont.sfBody
         label.textColor = color
         label.setContentHuggingPriority(UILayoutPriority.defaultHigh, for: .horizontal)
-        sequenceView.addSubview(label, insets: .zero)
-        self.stackView.addArrangedSubview(sequenceView)
-        self.stackView.addArrangedSubview(self.titleLabel)
+        sequenceView.addSubview(label)
+        label.anchorToSuperView(top: 5.0, bottom: 5.0)
+        let contentView = UIView()
+        contentView.addSubview(self.sequenceView)
+        contentView.addSubview(self.titleLabel)
+        self.sequenceView.anchorToSuperView(trailingRelation: .ignore,
+                                            bottomRelation: .greaterOrEqual, top: 2.0)
+        self.titleLabel.anchorToSuperView(leadingAnchor: self.sequenceView.trailingAnchor,
+                                          bottomRelation: .greaterOrEqual,
+                                          leading: 10.0)
+        self.stackView.addArrangedSubview(contentView)
         self.titleLabel.text = self.option
         
         self.containerView.addSubview(self.touchButton, insets: .zero)
