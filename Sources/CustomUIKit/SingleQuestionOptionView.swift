@@ -138,8 +138,10 @@ public class SingleQuestionOptionView: ViewControl {
         self.sequenceView.anchorToSuperView(trailingRelation: .ignore,
                                             bottomRelation: .greaterOrEqual, top: 2.0)
         self.titleLabel.anchorToSuperView(leadingAnchor: self.sequenceView.trailingAnchor,
+                                          topRelation: .ignore,
                                           bottomRelation: .greaterOrEqual,
                                           leading: 10.0)
+        self.titleLabel.centerYAnchor.constraint(equalTo: sequenceView.centerYAnchor, constant: 0.0).isActive = true
         self.stackView.addArrangedSubview(contentView)
         self.titleLabel.text = self.option
         

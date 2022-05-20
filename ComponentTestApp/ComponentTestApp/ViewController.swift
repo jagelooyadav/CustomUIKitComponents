@@ -61,8 +61,8 @@ class ViewController: BaseViewController {
         /// green
         stack.addArrangedSubview(createPlaceholder(title: "Question View - Green"))
         let question3 = Question(title: "Why should you use custom ui component instead making fresh every time?",
-                                                                        options: ["It will decrease code lines in project",
-                                                                                  "It will reduce time in development",
+                                                                        options: ["It will decrease code",
+                                                                                  "It will reduce time",
                                                                                   "It increase time in development",
                                                                                   "It will reduce time in development"])
         let questionView3 = ObjectiveQestionView(question: question3)
